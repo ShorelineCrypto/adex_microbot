@@ -13,8 +13,8 @@ from os.path import expanduser
 
 ACTIVE_TASKS = {}
 HOME = expanduser("~")
-VALID_OP_SYS = ["Linux", "Darwin", "Windows"]
-SCRIPT_PATH = os.path.realpath(os.path.dirname(__file__))
+VALID_OP_SYS = ["Linux"]
+SCRIPT_PATH = "/opt/adex_microbot"
 
 OP_SYS = platform.system()
 if OP_SYS not in VALID_OP_SYS:
