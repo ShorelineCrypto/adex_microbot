@@ -195,10 +195,16 @@ def wait_continue():
 
 def get_prices():
     try:
-        return requests.get(PRICES_URL).json()
+        current_prices = requests.get(PRICES_URL).json()
     except Exception as e:
         print(f"Price service at {PRICES_URL} is not responding!")
         return {}
+    ## obtain accurate prices on CHTA from nonKYC.io
+    CHTA_DOGE_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/CHTA_DOGE").json()
+    CHTA_USD_price = float(CHTA_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
+    current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
+    return current_prices
+    
 
 def generate_rpc_pass(length):
     rpc_pass = ""
