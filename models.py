@@ -775,8 +775,8 @@ class Config:
         q = "n"
         while q.lower() == "n":
             sell_coins = self.validate_list_input(
-                "Enter tickers of coins you want to sell, seperated by a space (default: KMD LTC):\n",
-                ["KMD", "LTC"],
+                "Enter tickers of coins you want to sell, seperated by a space (default: KMD CHTA):\n",
+                ["KMD", "CHTA"],
                 set(COINS_LIST),
                 "tickers",
                 2
@@ -789,18 +789,18 @@ class Config:
                 2
             )
             min_usd = self.validate_float_input(
-                "Enter default minimum trade value in USD (default: $10): ",
-                10,
-                1
+                "Enter default minimum trade value in USD (default: $0.1): ",
+                0.1,
+                0.05
             )
             max_usd = self.validate_float_input(
-                "Enter default maximum trade value in USD (default: $500): ",
-                500,
-                20
+                "Enter default maximum trade value in USD (default: $1): ",
+                1,
+                0.15
             )
             spread = self.validate_float_input(
-                "Enter default spread percentage (default: 3%): ",
-                3,
+                "Enter default spread percentage (default: 1%): ",
+                1,
                 0.01
             )
             refresh_rate = self.validate_int_input(
