@@ -812,8 +812,8 @@ class Config:
             bot_settings = {
                 "sell_coins": list(set(sell_coins)),
                 "buy_coins": list(set(buy_coins)),
-                "default_min_usd": int(min_usd),
-                "default_max_usd": int(max_usd),
+                "default_min_usd": float(min_usd),
+                "default_max_usd": float(max_usd),
                 "default_spread": 1 + (float(spread) / 100),
                 "refresh_rate": refresh_rate,
                 "prices_api": PRICES_URL,
