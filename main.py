@@ -42,7 +42,7 @@ def main():
 
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     CHTA_KMD_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["KMD"]["last_price"])
-    print (" NENG/KMD mkt price: {}\t CHTA/KMD mkt price: {}").format(str(NENG_KMD_price), str(CHTA_KMD_price))
+    print (" NENG/KMD mkt price: {}\t CHTA/KMD mkt price: {}".format(str(NENG_KMD_price), str(CHTA_KMD_price)))
 
 if __name__ == "__main__":
     main()
