@@ -50,8 +50,8 @@ def main():
     print ("/root/mmtools/cancel_all_orders")
     
     spread = base_spread * 1
-    print("/root/mmtools/buy CHTA KMD {} {}".format((1 / (1 + spread)), CHTA_unit))
-    print("/root/mmtools/sell CHTA KMD {} {}".format((1 * (1 + spread)), CHTA_unit))
+    print("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit))
+    print("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
 
 if __name__ == "__main__":
     main()
