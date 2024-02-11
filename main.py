@@ -48,10 +48,14 @@ def main():
     CHTA_unit = round ((0.05 / CHTA_KMD_price), 4)
     base_spread = 0.01
     print ("/root/mmtools/cancel_all_orders")
-    
+    result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
+
     spread = base_spread * 1
     print("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit))
+    result = subprocess.run("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit), shell=True)
     print("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
+    result = subprocess.run("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit), shell=True)
+
 
 if __name__ == "__main__":
     main()
