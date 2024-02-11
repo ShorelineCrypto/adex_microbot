@@ -38,8 +38,7 @@ from helpers import (
 )
 
 def main():
-    if not current_prices:
-        current_prices = get_prices()
+    current_prices = get_prices()
 
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     CHTA_KMD_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["KMD"]["last_price"])
