@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-        apt-get -y install  wget curl jq unzip vim nano git python3-pip
+        apt-get -y install  wget curl jq unzip vim nano bc git python3-pip
 
 WORKDIR /
 
