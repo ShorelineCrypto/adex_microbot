@@ -55,6 +55,11 @@ def main():
     result = subprocess.run("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit), shell=True)
     print("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
     result = subprocess.run("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit), shell=True)
+    
+    print("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), NENG_unit))
+    result = subprocess.run("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), NENG_unit), shell=True)
+    print("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), NENG_unit))
+    result = subprocess.run("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), NENG_unit), shell=True)
 
 
 if __name__ == "__main__":
