@@ -204,7 +204,7 @@ def get_prices():
     CHTA_USD_price = float(CHTA_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
     current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
     ## no NENG in current komodo price json, fill in
-    current_prices["NENG"] = current_prices["CHTA"]
+    current_prices["NENG"] = copy.deepcopy(current_prices["CHTA"])
     current_prices["NENG"]["ticker"] = "NENG"
     ## obtain accurate prices on NENG from nonKYC.io
     NENG_DOGE_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/NENG_DOGE").json()
