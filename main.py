@@ -43,6 +43,15 @@ def main():
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     CHTA_KMD_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     print (" NENG/KMD mkt price: {}\t CHTA/KMD mkt price: {}".format(str(NENG_KMD_price), str(CHTA_KMD_price)))
+    
+    NENG_unit = round ( (0.05 / NENG_KMD_price), 4)
+    CHTA_unit = round ((0.05 / CHTA_KMD_price), 4)
+    base_spread = 0.01
+    print ("/root/mmtools/cancel_all_orders")
+    
+    spread = base_spread * 1
+    print("/root/mmtools/buy CHTA KMD {} {}".format((1 / (1 + spread)), CHTA_unit))
+    print("/root/mmtools/sell CHTA KMD {} {}".format((1 * (1 + spread)), CHTA_unit))
 
 if __name__ == "__main__":
     main()
