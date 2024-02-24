@@ -51,7 +51,7 @@ def main():
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
 
 
-    for i in range(1, 5):
+    for i in range(1, 4):
         spread = base_spread * i
         print("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit))
         result = subprocess.run("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit), shell=True)
@@ -62,6 +62,27 @@ def main():
         result = subprocess.run("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), NENG_unit), shell=True)
         print("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), NENG_unit))
         result = subprocess.run("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), NENG_unit), shell=True)
+
+
+    NENG_DGB_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["DGB"]["last_price"])
+    DGB_NENG_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    print (" NENG/DGB mkt price: {}\t DGB/NENG mkt price: {}".format(str(NENG_DGB_price), str(DGB_NENG_price)))
+    CHTA_DGB_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["DGB"]["last_price"])
+    DGB_CHTA_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+       
+    # trading pair min_usd = $0.05
+    NENG_unit = round ((0.05 / float(current_prices["NENG"]["last_price"])), 4)
+    CHTA_unit = round ((0.05 / float(current_prices["CHTA"]["last_price"])), 4)
+    DGB_unit =  round ((0.05 / float(current_prices["DGB"]["last_price"])), 8)
+
+    # use new komododif scripts to support DGB-segwit
+    for i in range(1, 4):
+        spread = base_spread * i
+    
+        print("/root/atomicDEX-API/target/debug/place_order.sh NENG DGB-segwit {} {} | jq '.'".format((NENG_DGB_price * (1 + spread)), NENG_unit))
+        result = subprocess.run("/root/atomicDEX-API/target/debug/place_order.sh NENG DGB-segwit {} {} | jq '.'".format((NENG_DGB_price * (1 + spread)), NENG_unit), shell=True)
+        print("/root/atomicDEX-API/target/debug/place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit))
+        result = subprocess.run("/root/atomicDEX-API/target/debug/place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit), shell=True)
 
 
 if __name__ == "__main__":
