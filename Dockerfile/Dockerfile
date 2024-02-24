@@ -16,3 +16,15 @@ RUN pip3 install -r requirements.txt
 WORKDIR  /root
 
 RUN git clone https://github.com/webworker01/mmtools.git
+
+## mmtools can not work with DGB-segwit
+## new Komodo-defi scripts and shell to support DGB-segwit pairs
+
+RUN mkdir -p  /root/atomicDEX-API/target/debug
+WORKDIR /root/atomicDEX-API/target/debug
+RUN wget https://raw.githubusercontent.com/KomodoPlatform/coins/master/coins
+RUN git clone https://github.com/gcharang/mm2scripts
+RUN cp mm2scripts/* .
+
+## configure MM2.json, userpass files in the debug folder before running bot main.py
+## rpc_password passphrase are same for legacy mmtools config file,  microbot/debug MM2.json file and debug userpass file
