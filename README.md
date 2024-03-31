@@ -16,8 +16,8 @@ coins in Komodo Wallet for automatic market making bot.
 2. The market pricing of NENG and CHTA come from nonKYC Exchange DOGE pairs because PytomicDEX at currrent version does not provide smaller coins (NENG or CHTA)
 accurate wallet/DEX market price. CEX doge pairs real time market pricing is selected because both coins have higher CEX liquidity on DOGE pair than USDT pair.
 3. main.py as main bot control code to replace PytomicDEX bot start/stop/setup functions. For this code, only wallet feature of PytomicDEX is used while the original PytomicDEX DEX trading feature is
-not used for disabled.  This is because PytomicDEX original code does not have working bot trading functions for Cheetahcoin or Nengcoin.
-4. mmtools code base is incorporated into this code base as mmtools inside adex_microbot can provide more user friendly manual command control of atomicDEX trading on KMD pairs.
+not used or disabled.  This is because PytomicDEX original code does not have working bot trading functions for Cheetahcoin or Nengcoin.
+4. mmtools code base is incorporated into this code base as mmtools inside adex_microbot can provide more user friendly manual command line control of atomicDEX trading on KMD pairs.
 
 License
 -------
