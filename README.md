@@ -1,35 +1,26 @@
-# PytomicDEX Makerbot
 
-A Terminal User Interface (TUI) for automated trading with [Komodo Platform's](https://komodoplatform.com/) [Komodo DeFi Framework](https://github.com/KomodoPlatform/komodo-defi-framework)
+# adex_microbot - AtomicDEX Trading Bot for Cheetahcoin and Nengcoin
+#### Not Your Keys, Not your Coins
+#### Decentralization, Own your Private Keys
+#### Suitable for micro trading market making in Komodo Wallet / AtomicDEX
 
+Adex_microbot is fork of PytomicDEX Makerbot for the purpose of micro trading bot on Cheetahcoin and Nengcoin in Komodo Wallet / AtomicDEX.
+Currently it supports CHTA/KMD, CHTA/DGB-segwit, NENG/KMD, NENG/DGB-segwit 4 trading pairs in default settings.
 
-![PytomicDEX-makerbot](https://user-images.githubusercontent.com/35845239/147382522-b35fa70d-60ad-41c5-a091-d864a6750cfb.png)
+Although atdex_microbot is coded only for Cheetahcoin and Nengcoin, this pierce of open sourced code can be forked off and adapted for any other
+coins in Komodo Wallet for automatic market making bot.
 
+### Features of adex_microbot
 
-# Install
+1. 3 pairs of KMD orders with each order at fixed $0.05 USD value.
+2. The market pricing of NENG and CHTA come from nonKYC exchange DOGE pairs because PytomicDEX at currrent version does not provide smaller coins (NENG or CHTA)
+accurate wallet/DEX market price. NonKYC doge pairs real time exchange pricing is selected as both have higher CEX liquidity on DOGE pairs.
+3. main.py as main bot control code. PytomicDEX has its own bot start/stop setup. For this code, only wallet feature of PytomicDEX is used while the DEX trading feature is disabled as
+the default PytomicDEX trading bot configuration is mainly for OG biggers coins, not for smaller coin microbot trading. 
+4. mmtools codes are incorporated into this code base as mmtools inside adex_microbot can provide more user friendly manual control on the trading pairs.
 
-```bash
-sudo apt install wget curl jq git python3-pip
-git clone https://github.com/smk762/pytomicDEX_makerbot/
-cd pytomicDEX_makerbot
-pip3 install -r requirements.txt
-./makerbot.py
-```
+License
+-------
+Released under the GNU General Public License v2
 
-# Recommended
-
-- [Terminator](https://www.linuxshelltips.com/terminator-terminal-emulator/)
-- [Komodo Platform](https://komodoplatform.com/)
-- [AtomicDEX GUI (Desktop and mobile)](https://www.atomicdex.io/)
-- [AtomicDEX API Repository](https://github.com/KomodoPlatform/komodo-defi-framework/)
-- [Komodo DeFi Framework Developer Docs](https://developers.komodoplatform.com/basic-docs/atomicdex/introduction-to-atomicdex.html)
-
-
-# Walkthrough
-
-[![Watch the video](https://user-images.githubusercontent.com/35845239/147961225-ec910ec2-7c73-47d1-afc0-3033958e50cc.png)](https://odysee.com/@Dragonhound:7/pytomicDEX-makerbot:8)
-
-
-# Warning
-
-Use this with small amounts you are comfortable with and be conscious of your risk tolerance. Always make a secure offline backup of your seed phrase. 
+http://www.gnu.org/licenses/gpl-2.0.html
