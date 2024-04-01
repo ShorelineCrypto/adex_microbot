@@ -33,14 +33,20 @@ To build your own adex_microbot image, run below:
   docker build -t  adex_microbot .
 ```
 
-Alternatively, you can download a working docker image from docker hub:
+Alternatively, you can download a working docker image from docker hub,
 
+x64 linux:
 ```
-  docker pull shorelinecrypto/adex_microbot:latest
-  docker tag shorelinecrypto/adex_microbot:latest adex_microbot
+  docker pull shorelinecrypto/adex_microbot:amd64
+  docker tag shorelinecrypto/adex_microbot:amd64 adex_microbot
 ```
 
-#
+arm64 linux:
+```
+  docker pull shorelinecrypto/adex_microbot:arm64
+  docker tag shorelinecrypto/adex_microbot:arm64 adex_microbot
+```
+
 ## Step 2 - Start adex_microbot container
 
 adex_microbot container runs in command terminal. Therefore, it is better to use screen or tmux session to run below in the background. 
