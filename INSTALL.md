@@ -10,12 +10,11 @@ Specifically, for adex_microbot software set up, please follow below steps to st
 
 The whole package was tested successfully in linux on x64 and arm64 hardware with docker.  Rooted android phone that can install ubuntu 20.04 inside phone can work well too
 as the single docker image is built on Ubuntu 20.04, so does rasberry pi on Ubuntu 20.04. For rooted android phone or rasberry pi instalaltion of adex_microbot, checkout the
-file "adex_microbot/Dockerfile/Dockerfile" for instalaltion steps on rooted android phone Pi or on Ubuntu 20.04.
+file "adex_microbot/Dockerfile/Dockerfile" for instalaltion steps on rooted android phone or Pi on Ubuntu 20.04.
 
 
 ## Requirement - Linux, Docker
-The source code NOMP-neng has been successfully tested in Ubuntu 18.04 / 20.04, MX Linux / Debian bookworm with docker and docker-compose installed.
-Windows or MacOS os has never been tested, but can be adapted to use this code when their appropriate docker and docker-compose dependencies are met.
+The source code adex_microbot has been successfully tested in Ubuntu 18.04 / 20.04, MX Linux / Debian bookworm with docker installed.
 
 In general in ubuntu or debian linux, please follow below to install docker:
 ```
