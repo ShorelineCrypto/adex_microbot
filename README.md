@@ -12,7 +12,7 @@ coins in Komodo Wallet for automatic market making bot.
 
 ### Features of adex_microbot
 
-1. Cloud VPS with on both X64 or Arm64 hardware platform are supported so that adex_microbot can be run remotely automatically in cheap rented cloud platform. 
+1. Linux on both X64 or Arm64 hardware platform are supported so that adex_microbot can be run remotely automatically in cheap rented cloud platform. 
 2. 1 pair of DGB orders with +-%1 spread and 3 pairs of KMD orders with +-1% +-2% +-3% spreads are coded at fixed $0.05 USD worth of coins amount.
 3. The market pricing of NENG and CHTA come from nonKYC Exchange DOGE pairs because PytomicDEX at currrent version does not provide smaller coins (NENG or CHTA)
 accurate wallet/DEX market price. CEX doge pairs real time market pricing is selected because both coins have higher CEX liquidity on DOGE pair than USDT pair.
