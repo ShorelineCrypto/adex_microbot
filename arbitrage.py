@@ -100,7 +100,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
                         help='USD_unit - trading amount on USD worth, [default: 1.0]')
-    parser.add_argument('--base_spread', nargs='?', type=spread, default=0.1 ,
+    parser.add_argument('--base_spread', nargs='?', type=float, default=0.1 ,
                         help='base spread in fraction from mkt price [default: 0.1]')
     
     args = parser.parse_args()
