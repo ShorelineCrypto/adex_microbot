@@ -7,6 +7,7 @@ import mnemonic
 import requests
 import pykomodefi
 import subprocess
+import argparse
 from const import (
     ACTIVE_TASKS,
     USERPASS_FILE,
@@ -37,10 +38,10 @@ from helpers import (
     get_prices
 )
 
-def main():
+def main(args):
     current_prices = get_prices()
-    USD_unit = 1.0
-    base_spread = 0.1
+    USD_unit = args.usd_unit
+    base_spread = args.base_spread
 
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     KMD_NENG_price = float(current_prices["KMD"]["last_price"]) / float(current_prices["NENG"]["last_price"])
@@ -96,4 +97,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
+                        help='USD_unit - trading amount on USD worth, [default: 1.0]')
+    parser.add_argument('--base_spread', nargs='?', type=spread, default=0.1 ,
+                        help='base spread in fraction from mkt price [default: 0.1]')
+    
+    args = parser.parse_args()
+    # running main function
+    main(args)
