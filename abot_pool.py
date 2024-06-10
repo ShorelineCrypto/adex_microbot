@@ -7,6 +7,7 @@ import mnemonic
 import requests
 import pykomodefi
 import subprocess
+import argparse
 from const import (
     ACTIVE_TASKS,
     USERPASS_FILE,
@@ -37,16 +38,18 @@ from helpers import (
     get_prices
 )
 
-def main():
+def main(args):
     current_prices = get_prices()
-
+    USD_unit = args.usd_unit
+    base_spread = args.base_spread
+    
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     CHTA_KMD_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["KMD"]["last_price"])
     print (" NENG/KMD mkt price: {}\t CHTA/KMD mkt price: {}".format(str(NENG_KMD_price), str(CHTA_KMD_price)))
     # trading pair min_usd = $0.05
-    NENG_unit = round ((0.05 / float(current_prices["NENG"]["last_price"])), 4)
-    CHTA_unit = round ((0.05 / float(current_prices["CHTA"]["last_price"])), 4)
-    base_spread = 0.01
+    NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
+    CHTA_unit = round ((USD_unit / float(current_prices["CHTA"]["last_price"])), 4)
+
     print ("/root/mmtools/cancel_all_orders")
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
 
@@ -76,7 +79,7 @@ def main():
     print (" CHTA/DGB mkt price: {}\t DGB/CHTA mkt price: {}".format(str(CHTA_DGB_price), str(DGB_CHTA_price)))
        
     ## trading pair min_usd = $0.05, NENG_unit CHTA_unit unchanged
-    DGB_unit =  round ((0.05 / float(current_prices["DGB"]["last_price"])), 8)
+    DGB_unit =  round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
 
     ## use new komododif scripts to support DGB-segwit
     ## the setprice will overwrite old order, one order pair only
@@ -96,4 +99,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--usd_unit', type=float, nargs='?', default=0.05 , 
+                        help='USD_unit - trading amount on USD worth, [default: 0.05]')
+    parser.add_argument('--base_spread', nargs='?', type=float, default=0.01 ,
+                        help='base spread in fraction from mkt price [default: 0.01]')
+    
+    args = parser.parse_args()
+    # running main function
+    main(args)
