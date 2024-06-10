@@ -63,7 +63,7 @@ root@ae6706bd8c07:~/atomicDEX-API/target/debug#
 
 You now can run or manage below steps within container.  Screen or tmux session should allow you easily get back to linux host terminal if needed.
 
-## Step 3 - Configure atomicDEX Komodo-defi (MM2) account
+## Step 3 - Configure atomicDEX Komodo-defi (MM2) account / NetID
 
 mmtools or pymakerbot uses same style of komod-defi-framework or mm2 account with username and password.  Use below command you can easily generated a mm2 account:
 ```
@@ -81,6 +81,11 @@ The above mmtools operation will generate a komodo-defi or mm2 account inside "c
 need a special character (like % * etc characters) to be inserted into password. Use your favorite editor nano or vi to modify the file "config", insert an character "%" inside
 field word afer "userpass=xxxxx".  Please note that pair of fields "passphrase" "userpass" are your komodo-defi trading bot private key. If you lose them, you lose all the coins under this
 mm2 account.
+
+The legacy mmtools config file has old netID 7777, make sure you modify Net ID into current like below:
+```
+netid=8762
+```
 
 Now enable KMD NENG and CHTA coins in mmtools. Modify "config" file below and change the coin to NENG and CHTA:
 
@@ -121,6 +126,8 @@ root@ae6706bd8c07:/opt/adex_microbot/config#
 
 use vi or nano to modify the above "MM2.json" file,  copy the userpass value from mmtools config file into the field "rpc_password". Copy the same "passphrase"
 field value to replace json file value too. Save
+
+Make sure copy a working "MM2.json" file to ~/atomicDEX-API/target/debug folder for mm2scripts operations. 
 
 ## Step 5 - Start/stop Makerbot, Activate DGB
 
@@ -175,22 +182,31 @@ The above command should download arm64 version of mm2 binary from ShorelineCryp
 
 From loop view, you can get all your addresses for KMD, NENG, CHTA and DGB-segwit,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
 
-You can now start adex_microbot market making bot pairs on NENG/KMD CHTA/KMD  NENG/DGB  and CHTA/DGB pairs. By the default, adexbot will place $0.05 USD worth of amount of value of
+You can now start adex_microbot market making liquidity pool bot pairs on NENG/KMD CHTA/KMD  NENG/DGB  and CHTA/DGB pairs. By the default, adexbot pool will place $0.05 USD worth of amount of value of
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 ```
   cd /opt/adex_microbot/
-  ./start_microbot.sh &
+  ./start_abot_pool.sh &
 ```
+
+Aternatively, instead of running liquidity pool like bot above, you can run arbitrage bot where by default 10% of spread and 1 pair of KMD/CHTA KMD/NENG DGB-segwit/CHTA
+DGB-segwit/NENG on $1.0 USD worth of coins will be placed:
+
+```
+  cd /opt/adex_microbot/
+  ./arbitrage.py
+```
+   type ./arbitrage.py --help to see how you can control spread of USD_unit worth on trading amount on this command. 
 
 ## Step 8 - Monitor and Backup
 
 Maker sure you back up your mm2 account information somewhere.
 
-For monitor your trading bot actions, you can check log file at:
+For monitor your trading bot actions, you can check log files, or running mmtools or mm2scripts commands:
 ```
   cd ~
-  more main.log
+  more pool.log
   cd mmtools
   ./my_recent_swaps
   ./orderbook KMD CHTA
