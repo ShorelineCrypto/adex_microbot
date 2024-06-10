@@ -182,22 +182,24 @@ The above command should download arm64 version of mm2 binary from ShorelineCryp
 
 From loop view, you can get all your addresses for KMD, NENG, CHTA and DGB-segwit,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
 
-You can now start adex_microbot market making liquidity pool bot pairs on NENG/KMD CHTA/KMD  NENG/DGB  and CHTA/DGB pairs. By the default, adexbot pool will place $0.05 USD worth of amount of value of
+You can now start adex_microbot market making liquidity pool bot pairs on NENG/KMD CHTA/KMD  NENG/DGB  and CHTA/DGB pairs. By the default, adexbot pool will place $0.05 USD worth of
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool.sh &
 ```
+The above shell script runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
+by modifying the shell script above. 
 
-Aternatively, instead of running liquidity pool like bot above, you can run arbitrage bot where by default 10% of spread and 1 pair of KMD/CHTA KMD/NENG DGB-segwit/CHTA
-DGB-segwit/NENG on $1.0 USD worth of coins will be placed:
+Aternatively, instead of running liquidity pool like bot above, you can run arbitrage bot where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
+DGB-segwit/NENG with $1.0 USD worth of coins on +-10% of spread will be placed:
 
 ```
   cd /opt/adex_microbot/
   ./arbitrage.py
 ```
-   type ./arbitrage.py --help to see how you can control spread of USD_unit worth on trading amount on this command. 
+   type "./arbitrage.py --help" to see how you can control base_spread / USD_unit on this command. 
 
 ## Step 8 - Monitor and Backup
 
