@@ -77,9 +77,20 @@ def main(args):
     CHTA_DGB_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["DGB"]["last_price"])
     DGB_CHTA_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/DGB mkt price: {}\t DGB/CHTA mkt price: {}".format(str(CHTA_DGB_price), str(DGB_CHTA_price)))
-       
+           
     ## trading pair min_usd = $0.05, NENG_unit CHTA_unit unchanged
     DGB_unit =  round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
+
+    if args.USDT_POOL:
+        # USDT pair in nonKYC exchange is less liquid. Use Doge pair converted price instead as below
+        NENG_USDT_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["USDT"]["last_price"])
+        USDT_NENG_price = float(current_prices["USDT"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+        print (" NENG/USDT mkt price: {}\t USDT/NENG mkt price: {}".format(str(NENG_USDT_price), str(USDT_NENG_price)))
+        CHTA_USDT_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["USDT"]["last_price"])
+        USDT_CHTA_price = float(current_prices["USDT"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+        print (" CHTA/USDT mkt price: {}\t USDT/CHTA mkt price: {}".format(str(CHTA_USDT_price), str(USDT_CHTA_price)))
+        USDT_unit = USD_unit
+
 
     ## use new komododif scripts to support DGB-segwit
     ## the setprice will overwrite old order, one order pair only
@@ -97,6 +108,18 @@ def main(args):
         print("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit))
         result = subprocess.run("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit), shell=True)
 
+        if args.USDT_POOL:
+            print("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), CHTA_unit), shell=True)
+            print("./place_order.sh USDT-PLG20 CHTA {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), USDT_unit))
+            result = subprocess.run("./place_order.sh USDT-PLG20 CHTA {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), USDT_unit), shell=True)
+
+            ## to avoid identical buy / sell price on NENG/USDT on -+1% spread, additional +0.5% spread added, making the total bid/ask spread 2.5% 
+            print("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread + 0.005)), NENG_unit))
+            result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread + 0.005)), NENG_unit), shell=True)
+            print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
+            result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -104,6 +127,8 @@ if __name__ == "__main__":
                         help='USD_unit - trading amount on USD worth, [default: 0.05]')
     parser.add_argument('--base_spread', nargs='?', type=float, default=0.01 ,
                         help='base spread in fraction from mkt price [default: 0.01]')
+    parser.add_argument('--USDT_POOL', nargs='?', type=bool, default=False ,
+                        help='enable USDT-PLG20 pool [default: False]')
     
     args = parser.parse_args()
     # running main function
