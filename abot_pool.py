@@ -56,15 +56,15 @@ def main(args):
 
     for i in range(1, 4):
         spread = base_spread * i
-        print("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit))
-        result = subprocess.run("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), CHTA_unit), shell=True)
-        print("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
-        result = subprocess.run("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), CHTA_unit), shell=True)
+        print("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)), shell=True)
+        print("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)), shell=True)
     
-        print("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), NENG_unit))
-        result = subprocess.run("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), NENG_unit), shell=True)
-        print("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), NENG_unit))
-        result = subprocess.run("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), NENG_unit), shell=True)
+        print("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)), shell=True)
+        print("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)), shell=True)
 
 
     ## start DGB pair on new MM2 scripts, mmtool not used
@@ -109,16 +109,16 @@ def main(args):
         result = subprocess.run("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit), shell=True)
 
         if args.USDT_POOL:
-            print("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), CHTA_unit))
-            result = subprocess.run("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), CHTA_unit), shell=True)
-            print("./place_order.sh USDT-PLG20 CHTA {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), USDT_unit))
-            result = subprocess.run("./place_order.sh USDT-PLG20 CHTA {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), USDT_unit), shell=True)
+            print("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), (CHTA_unit * 3)))
+            result = subprocess.run("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), (CHTA_unit * 3)), shell=True)
+            print("./place_order.sh USDT-PLG20 CHTA {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), (USDT_unit * 3)))
+            result = subprocess.run("./place_order.sh USDT-PLG20 CHTA {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), (USDT_unit * 3)), shell=True)
 
             ## to avoid identical buy / sell price on NENG/USDT on -+1% spread, additional +0.5% spread added, making the total bid/ask spread 2.5% 
-            print("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread + 0.005)), NENG_unit))
-            result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread + 0.005)), NENG_unit), shell=True)
-            print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
-            result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
+            print("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread + 0.005)), (NENG_unit * 3)))
+            result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread + 0.005)), (NENG_unit * 3)), shell=True)
+            print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), (USDT_unit * 3)))
+            result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), (USDT_unit * 3)), shell=True)
         
 
 if __name__ == "__main__":
