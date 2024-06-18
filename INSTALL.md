@@ -152,8 +152,9 @@ For adex_microbot, we only use wallet service of makerbot, not actually want to 
 
 You then try to select (4) Activate Coins
 type "DGB-segwit" to activate DGB.  In newer version of Komodo wallet, DGB is wallet only, only the segwit address of DGB can allow DEX trading.
+type "USDT-PLG20" and "MATIC" to activate USDT on polygon (MATIC) network. USDT-PLG20 gas fees are paid on MATIC so that both are enabled. 
 
-The finally, select [9] Loop Views  to view your Makerbot settings, and find your KMD NENG CHTA DGB-segwit address.  You can deposit coins into these addresses.
+The finally, select [9] Loop Views  to view your Makerbot settings, and find your KMD NENG CHTA DGB-segwit MATIC USDT-PLG20 address.  You can deposit coins into these addresses.
 
 Finally, Ctrl-C and select [11] to exit Makerbot:
 ```
@@ -181,19 +182,28 @@ The above command should download arm64 version of mm2 binary from ShorelineCryp
 ## Step 7 - Deposit Coins, Start Bot
 
 From loop view, you can get all your addresses for KMD, NENG, CHTA and DGB-segwit,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
+For trading on USDT-PLG20 pairs, obtain initial amount of MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
+then deposit proper USDT on polygon (MATIC) network into your USDT-PLG20 address.  The MATIC address and USDT-PLG20 should have same address in your wallet. 
 
-You can now start adex_microbot market making liquidity pool bot pairs on NENG/KMD CHTA/KMD  NENG/DGB  and CHTA/DGB pairs. By the default, adexbot pool will place $0.05 USD worth of
+You can now start adex_microbot market making liquidity pool bot on NENG/KMD, CHTA/KMD, NENG/DGB-segwit, and CHTA/DGB-segwit pairs. By the default, adexbot pool will place curve shaped USD worth of
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool.sh &
 ```
-The above shell script runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
+
+The above will run liquidity pool without USDT pair.  To include USDT-PLG20 pair in your liquidity pool, run below command instead:
+```
+  cd /opt/adex_microbot/
+  ./start_abot_pool_withUSDT.sh &
+```
+
+Either of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
 
-Aternatively, instead of running liquidity pool like bot above, you can run arbitrage bot where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
-DGB-segwit/NENG with $1.0 USD worth of coins on +-10% of spread will be placed:
+Aternatively, instead of running liquidity pool bot above, you can run arbitrage bot mode where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
+DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-10% of bid/ask spread will be placed:
 
 ```
   cd /opt/adex_microbot/
