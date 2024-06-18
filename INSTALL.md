@@ -182,10 +182,10 @@ The above command should download arm64 version of mm2 binary from ShorelineCryp
 ## Step 7 - Deposit Coins, Start Bot
 
 From loop view, you can get all your addresses for KMD, NENG, CHTA and DGB-segwit,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
-For trading on USDT-PLG20 pairs, obtain iniitial amount of MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
-then deposit proper USDT on polygon MATIC network into your USDT-PLG20 address.  The MATIC address and USDT-PLG20 should have same address in your wallet. 
+For trading on USDT-PLG20 pairs, obtain initial amount of MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
+then deposit proper USDT on polygon (MATIC) network into your USDT-PLG20 address.  The MATIC address and USDT-PLG20 should have same address in your wallet. 
 
-You can now start adex_microbot market making liquidity pool bot pairs on NENG/KMD CHTA/KMD  NENG/DGB-segwit  and CHTA/DGB-segwit pairs. By the default, adexbot pool will place $0.05 USD worth of
+You can now start adex_microbot market making liquidity pool bot on NENG/KMD, CHTA/KMD, NENG/DGB-segwit, and CHTA/DGB-segwit pairs. By the default, adexbot pool will place curve shaped USD worth of
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 ```
@@ -202,8 +202,8 @@ The above will run liquidity pool without USDT pair.  To include USDT-PLG20 pair
 Either of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
 
-Aternatively, instead of running liquidity pool like bot above, you can run arbitrage bot where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
-DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-10% of spread will be placed:
+Aternatively, instead of running liquidity pool bot above, you can run arbitrage bot mode where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
+DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-10% of bid/ask spread will be placed:
 
 ```
   cd /opt/adex_microbot/
