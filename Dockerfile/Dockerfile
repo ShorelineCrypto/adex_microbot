@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-        apt-get -y install  wget curl jq unzip vim nano bc git python3-pip
+        apt-get -y install  wget curl jq unzip vim nano bc git python3-pip sqlite3
 
 WORKDIR /
 
@@ -10,6 +10,11 @@ RUN git clone https://github.com/ShorelineCrypto/adex_microbot.git /opt/adex_mic
 
 WORKDIR  /opt/adex_microbot
 RUN pip3 install -r requirements.txt
+
+## python API dependencies for nonKYC exchange
+RUN pip3 install aiohttp
+RUN git clone https://github.com/NonKYCExchange/NonKycPythonApiClient-master
+RUN cp NonKycPythonApiClient-master/nonkyc.py .
 
 ## mmtools shell command is comptabile with pytomicDEX_makerbot with config of same account + netid
 ## however start stop must be done by microbot
