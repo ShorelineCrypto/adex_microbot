@@ -2,6 +2,8 @@
 import os
 import sys
 import json
+import sqlite3
+import glob
 import time
 import mnemonic
 import requests
@@ -92,7 +94,21 @@ def main(args):
         result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread)), NENG_unit), shell=True)
         print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
         result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
-        
+    
+    ## print my MM2 recent swaps
+    with open(MM2_JSON_FILE, "r") as f:
+        mm2_conf = json.load(f)
+    MM2_DB_FILE = None
+    path = mm2_conf["dbdir"] + "/*/MM2.db"
+    for file in glob.glob(path):
+        print(f"MM2.db found: {file}")
+        MM2_DB_FILE = file
+
+    dbconn = sqlite3.connect(MM2_DB_FILE)
+    cursor = dbconn.cursor()
+    rows = cursor.execute("SELECT * FROM my_swaps").fetchall()
+    print(rows)
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
