@@ -9,32 +9,11 @@ import pykomodefi
 import subprocess
 import argparse
 from const import (
-    ACTIVE_TASKS,
-    USERPASS_FILE,
-    PRICES_URL,
-    ERROR_EVENTS,
-    BOT_PARAMS_FILE,
-    BOT_SETTINGS_FILE,
-    ACTIVATE_COMMANDS,
-    MM2_LOG_FILE,
-    MM2BIN,
+    SCRIPT_PATH,
     MM2_JSON_FILE,
-    COINS_LIST
+    PRICES_URL,
 )
 from helpers import (
-    color_input,
-    success_print,
-    status_print,
-    table_print,
-    error_print,
-    sleep_message,
-    preexec,
-    get_mm2,
-    get_price,
-    get_order_count,
-    get_valid_input,
-    sec_to_hms,
-    generate_rpc_pass,
     get_prices
 )
 
