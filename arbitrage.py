@@ -96,6 +96,9 @@ def main(args):
         result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
     
     ## print my MM2 recent swaps
+    cur_timestamp = int(time.time())
+    cutoff_time = cur_timestamp - int(args.hours * 60 * 60)
+    
     with open(MM2_JSON_FILE, "r") as f:
         mm2_conf = json.load(f)
     MM2_DB_FILE = None
@@ -106,15 +109,25 @@ def main(args):
 
     dbconn = sqlite3.connect(MM2_DB_FILE)
     cursor = dbconn.cursor()
-    rows = cursor.execute("SELECT * FROM my_swaps").fetchall()
-    print(rows)
+    cursor.row_factory = sqlite3.Row
+    SELECT_SQL = f"SELECT * FROM stats_swaps WHERE started_at >= {cutoff_time}"
+    print(SELECT_SQL)
+    rows = cursor.execute(SELECT_SQL).fetchall()
+    for row in rows:
+        print(row)
+        print(dict(row))
+        print (f"uuid: {row['uuid']} is_success: {row['is_success']}")
 
+    dbconn.close()
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
                         help='USD_unit - trading amount on USD worth, [default: 1.0]')
-    parser.add_argument('--base_spread', nargs='?', type=float, default=0.1 ,
-                        help='base spread in fraction from mkt price [default: 0.1]')
+    parser.add_argument('--base_spread', nargs='?', type=float, default=0.02,
+                        help='base spread in fraction from mkt price [default: 0.02]')
+    parser.add_argument('--hours', nargs='?', type=float, default=24.0,
+                        help='arbitrage only on past hours[default: 24.0]')
     
     args = parser.parse_args()
     # running main function
