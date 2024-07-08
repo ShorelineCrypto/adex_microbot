@@ -110,15 +110,30 @@ def main(args):
     dbconn = sqlite3.connect(MM2_DB_FILE)
     cursor = dbconn.cursor()
     cursor.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT * FROM stats_swaps WHERE started_at >= {cutoff_time}"
+    SELECT_SQL = f"SELECT * FROM stats_swaps WHERE started_at >= {cutoff_time} AND is_success = 1"
     print(SELECT_SQL)
     rows = cursor.execute(SELECT_SQL).fetchall()
-    for row in rows:
-        print(row)
-        print(dict(row))
-        print (f"uuid: {row['uuid']} is_success: {row['is_success']}")
-
     dbconn.close()
+    ARB_DB_FILE = SCRIPT_PATH + "/arbitragedb/arb.db"
+    dbconn2 = sqlite3.connect(ARB_DB_FILE)
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    check_arb_records(cursor2,rows)
+    
+    
+def check_arb_records(cursor2,rows):
+    for row in rows:
+        mysql = f"SELECT * FROM swaps_arbitrage WHERE uuid = '{row['uuid']}'"
+        print (mysql)
+        myarb = cursor2.execute(mysql).fetchone()
+        if not myarb:
+            print (f"... insert arb db record: uuid {row['uuid']}")
+        else: 
+            if myarb['is_success'] == 1:
+                print (f"swap already hedged: {row['uuid']}")
+            else:
+                continue
+
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
