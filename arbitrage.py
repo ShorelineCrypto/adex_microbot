@@ -4,6 +4,7 @@ import sys
 import json
 import sqlite3
 import glob
+import re
 import time
 import mnemonic
 import requests
@@ -118,22 +119,64 @@ def main(args):
     dbconn2 = sqlite3.connect(ARB_DB_FILE)
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    check_arb_records(cursor2,rows)
+    ## check last 24 hours atomicDEX uuid swaps, populate swaps_arbitrage table records
+    ## return true if there are newly successfully completed swaps inserted, or swaps pending for arbitrage hedging at cex
+    is_pending_arb = check_arb_table(dbconn2,cursor2,rows)
     
     
-def check_arb_records(cursor2,rows):
+def check_arb_table(dbconn2, cursor2,rows):
+    is_pending_arb = False
     for row in rows:
         mysql = f"SELECT * FROM swaps_arbitrage WHERE uuid = '{row['uuid']}'"
         print (mysql)
         myarb = cursor2.execute(mysql).fetchone()
         if not myarb:
             print (f"... insert arb db record: uuid {row['uuid']}")
+            insert_arb_record(dbconn2,row)
+            is_pending_arb = True
         else: 
             if myarb['is_success'] == 1:
                 print (f"swap already hedged: {row['uuid']}")
             else:
-                continue
+                is_pending_arb = True
 
+    return is_pending_arb
+
+def insert_arb_record(conn,row):
+    sql = ''' INSERT INTO swaps_arbitrage(market,side,quantity,uuid,started_at,finished_at,arb_market,arb_price,maker_pubkey,taker_pubkey )
+              VALUES(?,?,?,?,?,?,?,?,?,?) '''
+    [market, side, quantity] = get_market(row)
+    arb_market = "unknown"
+    m1 = re.search(
+            r'^(NENGCHTA)+\/\S+$', market, re.M)
+    if m1 :
+            arb_market = m1.group(1) + "/DOGE"
+    
+    arb_price = get_arb_price(row)
+    
+    data = (market, side, quantity, row['uuid'], row['started_at'],row['finished_at'], arb_market, arb_price,row['maker_pubkey'],row['taker_pubkey'] )
+    cur = conn.cursor()
+    cur.execute(sql, data)
+    conn.commit()
+    return cur.lastrowid
+
+def get_arb_price(row):
+    return 0.000000130
+
+def get_market(row):
+    market = "unknown"
+    side = "unknown"
+    quantity = 0
+    if row['maker_coin'] == 'NENG' or  row['maker_coin'] == 'CHTA':
+        market =  row['maker_coin'] + "/" + row['taker_coin']
+        side = "sell"
+        quantity = row['maker_amount']
+    elif row['taker_coin'] == 'NENG' or  row['taker_coin'] == 'CHTA':
+        market =  row['taker_coin'] + "/" + row['maker_coin']
+        side = "buy"
+        quantity = row['taker_amount']
+    
+    return [market, side, quantity]
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
