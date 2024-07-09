@@ -148,7 +148,7 @@ def insert_arb_record(conn,row):
     [market, side, quantity] = get_market(row)
     arb_market = "unknown"
     m1 = re.search(
-            r'^(NENGCHTA)+\/\S+$', market, re.M)
+            r'^([NENGCHTA]+)\/\S+$', market, re.M)
     if m1 :
             arb_market = m1.group(1) + "/DOGE"
     
