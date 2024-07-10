@@ -173,7 +173,7 @@ def check_arb_table(dbconn2, rows):
 
 def insert_arb_record(conn,row):
     sql = ''' INSERT INTO swaps_arbitrage(market,side,quantity,price,uuid,started_at,finished_at,arb_market,arb_price,maker_pubkey,taker_pubkey )
-              VALUES(?,?,?,?,?,?,?,?,?,?) '''
+              VALUES(?,?,?,?,?,?,?,?,?,?,?) '''
     [market, side, quantity, price] = get_market(row)
     arb_market = "unknown"
     m1 = re.search(
