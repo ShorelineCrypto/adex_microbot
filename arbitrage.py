@@ -137,7 +137,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         elif (row['side'] == "sell"):
             arb_side = "buy"
         if arb_side:
-            print (row)
+            print (dict(row))
             run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
             update_arb_table(dbconn2,row['uuid'], arb_price, 1)
             
