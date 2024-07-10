@@ -142,7 +142,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             update_arb_table(dbconn2,row['uuid'], arb_price, 1)
             
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
-    print (f"./trade_nonkyc.py -t quantity -m {arb_market} -s {arb_side} -p {arb_price}")
+    print (f"./trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}")
 
 def update_arb_table(dbconn2,uuid, arb_price, is_success):
     print (f"update arb table: {dbconn2}, {uuid} , {arb_price}, {is_success}")
