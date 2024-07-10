@@ -117,15 +117,38 @@ def main(args):
     dbconn.close()
     ARB_DB_FILE = SCRIPT_PATH + "/arbitragedb/arb.db"
     dbconn2 = sqlite3.connect(ARB_DB_FILE)
-    cursor2 = dbconn2.cursor()
-    cursor2.row_factory = sqlite3.Row
+
     ## check last 24 hours atomicDEX uuid swaps, populate swaps_arbitrage table records
     ## return true if there are newly successfully completed swaps inserted, or swaps pending for arbitrage hedging at cex
-    is_pending_arb = check_arb_table(dbconn2,cursor2,rows)
+    is_pending_arb = check_arb_table(dbconn2,rows)
+    if is_pending_arb:
+        perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
+    
+def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success != 1"
+    rows = cursor2.execute(SELECT_SQL).fetchall()
+    for row in rows:
+        arb_price = get_arb_price(row,current_prices)
+        arb_side = None
+        if (row['side'] == "buy"):
+            arb_side = "sell"
+        elif (row['side'] == "sell"):
+            arb_side = "buy"
+        if not arb_side:
+            run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
+            update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+        
+def get_arb_price(row,current_prices):
+    return 0.000000130
     
     
-def check_arb_table(dbconn2, cursor2,rows):
+def check_arb_table(dbconn2, rows):
     is_pending_arb = False
+    
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
     for row in rows:
         mysql = f"SELECT * FROM swaps_arbitrage WHERE uuid = '{row['uuid']}'"
         print (mysql)
@@ -152,16 +175,13 @@ def insert_arb_record(conn,row):
     if m1 :
             arb_market = m1.group(1) + "/DOGE"
     
-    arb_price = get_arb_price(row)
+    arb_price = 0
     
     data = (market, side, quantity, row['uuid'], row['started_at'],row['finished_at'], arb_market, arb_price,row['maker_pubkey'],row['taker_pubkey'] )
     cur = conn.cursor()
     cur.execute(sql, data)
     conn.commit()
     return cur.lastrowid
-
-def get_arb_price(row):
-    return 0.000000130
 
 def get_market(row):
     market = "unknown"
