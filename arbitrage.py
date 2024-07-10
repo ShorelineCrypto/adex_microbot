@@ -136,7 +136,8 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             arb_side = "sell"
         elif (row['side'] == "sell"):
             arb_side = "buy"
-        if not arb_side:
+        if arb_side:
+            print (row)
             run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
             update_arb_table(dbconn2,row['uuid'], arb_price, 1)
             
@@ -147,7 +148,19 @@ def update_arb_table(dbconn2,uuid, arb_price, is_success):
     print (f"update arb table: {dbconn2}, {uuid} , {arb_price}, {is_success}")
 
 def get_arb_price(row,current_prices):
-    return 0.000000130
+    adex_other_coin = None 
+    if 'KMD' in row['market']:
+        adex_other_coin = 'KMD'
+    elif 'DGB' in row['market']:
+        adex_other_coin = 'DGB'
+    elif 'USDT' in row['market']:
+        adex_other_coin = 'USDT'
+    else:
+        assert True, f"Wrong market in atomicDEX {row['market']}"
+    
+    # CEX arb pair is always on NENG/DOGE or CHTA/DOGE at nonKYC exchange
+    arb_price = row['price'] * float(current_prices[adex_other_coin]["last_price"]) / float(current_prices["DOGE"]["last_price"])
+    return arb_price
     
     
 def check_arb_table(dbconn2, rows):
