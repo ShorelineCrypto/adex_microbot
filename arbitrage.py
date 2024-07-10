@@ -139,7 +139,13 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         if not arb_side:
             run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
             update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-        
+            
+def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
+    print (f"./trade_nonkyc.py -t quantity -m {arb_market} -s {arb_side} -p {arb_price}")
+
+def update_arb_table(dbconn2,uuid, arb_price, is_success):
+    print (f"update arb table: {dbconn2}, {uuid} , {arb_price}, {is_success}")
+
 def get_arb_price(row,current_prices):
     return 0.000000130
     
@@ -166,9 +172,9 @@ def check_arb_table(dbconn2, rows):
     return is_pending_arb
 
 def insert_arb_record(conn,row):
-    sql = ''' INSERT INTO swaps_arbitrage(market,side,quantity,uuid,started_at,finished_at,arb_market,arb_price,maker_pubkey,taker_pubkey )
+    sql = ''' INSERT INTO swaps_arbitrage(market,side,quantity,price,uuid,started_at,finished_at,arb_market,arb_price,maker_pubkey,taker_pubkey )
               VALUES(?,?,?,?,?,?,?,?,?,?) '''
-    [market, side, quantity] = get_market(row)
+    [market, side, quantity, price] = get_market(row)
     arb_market = "unknown"
     m1 = re.search(
             r'^([NENGCHTA]+)\/\S+$', market, re.M)
@@ -177,7 +183,7 @@ def insert_arb_record(conn,row):
     
     arb_price = 0
     
-    data = (market, side, quantity, row['uuid'], row['started_at'],row['finished_at'], arb_market, arb_price,row['maker_pubkey'],row['taker_pubkey'] )
+    data = (market, side, quantity, price, row['uuid'], row['started_at'],row['finished_at'], arb_market, arb_price,row['maker_pubkey'],row['taker_pubkey'] )
     cur = conn.cursor()
     cur.execute(sql, data)
     conn.commit()
@@ -191,12 +197,14 @@ def get_market(row):
         market =  row['maker_coin'] + "/" + row['taker_coin']
         side = "sell"
         quantity = row['maker_amount']
+        price = row['taker_amount'] / row['maker_amount']
     elif row['taker_coin'] == 'NENG' or  row['taker_coin'] == 'CHTA':
         market =  row['taker_coin'] + "/" + row['maker_coin']
         side = "buy"
         quantity = row['taker_amount']
+        price = row['maker_amount'] / row['taker_amount']
     
-    return [market, side, quantity]
+    return [market, side, quantity, price]
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
