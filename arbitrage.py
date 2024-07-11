@@ -188,7 +188,7 @@ def check_arb_table(dbconn2, rows):
 
 
 def update_arb_table(conn,uuid, arb_price, is_success):
-    sql = f"UPDATE swaps_arbitrage SET arb_price = {arb_price}, is_success = {is_success} WHERE uuid = {uuid}"
+    sql = f"UPDATE swaps_arbitrage SET arb_price = {arb_price}, is_success = {is_success} WHERE uuid = '{uuid}'"
     print (sql)
     cur = conn.cursor() 
     cur.execute(sql)
