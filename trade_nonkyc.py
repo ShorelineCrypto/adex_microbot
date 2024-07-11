@@ -19,8 +19,8 @@ async def ioc(args):
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser(description='Creates An order at a specific price and cancels it immediately. Returns the amount that was executed.')
-    args.add_argument('-c', '--config', action = 'store', required=False, default='config/nonkyc_settings.json',
-                      help="path to a json file with your api keys. default 'config/nonkyc_settings.json', See"\
+    args.add_argument('-c', '--config', action = 'store', required=False, default='/opt/adex_microbot/config/nonkyc_settings.json',
+                      help="path to a json file with your api keys. default '/opt/adex_microbot/config/nonkyc_settings.json', See"\
                       "NonKYCPythonClient README.md")
     args.add_argument('-t', '--total', action='store', required = True,
                       help="Total amount to be traded")

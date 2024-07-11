@@ -141,11 +141,13 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
             update_arb_table(dbconn2,row['uuid'], arb_price, 1)
             
-def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
-    print (f"./trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}")
 
-def update_arb_table(dbconn2,uuid, arb_price, is_success):
-    print (f"update arb table: {dbconn2}, {uuid} , {arb_price}, {is_success}")
+def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
+    cmd = f"{SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
+    print (cmd)
+    result = subprocess.run(cmd, shell=True)
+    print('arb CEX trade result:', result)
+
 
 def get_arb_price(row,current_prices):
     adex_other_coin = None 
@@ -183,6 +185,16 @@ def check_arb_table(dbconn2, rows):
                 is_pending_arb = True
 
     return is_pending_arb
+
+
+def update_arb_table(conn,uuid, arb_price, is_success):
+    sql = f"UPDATE swaps_arbitrage SET arb_price = {arb_price}, is_success = {is_success} WHERE uuid = {uuid}"
+    print (sql)
+    cur = conn.cursor() 
+    cur.execute(sql)
+    conn.commit()
+    return cur.lastrowid
+
 
 def insert_arb_record(conn,row):
     sql = ''' INSERT INTO swaps_arbitrage(market,side,quantity,price,uuid,started_at,finished_at,arb_market,arb_price,maker_pubkey,taker_pubkey )
