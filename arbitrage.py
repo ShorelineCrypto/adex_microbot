@@ -2,6 +2,9 @@
 import os
 import sys
 import json
+import sqlite3
+import glob
+import re
 import time
 import mnemonic
 import requests
@@ -9,32 +12,11 @@ import pykomodefi
 import subprocess
 import argparse
 from const import (
-    ACTIVE_TASKS,
-    USERPASS_FILE,
-    PRICES_URL,
-    ERROR_EVENTS,
-    BOT_PARAMS_FILE,
-    BOT_SETTINGS_FILE,
-    ACTIVATE_COMMANDS,
-    MM2_LOG_FILE,
-    MM2BIN,
+    SCRIPT_PATH,
     MM2_JSON_FILE,
-    COINS_LIST
+    PRICES_URL,
 )
 from helpers import (
-    color_input,
-    success_print,
-    status_print,
-    table_print,
-    error_print,
-    sleep_message,
-    preexec,
-    get_mm2,
-    get_price,
-    get_order_count,
-    get_valid_input,
-    sec_to_hms,
-    generate_rpc_pass,
     get_prices
 )
 
@@ -113,13 +95,150 @@ def main(args):
         result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread)), NENG_unit), shell=True)
         print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
         result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
-        
+    
+    ## print my MM2 recent swaps
+    cur_timestamp = int(time.time())
+    cutoff_time = cur_timestamp - int(args.hours * 60 * 60)
+    
+    with open(MM2_JSON_FILE, "r") as f:
+        mm2_conf = json.load(f)
+    MM2_DB_FILE = None
+    path = mm2_conf["dbdir"] + "/*/MM2.db"
+    for file in glob.glob(path):
+        print(f"MM2.db found: {file}")
+        MM2_DB_FILE = file
+
+    dbconn = sqlite3.connect(MM2_DB_FILE)
+    cursor = dbconn.cursor()
+    cursor.row_factory = sqlite3.Row
+    SELECT_SQL = f"SELECT * FROM stats_swaps WHERE started_at >= {cutoff_time} AND is_success = 1"
+    print(SELECT_SQL)
+    rows = cursor.execute(SELECT_SQL).fetchall()
+    dbconn.close()
+    ARB_DB_FILE = SCRIPT_PATH + "/arbitragedb/arb.db"
+    dbconn2 = sqlite3.connect(ARB_DB_FILE)
+
+    ## check last 24 hours atomicDEX uuid swaps, populate swaps_arbitrage table records
+    ## return true if there are newly successfully completed swaps inserted, or swaps pending for arbitrage hedging at cex
+    is_pending_arb = check_arb_table(dbconn2,rows)
+    if is_pending_arb:
+        perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
+    
+def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success != 1"
+    rows = cursor2.execute(SELECT_SQL).fetchall()
+    for row in rows:
+        arb_price = get_arb_price(row,current_prices)
+        arb_side = None
+        if (row['side'] == "buy"):
+            arb_side = "sell"
+        elif (row['side'] == "sell"):
+            arb_side = "buy"
+        if arb_side:
+            print (dict(row))
+            run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
+            update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+            
+
+def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
+    cmd = f"{SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
+    print (cmd)
+    result = subprocess.run(cmd, shell=True)
+    print('arb CEX trade result:', result)
+
+
+def get_arb_price(row,current_prices):
+    adex_other_coin = None 
+    if 'KMD' in row['market']:
+        adex_other_coin = 'KMD'
+    elif 'DGB' in row['market']:
+        adex_other_coin = 'DGB'
+    elif 'USDT' in row['market']:
+        adex_other_coin = 'USDT'
+    else:
+        assert True, f"Wrong market in atomicDEX {row['market']}"
+    
+    # CEX arb pair is always on NENG/DOGE or CHTA/DOGE at nonKYC exchange
+    arb_price = row['price'] * float(current_prices[adex_other_coin]["last_price"]) / float(current_prices["DOGE"]["last_price"])
+    return arb_price
+    
+    
+def check_arb_table(dbconn2, rows):
+    is_pending_arb = False
+    
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    for row in rows:
+        mysql = f"SELECT * FROM swaps_arbitrage WHERE uuid = '{row['uuid']}'"
+        print (mysql)
+        myarb = cursor2.execute(mysql).fetchone()
+        if not myarb:
+            print (f"... insert arb db record: uuid {row['uuid']}")
+            insert_arb_record(dbconn2,row)
+            is_pending_arb = True
+        else: 
+            if myarb['is_success'] == 1:
+                print (f"swap already hedged: {row['uuid']}")
+            else:
+                is_pending_arb = True
+
+    return is_pending_arb
+
+
+def update_arb_table(conn,uuid, arb_price, is_success):
+    sql = f"UPDATE swaps_arbitrage SET arb_price = {arb_price}, is_success = {is_success} WHERE uuid = '{uuid}'"
+    print (sql)
+    cur = conn.cursor() 
+    cur.execute(sql)
+    conn.commit()
+    return cur.lastrowid
+
+
+def insert_arb_record(conn,row):
+    sql = ''' INSERT INTO swaps_arbitrage(market,side,quantity,price,uuid,started_at,finished_at,arb_market,arb_price,maker_pubkey,taker_pubkey )
+              VALUES(?,?,?,?,?,?,?,?,?,?,?) '''
+    [market, side, quantity, price] = get_market(row)
+    arb_market = "unknown"
+    m1 = re.search(
+            r'^([NENGCHTA]+)\/\S+$', market, re.M)
+    if m1 :
+            arb_market = m1.group(1) + "/DOGE"
+    
+    arb_price = 0
+    
+    data = (market, side, quantity, price, row['uuid'], row['started_at'],row['finished_at'], arb_market, arb_price,row['maker_pubkey'],row['taker_pubkey'] )
+    cur = conn.cursor()
+    cur.execute(sql, data)
+    conn.commit()
+    return cur.lastrowid
+
+def get_market(row):
+    market = "unknown"
+    side = "unknown"
+    quantity = 0
+    if row['maker_coin'] == 'NENG' or  row['maker_coin'] == 'CHTA':
+        market =  row['maker_coin'] + "/" + row['taker_coin']
+        side = "sell"
+        quantity = row['maker_amount']
+        price = row['taker_amount'] / row['maker_amount']
+    elif row['taker_coin'] == 'NENG' or  row['taker_coin'] == 'CHTA':
+        market =  row['taker_coin'] + "/" + row['maker_coin']
+        side = "buy"
+        quantity = row['taker_amount']
+        price = row['maker_amount'] / row['taker_amount']
+    
+    return [market, side, quantity, price]
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
                         help='USD_unit - trading amount on USD worth, [default: 1.0]')
-    parser.add_argument('--base_spread', nargs='?', type=float, default=0.1 ,
-                        help='base spread in fraction from mkt price [default: 0.1]')
+    parser.add_argument('--base_spread', nargs='?', type=float, default=0.02,
+                        help='base spread in fraction from mkt price [default: 0.02]')
+    parser.add_argument('--hours', nargs='?', type=float, default=24.0,
+                        help='arbitrage only on past hours[default: 24.0]')
     
     args = parser.parse_args()
     # running main function

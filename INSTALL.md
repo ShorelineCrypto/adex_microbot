@@ -49,17 +49,29 @@ arm64 linux:
 
 ## Step 2 - Start adex_microbot container
 
-adex_microbot container runs in command terminal. Therefore, it is better to use screen or tmux session to run below in the background. 
+adex_microbot container runs in command terminal. Therefore, it is better to use screen or tmux session to run below in the background. The code base currently has two running
+mode: liquidity pool mode or arbitrage bot mode. It is recommended to run two separate docker containers if both pool/arb bots are run. 
 
-now start bot container as below command:
+now start pool bot container as below command:
 ```
-  docker run -it --name adexbot adex_microbot:latest /bin/bash
+  docker run -it --name poolbot adex_microbot:latest /bin/bash
 ```
 If above command runs successfully, a container prompt will show up inside your screen or tmux session like below:
 
 ```
 root@ae6706bd8c07:~/atomicDEX-API/target/debug#
 ```
+
+To start arbitrage bot in same server, just start with another container name in different screen/tmux session terminal:
+
+```
+  docker run -it --name arbbot adex_microbot:latest /bin/bash
+```
+
+Nengcoin and cheetahcoin are traded at Centralized Exchange (CEX) nonKYC exchange. When CEX API config profile is configured properly, a hedging trade on either NENG/DOGE or CHTA/DOGE pair in CEX will be placed
+automatically after completion of each atomicDEX trade in the arbitrage bot mode. 
+
+When you run two bots on arb + pool mode, the two containers should create their own different mm2 account as shown below with same steps. 
 
 You now can run or manage below steps within container.  Screen or tmux session should allow you easily get back to linux host terminal if needed.
 
@@ -179,14 +191,45 @@ root@arm64container:/opt/adex_microbot/mm2# tar xvfz mm2-b0fd99e84-Linux-Release
 The above command should download arm64 version of mm2 binary from ShorelineCrypto and unpack the file "mm2" into proper folder.  You can now go back to Step 5 and complete that step.
 
 
-## Step 7 - Deposit Coins, Start Bot
+## Step 7 - Arbitrate Bot CEX API configuration
+
+This step is only required if you are running arbitrage bot. This step is not needed for pool bot. 
+
+Arbitrage bot mode needs configuration of CEX API configuration. For Cheetahcoin or Nengcoin, nonKYC exchange is the main centralized exchange (CEX) so that API keys/secrets need to
+be enabled at nonKYC web account first.  Enable all the API functions except that withdraw access. Copy down access key and secret key. 
+
+Run below inside arbbot container:
+
+```
+  docker exec -it arbbot /bin/bash
+  root@c79ae11f1c8f:~/atomicDEX-API/target/debug# cd /opt/adex_microbot/config
+  root@c79ae11f1c8f:/opt/adex_microbot/config# cp nonkyc_settings.json-example  nonkyc_settings.json
+```
+
+Use linux vi or nano editor to modify the "nonkyc_settings.json" file, fill in the correct information for our CEX account on  "access_key" and "secret_key"
+fields values, then save the file.
+
+Then setup the arb.db sqlite3 database:
+
+```
+  cd /opt/adex_microbot/arbitragedb
+root@c79ae11f1c8f:/opt/adex_microbot/arbitragedb  sqlite3 arb.db < arbitragedb_schema.sql
+```
+
+This above command will create a table "swaps_arbitrage" within sqlite3 arb.db database.  The arbitrage python code will check the completed atomicdex swap on
+MM2 sqlite3 database and then write CEX hedging calculation results into this arb.db table for log tracking, and then execute API hedging trade in nonKYC exchange.
+
+## Step 8 - Deposit Coins, Start Bot
 
 From loop view, you can get all your addresses for KMD, NENG, CHTA and DGB-segwit,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
-For trading on USDT-PLG20 pairs, obtain initial amount of MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
+
+For trading on USDT-PLG20 pairs, you can obtain initial amount of Polygon MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
 then deposit proper USDT on polygon (MATIC) network into your USDT-PLG20 address.  The MATIC address and USDT-PLG20 should have same address in your wallet. 
 
 You can now start adex_microbot market making liquidity pool bot on NENG/KMD, CHTA/KMD, NENG/DGB-segwit, and CHTA/DGB-segwit pairs. By the default, adexbot pool will place curve shaped USD worth of
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
+
+#### liquidity pool bot
 
 ```
   cd /opt/adex_microbot/
@@ -202,16 +245,25 @@ The above will run liquidity pool without USDT pair.  To include USDT-PLG20 pair
 Either of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
 
-Aternatively, instead of running liquidity pool bot above, you can run arbitrage bot mode where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
-DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-10% of bid/ask spread will be placed:
+#### arbitrage bot
 
+Aternatively, instead of running liquidity pool bot above, you can run arbitrage bot mode where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
+DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-2% of bid/ask spread will be placed.
+
+Run arb bot, refresh every 3 minutes:
 ```
   cd /opt/adex_microbot/
-  ./arbitrage.py
+  ./start_arbitrage_bot.sh &
 ```
    type "./arbitrage.py --help" to see how you can control base_spread / USD_unit on this command. 
 
-## Step 8 - Monitor and Backup
+If you configure the nonKYC exchange CEX config file correctly, a corresponding hedging trade willl be placed upon completion of each atomicDEX swap.
+
+To properly operate arbitrage bot hedging function, make sure you deposit enough coins at nonKYC exchange on DOGE, NENG and CHTA balances to allow hedging execution to
+succeed. 
+
+
+## Step 9 - Monitor and Backup
 
 Maker sure you back up your mm2 account information somewhere.
 
@@ -219,12 +271,15 @@ For monitor your trading bot actions, you can check log files, or running mmtool
 ```
   cd ~
   more pool.log
+  more arb.log
   cd mmtools
   ./my_recent_swaps
   ./orderbook KMD CHTA
    ./orderbook DGB NENG
    cd ~/atomicDEX-API/target/debug/
    ./mybalance.sh DGB-segwit | jq .
+   cd /opt/adex_microbot
+   ./loop_views.py
 ```
 
 Please check mmtools github repo and atomicDEX-api tutorial page from Komodo platform for more details of command line operations. You should now have full function
