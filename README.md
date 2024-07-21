@@ -11,6 +11,7 @@ done between 10 minutes to 1 hour time frame.
 
 Adex_microbot is fork of PytomicDEX Makerbot for the purpose of micro trading bot on Cheetahcoin and Nengcoin in Komodo Wallet / AtomicDEX.
 Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20 6 trading pairs in default settings.
+The code base also has two mode of bot serving either as liquidity pool bot or as arbitrage bot linked to CEX hedging. 
 
 Although atdex_microbot is coded only for Cheetahcoin and Nengcoin, this pierce of open sourced code can be forked off and adapted for any other
 coins in Komodo Wallet for automatic market making bot.
@@ -19,7 +20,7 @@ coins in Komodo Wallet for automatic market making bot.
 
 1. Linux on both X64 or Arm64 hardware platform are supported so that adex_microbot can be run remotely automatically in cheap rented cloud platform. 
 2. Liquidity pool: 1 pair of DGB and USDT orders with +-%1 spread and 3 pairs of KMD orders with +-1% +-2% +-3% spreads are coded at fixed USD worth of coins amount. Trading amount on USD amount and spread are configurable.
-3. Arbitrage bot:  default +- 10% spread, $1.0 USD worth of coins amount. Trading amount on USD amount and spread are configurable.
+3. Arbitrage bot:  default +- 2% spread, $1.0 USD worth of coins amount linked to CEX hedging (nonKYC exchange API trading). Trading amount on USD amount and spread are configurable.
 4. The market pricing of NENG and CHTA come from nonKYC Exchange DOGE pairs because PytomicDEX at currrent version does not provide smaller coins (NENG or CHTA)
 accurate wallet/DEX market price. CEX doge pairs real time market pricing is selected because both coins have higher CEX liquidity on DOGE pair than USDT pair.
 5. abot_pool.py / arbitrage.py as main bot control code to replace PytomicDEX bot start/stop/setup functions. For this code, only wallet feature of PytomicDEX is used while the original PytomicDEX DEX trading feature is
