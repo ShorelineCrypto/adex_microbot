@@ -68,7 +68,7 @@ To start arbitrage bot in same server, just start with another container name in
   docker run -it --name arbbot adex_microbot:latest /bin/bash
 ```
 
-When nonKYC API config profile is configured properly, a hedging trade on either NENG/DOGE or CHTA/DOGE pair in CEX nonKYC exchanged will be placed
+Nengcoin and cheetahcoin are traded at Centralized Exchange (CEX) nonKYC exchange. When CEX API config profile is configured properly, a hedging trade on either NENG/DOGE or CHTA/DOGE pair in CEX will be placed
 automatically after completion of each atomicDEX trade in the arbitrage bot mode. 
 
 When you run two bots on arb + pool mode, the two containers should create their own different mm2 account as shown below with same steps. 
@@ -196,7 +196,7 @@ The above command should download arm64 version of mm2 binary from ShorelineCryp
 This step is only required if you are running arbitrage bot. This step is not needed for pool bot. 
 
 Arbitrage bot mode needs configuration of CEX API configuration. For Cheetahcoin or Nengcoin, nonKYC exchange is the main centralized exchange (CEX) so that API keys/secrets need to
-be enabled at nonKYC web account first.  Enable all the API functions except that withdraw coin feature is not needed for now.
+be enabled at nonKYC web account first.  Enable all the API functions except that withdraw access. Copy down access key and secret key. 
 
 Run below inside arbbot container:
 
@@ -206,7 +206,7 @@ Run below inside arbbot container:
   root@c79ae11f1c8f:/opt/adex_microbot/config# cp nonkyc_settings.json-example  nonkyc_settings.json
 ```
 
-Use linux vi or nano editor to modify the file nonkyc_settings.json file, fill in the correct information for our CEX account on  "access_key" and "secret_key"
+Use linux vi or nano editor to modify the "nonkyc_settings.json" file, fill in the correct information for our CEX account on  "access_key" and "secret_key"
 fields values, then save the file.
 
 Then setup the arb.db sqlite3 database:
@@ -248,9 +248,9 @@ by modifying the shell script above.
 #### arbitrage bot
 
 Aternatively, instead of running liquidity pool bot above, you can run arbitrage bot mode where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
-DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-2% of bid/ask spread will be placed:
+DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-2% of bid/ask spread will be placed.
 
-Arb bot running, refresh every 3 minutes:
+Run arb bot, refresh every 3 minutes:
 ```
   cd /opt/adex_microbot/
   ./start_arbitrage_bot.sh &
