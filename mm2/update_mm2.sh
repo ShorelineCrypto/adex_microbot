@@ -7,7 +7,7 @@ rm mm2
 # unzip mm2.zip
 # rm mm2.zip
 
-# For dev binaries
-wget https://sdk.devbuilds.komodo.earth/dev/mm2_0221505-linux-x86-64.zip
-unzip mm2_0221505-linux-x86-64.zip
-rm mm2_0221505-linux-x86-64.zip
+# For mm2 binaries
+wget https://github.com/KomodoPlatform/komodo-defi-framework/releases/download/v2.0.0-beta/mm2-b0fd99e84-Linux-Release.zip
+unzip mm2-b0fd99e84-Linux-Release.zip 
+rm mm2-b0fd99e84-Linux-Release.zip 
