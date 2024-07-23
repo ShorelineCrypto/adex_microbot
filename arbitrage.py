@@ -76,15 +76,15 @@ def main(args):
         print("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit))
         result = subprocess.run("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit), shell=True)
 
-        print("./place_order.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
-        result = subprocess.run("./place_order.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), CHTA_unit), shell=True)
-        print("./place_order.sh KMD CHTA {} {} | jq '.'".format((KMD_CHTA_price * (1 + spread)), KMD_unit))
-        result = subprocess.run("./place_order.sh KMD CHTA {} {} | jq '.'".format((KMD_CHTA_price * (1 + spread)), KMD_unit), shell=True)
+        print("./place_fastorder.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
+        result = subprocess.run("./place_fastorder.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_fastorder.sh KMD CHTA {} {} | jq '.'".format((KMD_CHTA_price * (1 + spread)), KMD_unit))
+        result = subprocess.run("./place_fastorder.sh KMD CHTA {} {} | jq '.'".format((KMD_CHTA_price * (1 + spread)), KMD_unit), shell=True)
 
-        print("./place_order.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), NENG_unit))
-        result = subprocess.run("./place_order.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), NENG_unit), shell=True)
-        print("./place_order.sh KMD NENG {} {} | jq '.'".format((KMD_NENG_price * (1 + spread)), KMD_unit))
-        result = subprocess.run("./place_order.sh KMD NENG {} {} | jq '.'".format((KMD_NENG_price * (1 + spread)), KMD_unit), shell=True)
+        print("./place_fastorder.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), NENG_unit))
+        result = subprocess.run("./place_fastorder.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), NENG_unit), shell=True)
+        print("./place_fastorder.sh KMD NENG {} {} | jq '.'".format((KMD_NENG_price * (1 + spread)), KMD_unit))
+        result = subprocess.run("./place_fastorder.sh KMD NENG {} {} | jq '.'".format((KMD_NENG_price * (1 + spread)), KMD_unit), shell=True)
 
         print("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), CHTA_unit))
         result = subprocess.run("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), CHTA_unit), shell=True)
