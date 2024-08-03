@@ -178,14 +178,20 @@ Stop Komodo DeFi Framework on exit? [Y/N]: N
 root@ae6706bd8c07:/opt/adex_microbot# 
 ```
 
-## Optional Step 6 - mm2 binary Download for arm64
+## Optional Step 6 - mm2 binary Download for arm64 or x64
 
-For x64, mm2 working binary file will be downloaded from Komodo github automatically by Makerbot above. For arm64 hardware, Komodo github does not have compiled working mm2 binary file so that
-above step 5 would crash. Run below in container for arm64 platform to download a working mm2 binary file compiled by ShorelineCrypto:
+For x64 hardware, mm2 working binary file will be downloaded from Komodo github automatically by Makerbot in above step 5. In case Komodo mm2 binary downloading crashed, run below in container
+to download and install a working mm2 binary file compiled by Komodo Platform dev team:
 ```
 cd /opt/adex_microbot/mm2
-root@arm64container:/opt/adex_microbot/mm2# wget https://github.com/ShorelineCrypto/komodo-defi-framework/releases/download/v2.0.0-beta/mm2-b0fd99e84-Linux-Release_aarch64.tar.gz
-root@arm64container:/opt/adex_microbot/mm2# tar xvfz mm2-b0fd99e84-Linux-Release_aarch64.tar.gz && rm mm2-b0fd99e84-Linux-Release_aarch64.tar.gz
+root@arm64container:/opt/adex_microbot/mm2# bash update_mm2.sh
+```
+
+For arm64 hardware, Komodo github does not have compiled working mm2 binary file so that
+above step 5 would crash. Run below in container for arm64 platform to download a working mm2 binary file compiled by ShorelineCrypto dev team:
+```
+cd /opt/adex_microbot/mm2
+root@arm64container:/opt/adex_microbot/mm2# bash update_mm2_arm64.sh
 ```
 
 The above command should download arm64 version of mm2 binary from ShorelineCrypto and unpack the file "mm2" into proper folder.  You can now go back to Step 5 and complete that step.
