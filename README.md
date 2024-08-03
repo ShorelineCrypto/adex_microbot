@@ -7,7 +7,7 @@
 
 Komodo wallet (Mobile on Android/iOS, Desktop on Windows/MacOS/Linux) has its built-in atomic swap based decentralized exchange (DEX) atomicDEX that is very
 suitable for trading on small dollar amount with low fees. Because Nengcoin or Cheetahcoin has fast and consistant block time, a typical trade on supported pair can be
-done between 10 minutes to 1 hour time frame. 
+done between 3 minutes to half an hour time frame. 
 
 Adex_microbot is fork of PytomicDEX Makerbot for the purpose of micro trading bot on Cheetahcoin and Nengcoin in Komodo Wallet / AtomicDEX.
 Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20 6 trading pairs in default settings.

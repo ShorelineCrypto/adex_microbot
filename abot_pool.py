@@ -56,15 +56,15 @@ def main(args):
 
     for i in range(1, 4):
         spread = base_spread * i
-        print("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)))
-        result = subprocess.run("/root/mmtools/buy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)), shell=True)
-        print("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)))
-        result = subprocess.run("/root/mmtools/sell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)), shell=True)
+        print("/root/mmtools/fastbuy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("/root/mmtools/fastbuy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)), shell=True)
+        print("/root/mmtools/fastsell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("/root/mmtools/fastsell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)), shell=True)
     
-        print("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)))
-        result = subprocess.run("/root/mmtools/buy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)), shell=True)
-        print("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)))
-        result = subprocess.run("/root/mmtools/sell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)), shell=True)
+        print("/root/mmtools/fastbuy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("/root/mmtools/fastbuy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)), shell=True)
+        print("/root/mmtools/fastsell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("/root/mmtools/fastsell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)), shell=True)
 
 
     ## start DGB pair on new MM2 scripts, mmtool not used

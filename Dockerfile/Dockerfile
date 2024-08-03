@@ -19,17 +19,19 @@ RUN cp NonKycPythonApiClient-master/nonkyc.py .
 ## mmtools shell command is comptabile with pytomicDEX_makerbot with config of same account + netid
 ## however start stop must be done by microbot
 WORKDIR  /root
-
 RUN git clone https://github.com/webworker01/mmtools.git
+RUN cp /opt/adex_microbot/mmtools/* mmtools/
 
-## mmtools can not work with DGB-segwit
-## new Komodo-defi scripts and shell to support DGB-segwit pairs
+## mmtools can not work with DGB-segwit or USDT-PLG20 pairs
+## new Komodo-defi scripts and shell to support DGB-segwit and USDT-PLG20 pairs
 
 RUN mkdir -p  /root/atomicDEX-API/target/debug
 WORKDIR /root/atomicDEX-API/target/debug
 RUN wget https://raw.githubusercontent.com/KomodoPlatform/coins/master/coins
 RUN git clone https://github.com/gcharang/mm2scripts
 RUN cp mm2scripts/* .
+RUN cp /opt/adex_microbot/mm2scripts/* .
+
 ## netid change, clean up
 RUN sed -i 's/7777/8762/g' MM2_sample.json
 RUN rm start.sh
