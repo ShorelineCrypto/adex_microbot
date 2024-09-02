@@ -235,6 +235,30 @@ def get_market(row):
     
     return [market, side, quantity, price]
     
+def parse_market(market):
+    maker_coin = "unknown"
+    taker_coin = "unknown"
+    m1 = re.search(
+            r'^(\S+)\/(\S+)$', market, re.M)
+    if m1 :
+            maker_coin = m1.group(1)
+            taker_coin = m1.group(2)
+            
+            
+            
+    if row['maker_coin'] == 'NENG' or  row['maker_coin'] == 'CHTA':
+        market =  row['maker_coin'] + "/" + row['taker_coin']
+        side = "sell"
+        quantity = row['maker_amount']
+        price = row['taker_amount'] / row['maker_amount']
+    elif row['taker_coin'] == 'NENG' or  row['taker_coin'] == 'CHTA':
+        market =  row['taker_coin'] + "/" + row['maker_coin']
+        side = "buy"
+        quantity = row['taker_amount']
+        price = row['maker_amount'] / row['taker_amount']
+    
+    return [market, side, quantity, price]
+    
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--total', type=float, nargs='?',
@@ -250,8 +274,14 @@ if __name__ == "__main__":
     parser.add_argument('-sl', '--slippage', nargs='?', type=float, default=0.03,
                         help='Allowed slippage spread in fraction from mkt price [default: 0.03]')
     parser.add_argument('-min', '--minutes', nargs='?', type=int, default=10,
-                        help='wait time in minutes on each search for next streaming swap[default: 10]')
+                        help='interval wait time in minutes on each search for next streaming swap[default: 10]')
     
     args = parser.parse_args()
-    # running main function
-    main(args)
+    # running main function every 10 minutes
+    interval_sec = args.min * 60
+    while True:
+        swap_status = main(args)
+        if swap_status == 1:
+            break
+        else:
+            time.sleep(interval_sec)
