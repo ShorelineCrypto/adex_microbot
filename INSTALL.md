@@ -68,6 +68,13 @@ To start arbitrage bot in same server, just start with another container name in
   docker run -it --name arbbot adex_microbot:latest /bin/bash
 ```
 
+In either cases, poolbot or arbitrage bot, then run below commands to get latest commits of code in container:
+
+```
+  cd  /opt/adex_microbot
+  git pull
+```
+
 Nengcoin and cheetahcoin are traded at Centralized Exchange (CEX) nonKYC exchange. When CEX API config profile is configured properly, a hedging trade on either NENG/DOGE or CHTA/DOGE pair in CEX will be placed
 automatically after completion of each atomicDEX trade in the arbitrage bot mode. 
 
@@ -131,6 +138,8 @@ Now the mmtools configuration is complete.
 Inside container, now use the mmtools same account for makerbot:
 
 ```
+ cd /opt/adex_microbot
+ cp activate_commands.json-example activate_commands.json
  cd /opt/adex_microbot/config
  root@ae6706bd8c07:/opt/adex_microbot/config# cp MM2.json-example  MM2.json        
 root@ae6706bd8c07:/opt/adex_microbot/config# 
@@ -141,7 +150,30 @@ field value to replace json file value too. Save
 
 Make sure copy a working "MM2.json" file to ~/atomicDEX-API/target/debug folder for mm2scripts operations. 
 
-## Step 5 - Start/stop Makerbot, Activate DGB
+## Step 5 - mm2 binary Download for arm64 or x64
+
+For x64 hardware, run below in container to download and install a working mm2 binary file compiled by Komodo Platform dev team:
+```
+cd /opt/adex_microbot/mm2
+root@arm64container:/opt/adex_microbot/mm2# bash update_mm2.sh
+```
+
+For arm64 hardware, Komodo github does not have compiled working mm2 binary file, but instead we run below in container for arm64 platform
+to download a working mm2 binary file compiled by ShorelineCrypto dev team:
+```
+cd /opt/adex_microbot/mm2
+root@arm64container:/opt/adex_microbot/mm2# bash update_mm2_arm64.sh
+```
+
+The above command should download x64 or arm64 version of mm2 binary from komodo or ShorelineCrypto and unpack the file "mm2" into proper folder.
+You can run below to confirm the version of mm2 binary:
+
+```
+  ./mm2 --version
+```
+
+
+## Step 6 - Start/stop Makerbot, Activate DGB
 
 Now configura and start and stop Makerbot
 
@@ -177,25 +209,6 @@ Finally, Ctrl-C and select [11] to exit Makerbot:
 Stop Komodo DeFi Framework on exit? [Y/N]: N 
 root@ae6706bd8c07:/opt/adex_microbot# 
 ```
-
-## Optional Step 6 - mm2 binary Download for arm64 or x64
-
-For x64 hardware, mm2 working binary file will be downloaded from Komodo github automatically by Makerbot in above step 5. In case Komodo mm2 binary downloading crashed, run below in container
-to download and install a working mm2 binary file compiled by Komodo Platform dev team:
-```
-cd /opt/adex_microbot/mm2
-root@arm64container:/opt/adex_microbot/mm2# bash update_mm2.sh
-```
-
-For arm64 hardware, Komodo github does not have compiled working mm2 binary file so that
-above step 5 would crash. Run below in container for arm64 platform to download a working mm2 binary file compiled by ShorelineCrypto dev team:
-```
-cd /opt/adex_microbot/mm2
-root@arm64container:/opt/adex_microbot/mm2# bash update_mm2_arm64.sh
-```
-
-The above command should download arm64 version of mm2 binary from ShorelineCrypto and unpack the file "mm2" into proper folder.  You can now go back to Step 5 and complete that step.
-
 
 ## Step 7 - Arbitrate Bot CEX API configuration
 
