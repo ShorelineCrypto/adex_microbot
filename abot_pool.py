@@ -126,7 +126,7 @@ def main(args):
         
         if args.NENGCHTA_POOL:
             # NENG/CHTA pool use fixed $10 USD size and 2% spread
-            USD_unit = 0.01
+            USD_unit = 10.0
             spread = 0.02
             # trading pair USD = $10
             NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
