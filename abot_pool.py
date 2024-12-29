@@ -91,6 +91,10 @@ def main(args):
         print (" CHTA/USDT mkt price: {}\t USDT/CHTA mkt price: {}".format(str(CHTA_USDT_price), str(USDT_CHTA_price)))
         USDT_unit = USD_unit
 
+    if args.NENGCHTA_POOL:
+        NENG_CHTA_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+        CHTA_NENG_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+        print (" NENG/CHTA mkt price: {}\t CHTA/NENG mkt price: {}".format(str(NENG_CHTA_price), str(CHTA_NENG_price)))
 
     ## use new komododif scripts to support DGB-segwit
     ## the setprice will overwrite old order, one order pair only
@@ -120,6 +124,19 @@ def main(args):
             print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), (USDT_unit * 3)))
             result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), (USDT_unit * 3)), shell=True)
         
+        if args.NENGCHTA_POOL:
+            # NENG/CHTA pool use fixed $10 USD size and 2% spread
+            USD_unit = 0.01
+            spread = 0.02
+            # trading pair USD = $10
+            NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
+            CHTA_unit = round ((USD_unit / float(current_prices["CHTA"]["last_price"])), 4)
+            print("./place_order.sh NENG CHTA {} {} | jq '.'".format((NENG_CHTA_price * (1 + spread)), NENG_unit))
+            result = subprocess.run("./place_order.sh NENG CHTA {} {} | jq '.'".format((NENG_CHTA_price * (1 + spread)), NENG_unit), shell=True)
+            print("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit), shell=True)
+
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -129,7 +146,8 @@ if __name__ == "__main__":
                         help='base spread in fraction from mkt price [default: 0.01]')
     parser.add_argument('--USDT_POOL', nargs='?', type=bool, default=False ,
                         help='enable USDT-PLG20 pool [default: False]')
-    
+    parser.add_argument('--NENGCHTA_POOL', nargs='?', type=bool, default=False ,
+                        help='enable NENG-CHTA pool [default: False]')
     args = parser.parse_args()
     # running main function
     main(args)
