@@ -234,7 +234,6 @@ def get_market(row):
     return [market, side, quantity, price]
 
 def flip_side(orderside):
-    orderside = "unknown"
     if orderside == "buy":
         orderside = "sell"
     elif orderside == "sell":
