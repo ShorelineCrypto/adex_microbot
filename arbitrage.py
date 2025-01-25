@@ -228,8 +228,20 @@ def get_market(row):
         side = "buy"
         quantity = row['taker_amount']
         price = row['maker_amount'] / row['taker_amount']
-    
+
+    if row['type'] == 'Taker':
+        side = flip_side(side)
     return [market, side, quantity, price]
+
+def flip_side(orderside):
+    orderside = None
+    if orderside == "buy":
+        orderside = "sell"
+    elif orderside == "sell":
+        orderside = "buy"
+        
+    return orderside
+    
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
