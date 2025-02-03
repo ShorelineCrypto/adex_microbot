@@ -111,7 +111,7 @@ def main(args):
     dbconn = sqlite3.connect(MM2_DB_FILE)
     cursor = dbconn.cursor()
     cursor.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT *, my_orders.type AS type FROM stats_swaps INNER JOIN my_orders ON stats_swaps.uuid = my_orders.uuid WHERE started_at >= {cutoff_time} AND is_success = 1 AND (maker_coin in ('CHTA', 'NENG') or taker_coin in ('CHTA', 'NENG') )"
+    SELECT_SQL = f"SELECT stats_swaps.*, my_orders.type AS type FROM stats_swaps LEFT JOIN my_orders ON stats_swaps.uuid = my_orders.uuid WHERE started_at >= {cutoff_time} AND is_success = 1 AND (maker_coin in ('CHTA', 'NENG') or taker_coin in ('CHTA', 'NENG') )"
     print(SELECT_SQL)
     rows = cursor.execute(SELECT_SQL).fetchall()
     dbconn.close()
