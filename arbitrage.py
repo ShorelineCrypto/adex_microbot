@@ -140,6 +140,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             print (dict(row))
             run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
             update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+            time.sleep(20)
             
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
