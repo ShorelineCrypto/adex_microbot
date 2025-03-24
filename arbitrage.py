@@ -138,17 +138,24 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             arb_side = "buy"
         if arb_side:
             print (dict(row))
-            run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
-            update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+            is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
+            if is_arb_success:
+                update_arb_table(dbconn2,row['uuid'], arb_price, 1)
             time.sleep(20)
             
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
+    is_arb_success = False
     cmd = f"{SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
     print (cmd)
     result = subprocess.run(cmd, shell=True)
     print('arb CEX trade result:', result)
-
+    m1 = re.search(
+            r'CompletedProcess.+returncode=0\)', result, re.M)
+    if m1 :
+            is_arb_success = True
+    
+    return is_arb_success
 
 def get_arb_price(row,current_prices):
     adex_other_coin = None 
