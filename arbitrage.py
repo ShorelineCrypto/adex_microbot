@@ -141,7 +141,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
             if is_arb_success:
                 update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-            time.sleep(20)
+            time.sleep(2)
             
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
