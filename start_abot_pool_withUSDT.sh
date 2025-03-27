@@ -2,6 +2,6 @@
 
 while true
 do
-   nohup python3 /opt/adex_microbot/abot_pool.py --USDT_POOL True > /root/pool.log &
+   nohup timeout 179 python3 /opt/adex_microbot/abot_pool.py --USDT_POOL True > /root/pool.log &
    sleep 180
 done
