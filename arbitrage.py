@@ -253,12 +253,14 @@ def flip_side(orderside):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
-                        help='USD_unit - trading amount on USD worth, [default: 1.0]')
+                        help='USD_unit - orderbook open amount on USD worth, [default: 1.0]')
     parser.add_argument('--base_spread', nargs='?', type=float, default=0.02,
                         help='base spread in fraction from mkt price [default: 0.02]')
     parser.add_argument('--hours', nargs='?', type=float, default=24.0,
                         help='arbitrage only on past hours[default: 24.0]')
-    
+    parser.add_argument('--min_cex_usd_unit', nargs='?', type=float, default=0.0,
+                        help='minimum arbitrage trading at CEX on USD worth, [default: 0.0]')
+        
     args = parser.parse_args()
     # running main function
     main(args)
