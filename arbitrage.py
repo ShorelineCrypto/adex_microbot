@@ -21,6 +21,8 @@ from helpers import (
 )
 
 def main(args):
+    global NENG_USDT_price
+    global CHTA_USDT_price
     current_prices = get_prices()
     USD_unit = args.usd_unit
     base_spread = args.base_spread
