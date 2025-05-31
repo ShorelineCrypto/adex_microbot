@@ -17,4 +17,4 @@ CREATE INDEX timestamp_index ON swaps_arbitrage (started_at);
 CREATE TABLE net_unhedged (
     id INTEGER NOT NULL PRIMARY KEY,
     coin VARCHAR(255) NOT NULL,
-    quantity DECIMAL NOT NULL DEFAULT 0);
+    quantity DECIMAL NOT NULL);
