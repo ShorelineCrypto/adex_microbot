@@ -133,6 +133,8 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'NENG'"
     rows = cursor2.execute(SELECT_SQL).fetchall()
     for row in rows:
+        if row['coin'] is None:
+            continue
         arb_price =  NENG_USDT_price  / float(current_prices["DOGE"]["last_price"])
         arb_market = 'NENG/DOGE'
         arb_side = None
@@ -155,6 +157,8 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     rows = None
     rows = cursor2.execute(SELECT_SQL).fetchall()
     for row in rows:
+        if row['coin'] is None:
+            continue
         arb_price =  CHTA_USDT_price  / float(current_prices["DOGE"]["last_price"])
         arb_market = 'CHTA/DOGE'
         arb_side = None
