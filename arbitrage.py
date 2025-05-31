@@ -141,7 +141,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
         net = 0
         if (row['net'] < 0):
             arb_side = "sell"
-            net = row['net'] * -1
+            net = row['net'] * -1.0
         elif (row['net'] > 0):
             arb_side = "buy"
             net = row['net']
@@ -165,7 +165,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
         net = 0
         if (row['net'] < 0):
             arb_side = "sell"
-            net = row['net'] * -1
+            net = row['net'] * -1.0
         elif (row['net'] > 0):
             arb_side = "buy"
             net = row['net']
@@ -205,7 +205,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
-        quantity = quantity * -1
+        quantity = quantity * -1.0
     
     sql = ''' INSERT INTO net_unhedged(coin,quantity)
               VALUES(?,?) '''
