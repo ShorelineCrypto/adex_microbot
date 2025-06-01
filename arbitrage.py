@@ -21,6 +21,8 @@ from helpers import (
 )
 
 def main(args):
+    global NENG_USDT_price
+    global CHTA_USDT_price
     current_prices = get_prices()
     USD_unit = args.usd_unit
     base_spread = args.base_spread
@@ -123,7 +125,58 @@ def main(args):
     is_pending_arb = check_arb_table(dbconn2,rows)
     if is_pending_arb:
         perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
+    perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
     
+def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'NENG'"
+    rows = cursor2.execute(SELECT_SQL).fetchall()
+    for row in rows:
+        if row['coin'] is None:
+            continue
+        arb_price =  NENG_USDT_price  / float(current_prices["DOGE"]["last_price"])
+        arb_market = 'NENG/DOGE'
+        arb_side = None
+        net = 0
+        if (row['net'] < 0):
+            arb_side = "sell"
+            net = row['net'] * -1.0
+        elif (row['net'] > 0):
+            arb_side = "buy"
+            net = row['net']
+        if arb_side and (net * NENG_USDT_price > args.min_cex_usd_unit):
+            print (dict(row))
+            is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
+            if is_arb_success:
+                hedge_side = flip_side(arb_side)
+                insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
+            time.sleep(60)
+ 
+    SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
+    rows = None
+    rows = cursor2.execute(SELECT_SQL).fetchall()
+    for row in rows:
+        if row['coin'] is None:
+            continue
+        arb_price =  CHTA_USDT_price  / float(current_prices["DOGE"]["last_price"])
+        arb_market = 'CHTA/DOGE'
+        arb_side = None
+        net = 0
+        if (row['net'] < 0):
+            arb_side = "sell"
+            net = row['net'] * -1.0
+        elif (row['net'] > 0):
+            arb_side = "buy"
+            net = row['net']
+        if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
+            print (dict(row))
+            is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
+            if is_arb_success:
+                hedge_side = flip_side(arb_side)
+                insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
+            time.sleep(60)
+                
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
@@ -137,12 +190,31 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         elif (row['side'] == "sell"):
             arb_side = "buy"
         if arb_side:
-            print (dict(row))
-            is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
-            if is_arb_success:
+            if ((row['arb_market'] == 'NENG/DOGE') and (row['quantity'] * NENG_USDT_price <= args.min_cex_usd_unit)):
+                insert_net_unhedged_record(dbconn2,'NENG', arb_side, row['quantity']);
                 update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-            time.sleep(2)
+            elif ((row['arb_market'] == 'CHTA/DOGE') and (row['quantity'] * CHTA_USDT_price <= args.min_cex_usd_unit)):
+                insert_net_unhedged_record(dbconn2,'CHTA', arb_side, row['quantity']);
+                update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+            else:
+                print (dict(row))
+                is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
+                if is_arb_success:
+                    update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+                time.sleep(60)
             
+def insert_net_unhedged_record(conn,coin, arb_side, quantity):
+    if (arb_side == "sell"):
+        quantity = quantity * -1.0
+    
+    sql = ''' INSERT INTO net_unhedged(coin,quantity)
+              VALUES(?,?) '''
+ 
+    data = (coin, quantity)
+    cur = conn.cursor()
+    cur.execute(sql, data)
+    conn.commit()
+    return cur.lastrowid
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     is_arb_success = False
@@ -253,12 +325,14 @@ def flip_side(orderside):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--usd_unit', type=float, nargs='?', default=1.0 , 
-                        help='USD_unit - trading amount on USD worth, [default: 1.0]')
+                        help='USD_unit - orderbook open amount on USD worth, [default: 1.0]')
     parser.add_argument('--base_spread', nargs='?', type=float, default=0.02,
                         help='base spread in fraction from mkt price [default: 0.02]')
     parser.add_argument('--hours', nargs='?', type=float, default=24.0,
                         help='arbitrage only on past hours[default: 24.0]')
-    
+    parser.add_argument('--min_cex_usd_unit', nargs='?', type=float, default=0.0,
+                        help='minimum arbitrage trading at CEX on USD worth, [default: 0.0]')
+        
     args = parser.parse_args()
     # running main function
     main(args)
