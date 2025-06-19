@@ -27,7 +27,7 @@ RUN cp /opt/adex_microbot/mmtools/* mmtools/
 
 RUN mkdir -p  /root/atomicDEX-API/target/debug
 WORKDIR /root/atomicDEX-API/target/debug
-RUN wget https://raw.githubusercontent.com/KomodoPlatform/coins/master/coins
+RUN wget https://raw.githubusercontent.com/komodoce/coins-ce/master/coins
 RUN git clone https://github.com/gcharang/mm2scripts
 RUN cp mm2scripts/* .
 RUN cp /opt/adex_microbot/mm2scripts/* .
