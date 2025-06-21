@@ -50,10 +50,20 @@ def main(args):
     CHTA_USDT_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["USDT"]["last_price"])
     USDT_CHTA_price = float(current_prices["USDT"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/USDT mkt price: {}\t USDT/CHTA mkt price: {}".format(str(CHTA_USDT_price), str(USDT_CHTA_price)))
+
+    # USDC-PLG20 pair
+    NENG_USDC_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["USDC"]["last_price"])
+    USDC_NENG_price = float(current_prices["USDC"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    print (" NENG/USDC mkt price: {}\t USDC/NENG mkt price: {}".format(str(NENG_USDC_price), str(USDC_NENG_price)))
+    CHTA_USDC_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["USDC"]["last_price"])
+    USDC_CHTA_price = float(current_prices["USDC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print (" CHTA/USDC mkt price: {}\t USDC/CHTA mkt price: {}".format(str(CHTA_USDC_price), str(USDC_CHTA_price)))
        
     DGB_unit = round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
     KMD_unit = round ((USD_unit / float(current_prices["KMD"]["last_price"])), 8)
     USDT_unit = USD_unit
+    USDC_unit = USD_unit
+
     
     print ("/root/mmtools/cancel_all_orders")
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
@@ -97,7 +107,17 @@ def main(args):
         result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread)), NENG_unit), shell=True)
         print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
         result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
-    
+
+        print("./place_order.sh CHTA USDC-PLG20 {} {} | jq '.'".format((CHTA_USDC_price * (1 + spread)), CHTA_unit))
+        result = subprocess.run("./place_order.sh CHTA USDC-PLG20 {} {} | jq '.'".format((CHTA_USDC_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_order.sh USDC-PLG20 CHTA {} {} | jq '.'".format((USDC_CHTA_price * (1 + spread)), USDC_unit))
+        result = subprocess.run("./place_order.sh USDC-PLG20 CHTA {} {} | jq '.'".format((USDC_CHTA_price * (1 + spread)), USDC_unit), shell=True)
+
+        print("./place_order.sh NENG USDC-PLG20 {} {} | jq '.'".format((NENG_USDC_price * (1 + spread)), NENG_unit))
+        result = subprocess.run("./place_order.sh NENG USDC-PLG20 {} {} | jq '.'".format((NENG_USDC_price * (1 + spread)), NENG_unit), shell=True)
+        print("./place_order.sh USDC-PLG20 NENG {} {} | jq '.'".format((USDC_NENG_price * (1 + spread)), USDC_unit))
+        result = subprocess.run("./place_order.sh USDC-PLG20 NENG {} {} | jq '.'".format((USDC_NENG_price * (1 + spread)), USDC_unit), shell=True)
+   
     ## print my MM2 recent swaps
     cur_timestamp = int(time.time())
     cutoff_time = cur_timestamp - int(args.hours * 60 * 60)
