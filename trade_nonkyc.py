@@ -6,6 +6,7 @@ import asyncio, signal
 
 async def ioc(args):
     x = NonKYCClient() if not args.config else NonKYCClient(args.config)
+    result = None
     async with x.websocket_context() as ws:
         executed = Decimal(0)
         await x.ws_login(ws)
@@ -21,7 +22,9 @@ async def ioc(args):
         await asyncio.sleep(2)
         assert (order['result']['id'] is not None), "create order failed"
         print("create_order successfully completed order_id: {}".format(order['result']['id']))
+        result = "create_order successfully completed order_id: {}".format(order['result']['id'])
     await x.close()
+    return result
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser(description='Creates An order at a specific price and cancels it immediately. Returns the amount that was executed.')
@@ -38,5 +41,6 @@ if __name__ == '__main__':
                       help="Price of the IOC order")
     arguments = args.parse_args()
     print(arguments)
-    asyncio.run(ioc(arguments))
+    result = asyncio.run(ioc(arguments))
+    print(result)
 
