@@ -221,7 +221,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
                 is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
                 if is_arb_success:
                     update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-                time.sleep(60)
+                time.sleep(10)
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
