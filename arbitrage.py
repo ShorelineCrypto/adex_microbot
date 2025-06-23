@@ -240,7 +240,7 @@ def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     is_arb_success = False
     cmd = f"{SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
     print (cmd)
-    result = subprocess.run(cmd, shell=True)
+    result = subprocess.run(cmd, capture_output=True, text=True, shell=True, check=False)
     print('arb CEX trade result:', result)
     m1 = re.search(
             r'create_order successfully completed', str(result), re.M)
