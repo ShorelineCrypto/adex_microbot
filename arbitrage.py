@@ -243,7 +243,7 @@ def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     result = subprocess.run(cmd, shell=True)
     print('arb CEX trade result:', result)
     m1 = re.search(
-            r'CompletedProcess.+returncode=0\)', str(result), re.M)
+            r'create_order successfully completed', str(result), re.M)
     if m1 :
             is_arb_success = True
     

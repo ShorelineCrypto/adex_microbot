@@ -10,11 +10,17 @@ async def ioc(args):
         executed = Decimal(0)
         await x.ws_login(ws)
         order = await x.ws_create_order(ws, symbol=args.market, side=args.side, quantity=str(args.total), price=str(args.price))
-      ##  ord_cancelled = await x.ws_cancel_order(ws, order['result']['id'])
+      ## immediately cancel newly opened order
+      ## ord_cancelled = await x.ws_cancel_order(ws, order['result']['id'])
       ##  executed = Decimal(ord_cancelled['result']['executedQuantity'])
-        executed = Decimal(order['result']['executedQuantity'])
-        symbol = args.market.split('/') if '/' in args.market else args.market.split('_')
-        print(f"Executed: {executed}{symbol[0]}")
+      
+      ## immediately execute order, may wait > 3 minutes, may stuck there in log
+      ##  executed = Decimal(order['result']['executedQuantity'])
+      ##  symbol = args.market.split('/') if '/' in args.market else args.market.split('_')
+      ##  print(f"Executed: {executed}{symbol[0]}")
+        await asyncio.sleep(2)
+        assert (order['result']['id'] is not None), "create order failed"
+        print("create_order successfully completed order_id: {}".format(order['result']['id']))
     await x.close()
 
 if __name__ == '__main__':
