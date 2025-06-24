@@ -195,7 +195,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if is_arb_success:
                 hedge_side = flip_side(arb_side)
                 insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
-            time.sleep(60)
+            time.sleep(80)
                 
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
@@ -221,7 +221,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
                 is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
                 if is_arb_success:
                     update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-                time.sleep(10)
+                time.sleep(80)
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
