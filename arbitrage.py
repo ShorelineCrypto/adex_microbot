@@ -174,7 +174,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if is_arb_success:
                 hedge_side = flip_side(arb_side)
                 insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
-            time.sleep(180)
+            time.sleep(80)
  
     SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
     rows = None
@@ -198,7 +198,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if is_arb_success:
                 hedge_side = flip_side(arb_side)
                 insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
-            time.sleep(180)
+            time.sleep(80)
                 
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
