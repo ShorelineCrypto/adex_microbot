@@ -11,6 +11,9 @@ import requests
 import pykomodefi
 import subprocess
 import argparse
+from nonkyc import NonKYCClient
+from decimal import Decimal
+import asyncio, signal
 from const import (
     SCRIPT_PATH,
     MM2_JSON_FILE,
@@ -202,6 +205,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2.row_factory = sqlite3.Row
     SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success != 1"
     rows = cursor2.execute(SELECT_SQL).fetchall()
+    trade_list = []
     for row in rows:
         arb_price = get_arb_price(row,current_prices)
         arb_side = None
@@ -218,10 +222,10 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
                 update_arb_table(dbconn2,row['uuid'], arb_price, 1)
             else:
                 print (dict(row))
-                is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
-                if is_arb_success:
-                    update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-                time.sleep(80)
+                trade_list.append([row['uuid'], row['arb_market'], arb_price, arb_side, row['quantity']])
+                
+    asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
+    time.sleep(80)
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
@@ -235,6 +239,23 @@ def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     cur.execute(sql, data)
     conn.commit()
     return cur.lastrowid
+
+async def run_cex_arblist_trade(dbconn2, trade_list):
+    config = '/opt/adex_microbot/config/nonkyc_settings.json'
+    x = NonKYCClient() if not config else NonKYCClient(config)
+    async with x.websocket_context() as ws:
+        executed = Decimal(0)
+        await x.ws_login(ws)
+        for tmp_list in trade_list:
+            order = None
+            print(tmp_list)
+            order = await x.ws_create_order(ws, symbol=tmp_list[1], side=tmp_list[3], quantity=str(tmp_list[4]), price=str(tmp_list[2]))
+            assert (order is not None), "create order failed {}".format(tmp_list)
+            assert (order['result']['id'] is not None), "create order result failed {}".format(tmp_list)
+            print("create_order successfully completed order_id: {} uuid: {}".format(order['result']['id'], tmp_list[0]))
+            update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 1)
+    await x.close()
+
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     is_arb_success = False
