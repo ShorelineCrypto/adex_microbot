@@ -148,6 +148,7 @@ def main(args):
 
     ## check last 24 hours atomicDEX uuid swaps, populate swaps_arbitrage table records
     ## return true if there are newly successfully completed swaps inserted, or swaps pending for arbitrage hedging at cex
+    ## exit python code if there is ongoing another job to avoid double hedging.
     is_pending_arb = check_arb_table(dbconn2,rows)
     if is_pending_arb:
         perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
@@ -211,7 +212,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success != 1"
+    SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success < 1"
     rows = cursor2.execute(SELECT_SQL).fetchall()
     trade_list = []
     for row in rows:
@@ -224,17 +225,16 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         if arb_side:
             if ((row['arb_market'] == 'NENG/DOGE') and (row['quantity'] * NENG_USDT_price <= args.min_cex_usd_unit)):
                 insert_net_unhedged_record(dbconn2,'NENG', arb_side, row['quantity']);
-                update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+                update_arb_table(dbconn2,row['uuid'], arb_price, 2)
             elif ((row['arb_market'] == 'CHTA/DOGE') and (row['quantity'] * CHTA_USDT_price <= args.min_cex_usd_unit)):
                 insert_net_unhedged_record(dbconn2,'CHTA', arb_side, row['quantity']);
-                update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+                update_arb_table(dbconn2,row['uuid'], arb_price, 2)
             else:
                 print (dict(row))
                 trade_list.append([row['uuid'], row['arb_market'], arb_price, arb_side, row['quantity']])
     
     if trade_list:         
         asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
-        time.sleep(10)
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
@@ -258,17 +258,18 @@ async def run_cex_arblist_trade(dbconn2, trade_list):
         for tmp_list in trade_list:
             order = None
             print(tmp_list)
+            update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 1)
             order = await x.ws_create_order(ws, symbol=tmp_list[1], side=tmp_list[3], quantity=str(tmp_list[4]), price=str(tmp_list[2]))
             assert (order is not None), "create order failed {}".format(tmp_list)
             assert (order['result']['id'] is not None), "create order result failed {}".format(tmp_list)
             print("create_order successfully completed order_id: {} uuid: {}".format(order['result']['id'], tmp_list[0]))
-            update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 1)
+            update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 2)
     cexconnect = x
 
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     is_arb_success = False
-    cmd = f"{SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
+    cmd = f"timeout 90 python3 {SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
     print (cmd)
     result = subprocess.run(cmd, capture_output=True, text=True, shell=True, check=False)
     print('arb CEX trade result:', result)
@@ -310,8 +311,12 @@ def check_arb_table(dbconn2, rows):
             print (f"... insert arb db record: uuid {row['uuid']}")
             insert_arb_record(dbconn2,row)
             is_pending_arb = True
-        else: 
+        else:
             if myarb['is_success'] == 1:
+                print (f"swap ongoing: {row['uuid']}")
+                ## exit python code if there is ongoing another job to avoid double hedging.
+                sys.exit("exit to avoid double hedging {}".format({row['uuid']}))
+            elif myarb['is_success'] == 2:
                 print (f"swap already hedged: {row['uuid']}")
             else:
                 is_pending_arb = True
