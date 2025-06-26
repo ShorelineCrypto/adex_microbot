@@ -23,6 +23,9 @@ from helpers import (
     get_prices
 )
 
+global cexconnect
+cexconnect = None
+
 def main(args):
     global NENG_USDT_price
     global CHTA_USDT_price
@@ -148,7 +151,12 @@ def main(args):
     is_pending_arb = check_arb_table(dbconn2,rows)
     if is_pending_arb:
         perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
-    perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
+
+    ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+    if cexconnect is None:
+        perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
+    else:
+        cexconnect.close()
     
 def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
@@ -223,9 +231,10 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
             else:
                 print (dict(row))
                 trade_list.append([row['uuid'], row['arb_market'], arb_price, arb_side, row['quantity']])
-                
-    asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
-    time.sleep(80)
+    
+    if trade_list:         
+        asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
+        time.sleep(10)
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
@@ -254,7 +263,7 @@ async def run_cex_arblist_trade(dbconn2, trade_list):
             assert (order['result']['id'] is not None), "create order result failed {}".format(tmp_list)
             print("create_order successfully completed order_id: {} uuid: {}".format(order['result']['id'], tmp_list[0]))
             update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 1)
-    await x.close()
+    cexconnect = x
 
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
