@@ -23,9 +23,6 @@ from helpers import (
     get_prices
 )
 
-global cexconnect
-cexconnect = None
-
 def main(args):
     global NENG_USDT_price
     global CHTA_USDT_price
@@ -152,12 +149,7 @@ def main(args):
     is_pending_arb = check_arb_table(dbconn2,rows)
     if is_pending_arb:
         perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
-
-    ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-    if cexconnect is None:
-        perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
-    else:
-        cexconnect.close()
+    perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
     
 def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
@@ -183,7 +175,9 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if is_arb_success:
                 hedge_side = flip_side(arb_side)
                 insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
-            time.sleep(80)
+            ## exit python code to avoid double hedging.
+            ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+            sys.exit("exit to after NENG remainder hedging")
  
     SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
     rows = None
@@ -207,7 +201,9 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if is_arb_success:
                 hedge_side = flip_side(arb_side)
                 insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
-            time.sleep(80)
+            ## exit python code to avoid double hedging.
+            ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+            sys.exit("exit to after CHTA remainder hedging")
                 
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
@@ -235,6 +231,9 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     
     if trade_list:         
         asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
+        ## exit python code to avoid double hedging.
+        ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+        sys.exit("exit to after trade_list hedging")
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
@@ -264,7 +263,7 @@ async def run_cex_arblist_trade(dbconn2, trade_list):
             assert (order['result']['id'] is not None), "create order result failed {}".format(tmp_list)
             print("create_order successfully completed order_id: {} uuid: {}".format(order['result']['id'], tmp_list[0]))
             update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 2)
-    cexconnect = x
+    await x.close()
 
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
@@ -315,7 +314,7 @@ def check_arb_table(dbconn2, rows):
             if myarb['is_success'] == 1:
                 print (f"swap ongoing: {row['uuid']}")
                 ## exit python code if there is ongoing another job to avoid double hedging.
-                sys.exit("exit to avoid double hedging {}".format({row['uuid']}))
+                print("skipped to avoid double hedging {}".format({row['uuid']}))
             elif myarb['is_success'] == 2:
                 print (f"swap already hedged: {row['uuid']}")
             else:
