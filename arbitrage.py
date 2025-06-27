@@ -185,7 +185,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-            sys.exit("exit to after NENG remainder hedging")
+            sys.exit("exit after NENG remainder cex hedging")
  
     SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
     rows = None
@@ -213,7 +213,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-            sys.exit("exit to after CHTA remainder hedging")
+            sys.exit("exit after CHTA remainder cex hedging")
                 
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
@@ -245,7 +245,7 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         unlock_cex_session(dbconn2)
         ## exit python code to avoid double hedging.
         ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-        sys.exit("exit to after trade_list hedging")
+        sys.exit("exit after trade_list cex hedging")
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
@@ -313,15 +313,14 @@ def check_cex_session(dbconn2):
     
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    for row in rows:
-        mysql = f"SELECT * FROM cex_session"
-        myarb = cursor2.execute(mysql).fetchone()
-        if not myarb:
-            sys.exit("Error: cex_session table emtpy")
-        else:
-            if myarb['lock'] == 1:
-                print (f"swap ongoing, cex_session locked")
-                is_cex_session_active = True
+    mysql = f"SELECT * FROM cex_session"
+    myarb = cursor2.execute(mysql).fetchone()
+    if not myarb:
+        sys.exit("Error: cex_session table emtpy")
+    else:
+        if myarb['lock'] == 1:
+            print (f"swap ongoing, cex_session locked")
+            is_cex_session_active = True
 
     return is_cex_session_active
 
