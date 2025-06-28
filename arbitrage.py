@@ -185,35 +185,36 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-            sys.exit("exit after NENG remainder cex hedging")
+            ## sys.exit("exit after NENG remainder cex hedging")
  
-    SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
-    rows = None
-    rows = cursor2.execute(SELECT_SQL).fetchall()
-    for row in rows:
-        if row['coin'] is None:
-            continue
-        arb_price =  CHTA_USDT_price  / float(current_prices["DOGE"]["last_price"])
-        arb_market = 'CHTA/DOGE'
-        arb_side = None
-        net = 0
-        if (row['net'] < 0):
-            arb_side = "sell"
-            net = row['net'] * -1.0
-        elif (row['net'] > 0):
-            arb_side = "buy"
-            net = row['net']
-        if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
-            print (dict(row))
-            lock_cex_session(dbconn2)
-            is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
-            if is_arb_success:
-                hedge_side = flip_side(arb_side)
-                insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
-            unlock_cex_session(dbconn2)
+    if not check_cex_session(dbconn2):
+        SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
+        rows = None
+        rows = cursor2.execute(SELECT_SQL).fetchall()
+        for row in rows:
+            if row['coin'] is None:
+                continue
+            arb_price =  CHTA_USDT_price  / float(current_prices["DOGE"]["last_price"])
+            arb_market = 'CHTA/DOGE'
+            arb_side = None
+            net = 0
+            if (row['net'] < 0):
+                arb_side = "sell"
+                net = row['net'] * -1.0
+            elif (row['net'] > 0):
+                arb_side = "buy"
+                net = row['net']
+            if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
+                print (dict(row))
+                lock_cex_session(dbconn2)
+                is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
+                if is_arb_success:
+                    hedge_side = flip_side(arb_side)
+                    insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
+                unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-            sys.exit("exit after CHTA remainder cex hedging")
+            ## sys.exit("exit after CHTA remainder cex hedging")
                 
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
