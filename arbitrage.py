@@ -156,6 +156,7 @@ def main(args):
         sys.exit("trade_list cex session ongoing, exit to avoid double trades")
     else:
         perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
+        unlock_cex_session(dbconn2)   
     
 def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
@@ -182,7 +183,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if is_arb_success:
                 hedge_side = flip_side(arb_side)
                 insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
-            unlock_cex_session(dbconn2)
+            ## unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
             ## sys.exit("exit after NENG remainder cex hedging")
@@ -211,7 +212,7 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
                 if is_arb_success:
                     hedge_side = flip_side(arb_side)
                     insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
-                unlock_cex_session(dbconn2)
+            ##  unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
             ## sys.exit("exit after CHTA remainder cex hedging")
