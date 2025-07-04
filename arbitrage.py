@@ -282,7 +282,7 @@ async def run_cex_arblist_trade(dbconn2, trade_list):
 
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     is_arb_success = False
-    cmd = f"timeout 90 python3 {SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
+    cmd = f"timeout 300 python3 {SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
     print (cmd)
     result = subprocess.run(cmd, capture_output=True, text=True, shell=True, check=False)
     print('arb CEX trade result:', result)
