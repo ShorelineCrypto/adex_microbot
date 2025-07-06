@@ -330,7 +330,7 @@ def is_remainder_active(dbconn2,coin):
 
     return is_active
 
-def update_remainderswap_table(dbconn2,coin, net, arb_price, arb_side, is_success):
+def update_remainderswap_table(conn,coin, net, arb_price, arb_side, is_success):
     sql = f"UPDATE remainder_swaps_arbitrage SET quantity = {net},arb_price = {arb_price},arb_side = '{arb_side}',is_success = {is_success} WHERE coin = '{coin}'"
     print (sql)
     cur = conn.cursor() 
