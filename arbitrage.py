@@ -161,34 +161,37 @@ def main(args):
 def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'NENG'"
-    rows = cursor2.execute(SELECT_SQL).fetchall()
-    for row in rows:
-        if row['coin'] is None:
-            continue
-        arb_price =  NENG_USDT_price  / float(current_prices["DOGE"]["last_price"])
-        arb_market = 'NENG/DOGE'
-        arb_side = None
-        net = 0
-        if (row['net'] < 0):
-            arb_side = "sell"
-            net = row['net'] * -1.0
-        elif (row['net'] > 0):
-            arb_side = "buy"
-            net = row['net']
-        if arb_side and (net * NENG_USDT_price > args.min_cex_usd_unit):
-            print (dict(row))
-            lock_cex_session(dbconn2)
-            is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
-            if is_arb_success:
-                hedge_side = flip_side(arb_side)
-                insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
-            ## unlock_cex_session(dbconn2)
-            ## exit python code to avoid double hedging.
-            ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-            ## sys.exit("exit after NENG remainder cex hedging")
+    if not is_remainder_active(dbconn2,'NENG'):
+        SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'NENG'"
+        rows = cursor2.execute(SELECT_SQL).fetchall()
+        for row in rows:
+            if row['coin'] is None:
+                continue
+            arb_price =  NENG_USDT_price  / float(current_prices["DOGE"]["last_price"])
+            arb_market = 'NENG/DOGE'
+            arb_side = None
+            net = 0
+            if (row['net'] < 0):
+                arb_side = "sell"
+                net = row['net'] * -1.0
+            elif (row['net'] > 0):
+                arb_side = "buy"
+                net = row['net']
+            if arb_side and (net * NENG_USDT_price > args.min_cex_usd_unit):
+                print (dict(row))
+                lock_cex_session(dbconn2)
+                update_remainderswap_table(dbconn2,'NENG', net, arb_price, arb_side, 1)
+                is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
+                if is_arb_success:
+                    hedge_side = flip_side(arb_side)
+                    insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
+                    update_remainderswap_table(dbconn2,'NENG', net, arb_price, arb_side, 2)
+                ## unlock_cex_session(dbconn2)
+                ## exit python code to avoid double hedging.
+                ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+                ## sys.exit("exit after NENG remainder cex hedging")
  
-    if not check_cex_session(dbconn2):
+    if (not check_cex_session(dbconn2)) and (not is_remainder_active(dbconn2,'CHTA')):
         SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
         rows = None
         rows = cursor2.execute(SELECT_SQL).fetchall()
@@ -208,10 +211,12 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
                 print (dict(row))
                 lock_cex_session(dbconn2)
+                update_remainderswap_table(dbconn2,'CHTA', net, arb_price, arb_side, 1)
                 is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
                 if is_arb_success:
                     hedge_side = flip_side(arb_side)
                     insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
+                    update_remainderswap_table(dbconn2,'CHTA', net, arb_price, arb_side, 2)
             ##  unlock_cex_session(dbconn2)
             ## exit python code to avoid double hedging.
             ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
@@ -309,7 +314,31 @@ def get_arb_price(row,current_prices):
     # CEX arb pair is always on NENG/DOGE or CHTA/DOGE at nonKYC exchange
     arb_price = row['price'] * float(current_prices[adex_other_coin]["last_price"]) / float(current_prices["DOGE"]["last_price"])
     return arb_price
-    
+
+def is_remainder_active(dbconn2,coin):
+    is_active = False
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    mysql = f"SELECT * FROM remainder_swaps_arbitrage WHERE coin = {coin}"
+    myarb = cursor2.execute(mysql).fetchone()
+    if not myarb:
+        sys.exit("Error: remainder_swaps_arbitrage table emtpy")
+    else:
+        if myarb['is_success'] == 1:
+            print (f"{coin} remainder swap ongoing, remainder locked")
+            is_active = True
+
+    return is_active
+
+def update_remainderswap_table(dbconn2,coin, net, arb_price, arb_side, is_success):
+    sql = f"UPDATE remainder_swaps_arbitrage SET quantity = {net},arb_price = {arb_price},arb_side = {arb_side},is_success = {is_success} WHERE coin = '{coin}'"
+    print (sql)
+    cur = conn.cursor() 
+    cur.execute(sql)
+    conn.commit()
+    return cur.lastrowid
+
+
 def check_cex_session(dbconn2):
     is_cex_session_active = False
     
