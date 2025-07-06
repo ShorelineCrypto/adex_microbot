@@ -319,7 +319,7 @@ def is_remainder_active(dbconn2,coin):
     is_active = False
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    mysql = f"SELECT * FROM remainder_swaps_arbitrage WHERE coin = {coin}"
+    mysql = f"SELECT * FROM remainder_swaps_arbitrage WHERE coin = '{coin}'"
     myarb = cursor2.execute(mysql).fetchone()
     if not myarb:
         sys.exit("Error: remainder_swaps_arbitrage table emtpy")
@@ -331,7 +331,7 @@ def is_remainder_active(dbconn2,coin):
     return is_active
 
 def update_remainderswap_table(dbconn2,coin, net, arb_price, arb_side, is_success):
-    sql = f"UPDATE remainder_swaps_arbitrage SET quantity = {net},arb_price = {arb_price},arb_side = {arb_side},is_success = {is_success} WHERE coin = '{coin}'"
+    sql = f"UPDATE remainder_swaps_arbitrage SET quantity = {net},arb_price = {arb_price},arb_side = '{arb_side}',is_success = {is_success} WHERE coin = '{coin}'"
     print (sql)
     cur = conn.cursor() 
     cur.execute(sql)
