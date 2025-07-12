@@ -10,8 +10,8 @@ suitable for trading on small dollar amount with low fees. Because Nengcoin or C
 done between 3 minutes to half an hour time frame. 
 
 Adex_microbot is fork of PytomicDEX Makerbot for the purpose of micro trading bot on Cheetahcoin and Nengcoin for Komodo Wallet or Cheetahdex Wallet.
-Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, CHTA/USDC-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20, NENG/USDC-PLG20 8 trading pairs in default settings.
-The code base also has two mode of bot serving either as liquidity pool bot or as arbitrage bot linked to CEX hedging. 
+Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, CHTA/USDC-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20, NENG/USDC-PLG20, NENG/CHTA 9 trading pairs in default settings.
+The code base also has two modes of bot serving either as liquidity pool bot or as arbitrage bot linked to CEX hedging. 
 
 Although atdex_microbot is coded only for Cheetahcoin and Nengcoin, this pierce of open sourced code can be forked off and adapted for any other
 coins in Komodo Wallet for automatic market making bot.
