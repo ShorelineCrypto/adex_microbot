@@ -210,6 +210,12 @@ def get_prices():
     NENG_DOGE_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/NENG_DOGE").json()
     NENG_USD_price = float(NENG_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
     current_prices["NENG"]["last_price"] = str(NENG_USD_price)
+    ## obtain accurate prices on KMD from kucoin
+    KMD_kucoin_price = requests.get("https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=KMD-USDT").json()
+    KMD_USD_price = float(KMD_kucoin_price["data"]["price"])
+    if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
+        current_prices["KMD"]["last_price"] = str(KMD_USD_price)
+
     return current_prices
     
 

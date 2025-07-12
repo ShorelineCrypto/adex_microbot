@@ -18,3 +18,16 @@ CREATE TABLE net_unhedged (
     id INTEGER NOT NULL PRIMARY KEY,
     coin VARCHAR(255) NOT NULL,
     quantity DECIMAL NOT NULL);
+
+CREATE TABLE remainder_swaps_arbitrage (
+    id INTEGER NOT NULL PRIMARY KEY,
+    coin VARCHAR(255) NOT NULL,
+    quantity DECIMAL NOT NULL,
+    arb_price DECIMAL NOT NULL,
+    arb_side VARCHAR(255) NOT NULL,
+    is_success INTEGER NOT NULL DEFAULT 0
+    );
+    
+CREATE TABLE cex_session (
+    id INTEGER NOT NULL PRIMARY KEY,
+    lock INTEGER NOT NULL DEFAULT 0);

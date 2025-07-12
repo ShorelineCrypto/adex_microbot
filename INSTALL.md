@@ -8,13 +8,13 @@ Specifically, for adex_microbot software set up, please follow below steps to st
 
 ## Hardware Requirement - X86_64, Arm64 Linux, Android Phone, Raspberry pi
 
-The whole package was tested successfully in linux on x64 and arm64 hardware with docker.  Rooted android phone that can install ubuntu 20.04 inside phone can work well too
-as the single docker image is built on Ubuntu 20.04, so does rasberry pi on Ubuntu 20.04. For rooted android phone or rasberry pi instalaltion of adex_microbot, checkout the
-file "adex_microbot/Dockerfile/Dockerfile" for instalaltion steps on rooted android phone or Pi on Ubuntu 20.04.
+The whole package was tested successfully in linux on x64 and arm64 hardware with docker.  Rooted android phone that can install ubuntu 22.04 inside phone can work well too
+as the single docker image is built on Ubuntu 22.04, so does rasberry pi on Ubuntu 22.04. For rooted android phone or rasberry pi instalaltion of adex_microbot, checkout the
+file "adex_microbot/Dockerfile/Dockerfile" for instalaltion steps on rooted android phone or Pi on Ubuntu 22.04.
 
 
 ## Requirement - Linux, Docker
-The source code adex_microbot has been successfully tested in Ubuntu 18.04 / 20.04, MX Linux / Debian bookworm with docker installed.
+The source code adex_microbot has been successfully tested in Ubuntu 18.04 / 20.04 / 22.04, MX Linux / Debian bookworm with docker installed.
 
 In general in ubuntu or debian linux, please follow below to install docker:
 ```
@@ -181,7 +181,7 @@ Now configura and start and stop Makerbot
   root@ae6706bd8c07:/opt/adex_microbot# ./makerbot.py
   coins file not found, downloading...
 Enter tickers of coins you want to sell, seperated by a space (default: KMD CHTA):
-KMD CHTA NENG
+
 Enter tickers of coins you want to buy, seperated by a space (press enter to use same coins as above):
 
 Enter default minimum trade value in USD (default: $0.1): 
@@ -191,14 +191,14 @@ Enter default minimum trade value in USD (default: $0.1):
 The rest questions can be default, makerbot won't run, this above is just a configuration and start bot.  When first time you run the makerbot, the
 mm2 binary file is not found, and the bot will automatically download x64 binary copy for that.
 
-Then start Makerbot by selecting [0] Start Makerbot, this will activate KMD NENG CHTA and bot too.  After that, select [3] Stop Makerbot to stop running Makerbot.
+Then start Makerbot by selecting [0] Start Makerbot, this will activate KMD CHTA and bot too.  After that, select [3] Stop Makerbot to stop running Makerbot.
 For adex_microbot, we only use wallet service of makerbot, not actually want to run this makerbot (won't work on NENG or CHTA anyway).
 
 You then try to select (4) Activate Coins
-type "DGB-segwit" to activate DGB.  In newer version of Komodo wallet, DGB is wallet only, only the segwit address of DGB can allow DEX trading.
-type "USDT-PLG20" and "MATIC" to activate USDT on polygon (MATIC) network. USDT-PLG20 gas fees are paid on MATIC so that both are enabled. 
+type "NENG" to activate NENG,  "DGB-segwit" to activate DGB.  In newer version of Komodo wallet, DGB is wallet only, only the segwit address of DGB can allow DEX trading.
+type "USDT-PLG20", "USDC-PLG20" and "MATIC" to activate USDT and USDC on polygon (MATIC) network. USDT-PLG20 and USDC-PLG20 gas fees are paid on polygon so that MATIC is required. 
 
-The finally, select [9] Loop Views  to view your Makerbot settings, and find your KMD NENG CHTA DGB-segwit MATIC USDT-PLG20 address.  You can deposit coins into these addresses.
+The finally, select [9] Loop Views  to view your Makerbot settings, and find your KMD NENG CHTA DGB-segwit MATIC USDT-PLG20 USDC-PLG20 address.  You can deposit coins into these addresses.
 
 Finally, Ctrl-C and select [11] to exit Makerbot:
 ```
@@ -233,10 +233,21 @@ Then setup the arb.db sqlite3 database:
 ```
   cd /opt/adex_microbot/arbitragedb
 root@c79ae11f1c8f:/opt/adex_microbot/arbitragedb  sqlite3 arb.db < arbitragedb_schema.sql
+root@c79ae11f1c8f:/opt/adex_microbot/arbitragedb  sqlite3 arb.db < init_remainder_swap.sql
+root@c79ae11f1c8f:/opt/adex_microbot/arbitragedb  sqlite3 arb.db < unlock_cex_session.sql
 ```
 
-This above command will create a table "swaps_arbitrage" within sqlite3 arb.db database.  The arbitrage python code will check the completed atomicdex swap on
-MM2 sqlite3 database and then write CEX hedging calculation results into this arb.db table for log tracking, and then execute API hedging trade in nonKYC exchange.
+This above command will create tables "swaps_arbitrage", "net_unhedged", "remainder_swaps_arbitrage" and "cex_session" within sqlite3 arb.db database.  The arbitrage python code will check the completed DEX swap on
+MM2 sqlite3 database and then write CEX hedging calculation results into this arb.db "swaps_arbitrage" table for log tracking, and then execute API hedging trade in nonKYC exchange.
+
+The "is_success" field in "swaps_arbitrage" or "remainder_swaps_arbitrage" table has meaning of below:
+* is_success == 0 means the bot dex swap has been successfully completed, however the trade is pending for hedging against CEX.
+* is_success == 1 means the arbitrage job has been submitted to CEX for hedging, but not confirmed on success or failure.   
+* is_success == 2 means the arbitrage job has been confirmed to be success at CEX.
+
+The table "net_unhedged" tracks small trades below CEX hedging threshold. The table "remainder_swaps_arbitrage" tracks last big volume hedging trade against CEX aggregating small trades in table "net_unhedged". 
+
+The table "cex_session" locks arbitrage trading in order to avoid duplicate trades. Any regular swap CEX arbitrage hedging trade or accumulated one big volume CEX arbitrage hedging trade would lock this table before CEX api trading and unlock this table automatically when CEX trade is confirmed on status successfully. The unlock sql script is provided for trouble shooting operation if needed.
 
 ## Step 8 - Deposit Coins, Start Bot
 

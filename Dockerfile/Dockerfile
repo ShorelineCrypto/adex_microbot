@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt-get update && \
         apt-get -y install  wget curl jq unzip vim nano bc git python3-pip sqlite3

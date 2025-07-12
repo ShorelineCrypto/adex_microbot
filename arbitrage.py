@@ -11,6 +11,9 @@ import requests
 import pykomodefi
 import subprocess
 import argparse
+from nonkyc import NonKYCClient
+from decimal import Decimal
+import asyncio, signal
 from const import (
     SCRIPT_PATH,
     MM2_JSON_FILE,
@@ -50,10 +53,20 @@ def main(args):
     CHTA_USDT_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["USDT"]["last_price"])
     USDT_CHTA_price = float(current_prices["USDT"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/USDT mkt price: {}\t USDT/CHTA mkt price: {}".format(str(CHTA_USDT_price), str(USDT_CHTA_price)))
+
+    # USDC-PLG20 pair
+    NENG_USDC_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["USDC"]["last_price"])
+    USDC_NENG_price = float(current_prices["USDC"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    print (" NENG/USDC mkt price: {}\t USDC/NENG mkt price: {}".format(str(NENG_USDC_price), str(USDC_NENG_price)))
+    CHTA_USDC_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["USDC"]["last_price"])
+    USDC_CHTA_price = float(current_prices["USDC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print (" CHTA/USDC mkt price: {}\t USDC/CHTA mkt price: {}".format(str(CHTA_USDC_price), str(USDC_CHTA_price)))
        
     DGB_unit = round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
     KMD_unit = round ((USD_unit / float(current_prices["KMD"]["last_price"])), 8)
     USDT_unit = USD_unit
+    USDC_unit = USD_unit
+
     
     print ("/root/mmtools/cancel_all_orders")
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
@@ -97,7 +110,17 @@ def main(args):
         result = subprocess.run("./place_order.sh NENG USDT-PLG20 {} {} | jq '.'".format((NENG_USDT_price * (1 + spread)), NENG_unit), shell=True)
         print("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
         result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
-    
+
+        print("./place_order.sh CHTA USDC-PLG20 {} {} | jq '.'".format((CHTA_USDC_price * (1 + spread)), CHTA_unit))
+        result = subprocess.run("./place_order.sh CHTA USDC-PLG20 {} {} | jq '.'".format((CHTA_USDC_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_order.sh USDC-PLG20 CHTA {} {} | jq '.'".format((USDC_CHTA_price * (1 + spread)), USDC_unit))
+        result = subprocess.run("./place_order.sh USDC-PLG20 CHTA {} {} | jq '.'".format((USDC_CHTA_price * (1 + spread)), USDC_unit), shell=True)
+
+        print("./place_order.sh NENG USDC-PLG20 {} {} | jq '.'".format((NENG_USDC_price * (1 + spread)), NENG_unit))
+        result = subprocess.run("./place_order.sh NENG USDC-PLG20 {} {} | jq '.'".format((NENG_USDC_price * (1 + spread)), NENG_unit), shell=True)
+        print("./place_order.sh USDC-PLG20 NENG {} {} | jq '.'".format((USDC_NENG_price * (1 + spread)), USDC_unit))
+        result = subprocess.run("./place_order.sh USDC-PLG20 NENG {} {} | jq '.'".format((USDC_NENG_price * (1 + spread)), USDC_unit), shell=True)
+ 
     ## print my MM2 recent swaps
     cur_timestamp = int(time.time())
     cutoff_time = cur_timestamp - int(args.hours * 60 * 60)
@@ -119,69 +142,92 @@ def main(args):
     dbconn.close()
     ARB_DB_FILE = SCRIPT_PATH + "/arbitragedb/arb.db"
     dbconn2 = sqlite3.connect(ARB_DB_FILE)
+    ## exit if another cex arbitrage trading session ongoing
+    if check_cex_session(dbconn2):
+        sys.exit("another cex session ongoing, exit to avoid double trades")
 
     ## check last 24 hours atomicDEX uuid swaps, populate swaps_arbitrage table records
     ## return true if there are newly successfully completed swaps inserted, or swaps pending for arbitrage hedging at cex
+    ## exit python code if there is ongoing another job to avoid double hedging.
     is_pending_arb = check_arb_table(dbconn2,rows)
     if is_pending_arb:
         perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices)
-    perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
+    if check_cex_session(dbconn2):
+        sys.exit("trade_list cex session ongoing, exit to avoid double trades")
+    else:
+        perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
+        unlock_cex_session(dbconn2)   
     
 def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'NENG'"
-    rows = cursor2.execute(SELECT_SQL).fetchall()
-    for row in rows:
-        if row['coin'] is None:
-            continue
-        arb_price =  NENG_USDT_price  / float(current_prices["DOGE"]["last_price"])
-        arb_market = 'NENG/DOGE'
-        arb_side = None
-        net = 0
-        if (row['net'] < 0):
-            arb_side = "sell"
-            net = row['net'] * -1.0
-        elif (row['net'] > 0):
-            arb_side = "buy"
-            net = row['net']
-        if arb_side and (net * NENG_USDT_price > args.min_cex_usd_unit):
-            print (dict(row))
-            is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
-            if is_arb_success:
-                hedge_side = flip_side(arb_side)
-                insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
-            time.sleep(60)
+    if not is_remainder_active(dbconn2,'NENG'):
+        SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'NENG'"
+        rows = cursor2.execute(SELECT_SQL).fetchall()
+        for row in rows:
+            if row['coin'] is None:
+                continue
+            arb_price =  NENG_USDT_price  / float(current_prices["DOGE"]["last_price"])
+            arb_market = 'NENG/DOGE'
+            arb_side = None
+            net = 0
+            if (row['net'] < 0):
+                arb_side = "sell"
+                net = row['net'] * -1.0
+            elif (row['net'] > 0):
+                arb_side = "buy"
+                net = row['net']
+            if arb_side and (net * NENG_USDT_price > args.min_cex_usd_unit):
+                print (dict(row))
+                lock_cex_session(dbconn2)
+                update_remainderswap_table(dbconn2,'NENG', net, arb_price, arb_side, 1)
+                is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
+                if is_arb_success:
+                    hedge_side = flip_side(arb_side)
+                    insert_net_unhedged_record(dbconn2,'NENG', hedge_side, net);
+                    update_remainderswap_table(dbconn2,'NENG', net, arb_price, arb_side, 2)
+                ## unlock_cex_session(dbconn2)
+                ## exit python code to avoid double hedging.
+                ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+                ## sys.exit("exit after NENG remainder cex hedging")
  
-    SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
-    rows = None
-    rows = cursor2.execute(SELECT_SQL).fetchall()
-    for row in rows:
-        if row['coin'] is None:
-            continue
-        arb_price =  CHTA_USDT_price  / float(current_prices["DOGE"]["last_price"])
-        arb_market = 'CHTA/DOGE'
-        arb_side = None
-        net = 0
-        if (row['net'] < 0):
-            arb_side = "sell"
-            net = row['net'] * -1.0
-        elif (row['net'] > 0):
-            arb_side = "buy"
-            net = row['net']
-        if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
-            print (dict(row))
-            is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
-            if is_arb_success:
-                hedge_side = flip_side(arb_side)
-                insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
-            time.sleep(60)
+    if (not check_cex_session(dbconn2)) and (not is_remainder_active(dbconn2,'CHTA')):
+        SELECT_SQL = f"SELECT coin, sum(quantity) as net FROM  net_unhedged where coin = 'CHTA'"
+        rows = None
+        rows = cursor2.execute(SELECT_SQL).fetchall()
+        for row in rows:
+            if row['coin'] is None:
+                continue
+            arb_price =  CHTA_USDT_price  / float(current_prices["DOGE"]["last_price"])
+            arb_market = 'CHTA/DOGE'
+            arb_side = None
+            net = 0
+            if (row['net'] < 0):
+                arb_side = "sell"
+                net = row['net'] * -1.0
+            elif (row['net'] > 0):
+                arb_side = "buy"
+                net = row['net']
+            if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
+                print (dict(row))
+                lock_cex_session(dbconn2)
+                update_remainderswap_table(dbconn2,'CHTA', net, arb_price, arb_side, 1)
+                is_arb_success = run_cex_arbtrade(arb_market, arb_price, arb_side, net)
+                if is_arb_success:
+                    hedge_side = flip_side(arb_side)
+                    insert_net_unhedged_record(dbconn2,'CHTA', hedge_side, net);
+                    update_remainderswap_table(dbconn2,'CHTA', net, arb_price, arb_side, 2)
+            ##  unlock_cex_session(dbconn2)
+            ## exit python code to avoid double hedging.
+            ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+            ## sys.exit("exit after CHTA remainder cex hedging")
                 
 def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success != 1"
+    SELECT_SQL = f"SELECT * FROM swaps_arbitrage WHERE started_at >= {cutoff_time} AND is_success < 1"
     rows = cursor2.execute(SELECT_SQL).fetchall()
+    trade_list = []
     for row in rows:
         arb_price = get_arb_price(row,current_prices)
         arb_side = None
@@ -192,16 +238,21 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         if arb_side:
             if ((row['arb_market'] == 'NENG/DOGE') and (row['quantity'] * NENG_USDT_price <= args.min_cex_usd_unit)):
                 insert_net_unhedged_record(dbconn2,'NENG', arb_side, row['quantity']);
-                update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+                update_arb_table(dbconn2,row['uuid'], arb_price, 2)
             elif ((row['arb_market'] == 'CHTA/DOGE') and (row['quantity'] * CHTA_USDT_price <= args.min_cex_usd_unit)):
                 insert_net_unhedged_record(dbconn2,'CHTA', arb_side, row['quantity']);
-                update_arb_table(dbconn2,row['uuid'], arb_price, 1)
+                update_arb_table(dbconn2,row['uuid'], arb_price, 2)
             else:
                 print (dict(row))
-                is_arb_success = run_cex_arbtrade(row['arb_market'], arb_price, arb_side, row['quantity'])
-                if is_arb_success:
-                    update_arb_table(dbconn2,row['uuid'], arb_price, 1)
-                time.sleep(60)
+                trade_list.append([row['uuid'], row['arb_market'], arb_price, arb_side, row['quantity']])
+    
+    if trade_list:
+        lock_cex_session(dbconn2)
+        asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
+        unlock_cex_session(dbconn2)
+        ## exit python code to avoid double hedging.
+        ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
+        sys.exit("exit after trade_list cex hedging")
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
@@ -216,14 +267,32 @@ def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     conn.commit()
     return cur.lastrowid
 
+async def run_cex_arblist_trade(dbconn2, trade_list):
+    config = '/opt/adex_microbot/config/nonkyc_settings.json'
+    x = NonKYCClient() if not config else NonKYCClient(config)
+    async with x.websocket_context() as ws:
+        executed = Decimal(0)
+        await x.ws_login(ws)
+        for tmp_list in trade_list:
+            order = None
+            print(tmp_list)
+            update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 1)
+            order = await x.ws_create_order(ws, symbol=tmp_list[1], side=tmp_list[3], quantity=str(tmp_list[4]), price=str(tmp_list[2]))
+            assert (order is not None), "create order failed {}".format(tmp_list)
+            assert (order['result']['id'] is not None), "create order result failed {}".format(tmp_list)
+            print("create_order successfully completed order_id: {} uuid: {}".format(order['result']['id'], tmp_list[0]))
+            update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 2)
+    await x.close()
+
+
 def run_cex_arbtrade(arb_market, arb_price, arb_side, quantity):
     is_arb_success = False
-    cmd = f"{SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
+    cmd = f"timeout 300 python3 {SCRIPT_PATH}/trade_nonkyc.py -t {quantity} -m {arb_market} -s {arb_side} -p {arb_price}"
     print (cmd)
-    result = subprocess.run(cmd, shell=True)
+    result = subprocess.run(cmd, capture_output=True, text=True, shell=True, check=False)
     print('arb CEX trade result:', result)
     m1 = re.search(
-            r'CompletedProcess.+returncode=0\)', str(result), re.M)
+            r'create_order successfully completed', str(result), re.M)
     if m1 :
             is_arb_success = True
     
@@ -237,14 +306,69 @@ def get_arb_price(row,current_prices):
         adex_other_coin = 'DGB'
     elif 'USDT' in row['market']:
         adex_other_coin = 'USDT'
+    elif 'USDC' in row['market']:
+        adex_other_coin = 'USDC'
     else:
         assert True, f"Wrong market in atomicDEX {row['market']}"
     
     # CEX arb pair is always on NENG/DOGE or CHTA/DOGE at nonKYC exchange
     arb_price = row['price'] * float(current_prices[adex_other_coin]["last_price"]) / float(current_prices["DOGE"]["last_price"])
     return arb_price
+
+def is_remainder_active(dbconn2,coin):
+    is_active = False
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    mysql = f"SELECT * FROM remainder_swaps_arbitrage WHERE coin = '{coin}'"
+    myarb = cursor2.execute(mysql).fetchone()
+    if not myarb:
+        sys.exit("Error: remainder_swaps_arbitrage table emtpy")
+    else:
+        if myarb['is_success'] == 1:
+            print (f"{coin} remainder swap ongoing, remainder locked")
+            is_active = True
+
+    return is_active
+
+def update_remainderswap_table(conn,coin, net, arb_price, arb_side, is_success):
+    sql = f"UPDATE remainder_swaps_arbitrage SET quantity = {net},arb_price = {arb_price},arb_side = '{arb_side}',is_success = {is_success} WHERE coin = '{coin}'"
+    print (sql)
+    cur = conn.cursor() 
+    cur.execute(sql)
+    conn.commit()
+    return cur.lastrowid
+
+
+def check_cex_session(dbconn2):
+    is_cex_session_active = False
     
-    
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    mysql = f"SELECT * FROM cex_session"
+    myarb = cursor2.execute(mysql).fetchone()
+    if not myarb:
+        sys.exit("Error: cex_session table emtpy")
+    else:
+        if myarb['lock'] == 1:
+            print (f"swap ongoing, cex_session locked")
+            is_cex_session_active = True
+
+    return is_cex_session_active
+
+def lock_cex_session(conn):
+    sql = "UPDATE cex_session SET lock = 1"
+    cur = conn.cursor() 
+    cur.execute(sql)
+    conn.commit()
+    return cur.lastrowid
+
+def unlock_cex_session(conn):
+    sql = "UPDATE cex_session SET lock = 0"
+    cur = conn.cursor() 
+    cur.execute(sql)
+    conn.commit()
+    return cur.lastrowid
+
 def check_arb_table(dbconn2, rows):
     is_pending_arb = False
     
@@ -258,8 +382,12 @@ def check_arb_table(dbconn2, rows):
             print (f"... insert arb db record: uuid {row['uuid']}")
             insert_arb_record(dbconn2,row)
             is_pending_arb = True
-        else: 
+        else:
             if myarb['is_success'] == 1:
+                print (f"swap ongoing: {row['uuid']}")
+                ## exit python code if there is ongoing another job to avoid double hedging.
+                print("skipped to avoid double hedging {}".format({row['uuid']}))
+            elif myarb['is_success'] == 2:
                 print (f"swap already hedged: {row['uuid']}")
             else:
                 is_pending_arb = True
