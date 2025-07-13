@@ -1,9 +1,10 @@
 {
-  "gui": "DEVDOCS_CLI",
+  "gui": "ADEX_MICROBOT",
   "netid": 8762,
   "rpc_password": "Ent3r_Un1Qu3_Pa$$w0rd",
   "passphrase": "ENTER_UNIQUE_SEED_PHRASE_DONT_USE_THIS_CHANGE_IT_OR_FUNDS_NOT_SAFU",
   "allow_weak_password": false,
   "userhome": "/${HOME#\"/\"}",
-  "dbdir": "/path/to/DB/folder"
+  "dbdir": "/path/to/DB/folder",
+   "seednodes": ["209.145.50.223", "46.4.78.11", "46.4.87.18", "balerion.dragon-seed.com", "falkor.dragon-seed.com", "drogon.dragon-seed.com", "38.91.100.29", "38.91.102.89", "162.55.5.83", "195.85.216.230", "mm2seed.mooo.com", "66.42.60.49", "160.191.224.187", "163.172.74.144", "168.119.236.251", "168.119.236.240" ,"168.119.237.13", "65.108.90.210", "135.181.34.220", "65.108.252.86", "168.119.236.239","209.222.101.247"]
 }

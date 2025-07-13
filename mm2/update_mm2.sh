@@ -8,6 +8,6 @@ rm mm2
 # rm mm2.zip
 
 # For mm2 binaries
-wget https://github.com/KomodoPlatform/komodo-defi-framework/releases/download/v2.4.0-beta/mm2-c800ea03f-Linux-Release.zip
-unzip mm2-c800ea03f-Linux-Release.zip 
-rm mm2-c800ea03f-Linux-Release.zip 
+wget https://github.com/KomodoPlatform/komodo-defi-framework/releases/download/v2.5.0-beta/mm2-fbab8ec85-Linux-Release.zip
+unzip mm2-fbab8ec85-Linux-Release.zip 
+rm mm2-fbab8ec85-Linux-Release.zip 
