@@ -100,11 +100,19 @@ def main(args):
         os.chdir('/root/atomicDEX-API/target/debug')
         print("path changed to /root/atomicDEX-API/target/debug")
     
-        print("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
-        result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
-        print("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit))
-        result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit), shell=True)
-        
+        if args.ordertype == "makeronly":
+            print("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
+            result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
+            print("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit))
+            result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit), shell=True)
+        elif args.ordertype == "takermaker":
+            print("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
+            result = subprocess.run("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
+            print("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
+            result = subprocess.run("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
+        else:
+            sys.exit("ERROR: wrong order type: {}".format(args.ordertype))
+    
         time.sleep(args.interval)
 
 
@@ -114,6 +122,8 @@ if __name__ == "__main__":
                         help='base spread in fraction from mkt price [default: 0.0045]')
     parser.add_argument('--market', nargs='?', type=str, default='NENG/KMD' ,
                         help='market [default: NENG/KMD]')
+    parser.add_argument('--ordertype', nargs='?', type=str, default='takermaker',
+                        help='order type from AMM LP: "takermaker" or "makeronly" [default: "takermaker"]')
     parser.add_argument('--interval', nargs='?', type=float, default=180.0,
                         help='refresh interval rate on orders in seconds[default: 180.0]')
     parser.add_argument('--ordersize', nargs='?', type=float, default=0.002,
