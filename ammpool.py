@@ -108,8 +108,8 @@ def main(args):
         elif args.ordertype == "takermaker":
             print("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
             result = subprocess.run("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
-            print("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
-            result = subprocess.run("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
+            print("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price / (1 + spread)), coin_unit))
+            result = subprocess.run("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price / (1 + spread)), coin_unit), shell=True)
         else:
             sys.exit("ERROR: wrong order type: {}".format(args.ordertype))
     
