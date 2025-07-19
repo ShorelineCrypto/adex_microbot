@@ -293,7 +293,7 @@ Start AMM pool using default takermaker mode, which will create 1 pair of taker 
 The below will run liquidity pool on CHTA/KMD market on makeronly mode:
 ```
   cd /opt/adex_microbot/
-  nohup ./ammpool.py --market CHTA/KMD > ~/ammchta.log
+  nohup ./ammpool.py --market CHTA/KMD --ordertype makeronly > ~/ammchta.log
 ```
 
 Note: AMM pool pricing is based off each coin volume on balance. In case of NENG/KMD or CHTA/KMD for AMM pool, make sure you deposit equal USD worth simultaneously on two sides so that the AMM pool bot can trade at fair market price real time at start.
