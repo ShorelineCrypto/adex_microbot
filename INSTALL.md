@@ -49,8 +49,8 @@ arm64 linux:
 
 ## Step 2 - Start adex_microbot container
 
-adex_microbot container runs in command terminal. Therefore, it is better to use screen or tmux session to run below in the background. The code base currently has two running
-mode: liquidity pool mode or arbitrage bot mode. It is recommended to run two separate docker containers if both pool/arb bots are run. 
+adex_microbot container runs in command terminal. Therefore, it is better to use screen or tmux session to run below in the background. The code base currently has three running
+modes: liquidity pool (regular) mode, AMM liquidity pool mode or arbitrage bot mode. It is recommended to run three separate docker containers if all of pool/arb bots are run.
 
 now start pool bot container as below command:
 ```
@@ -68,7 +68,13 @@ To start arbitrage bot in same server, just start with another container name in
   docker run -it --name arbbot adex_microbot:latest /bin/bash
 ```
 
-In either cases, poolbot or arbitrage bot, then run below commands to get latest commits of code in container:
+To start AMM pool bot on 'CHTA/KMD' pair market, just start new container name in different screen/tmux session terminal:
+
+```
+  docker run -it --name ammchta adex_microbot:latest /bin/bash
+```
+
+In any of cases, ammpool, poolbot or arbitrage bot, then run below commands to get latest commits of code in container:
 
 ```
   cd  /opt/adex_microbot
@@ -78,7 +84,7 @@ In either cases, poolbot or arbitrage bot, then run below commands to get latest
 Nengcoin and cheetahcoin are traded at Centralized Exchange (CEX) nonKYC exchange. When CEX API config profile is configured properly, a hedging trade on either NENG/DOGE or CHTA/DOGE pair in CEX will be placed
 automatically after completion of each atomicDEX trade in the arbitrage bot mode. 
 
-When you run two bots on arb + pool mode, the two containers should create their own different mm2 account as shown below with same steps. 
+When you run three bots on arb + pool + ammpool mode, the three containers should create their own different mm2 account as shown below with same steps. 
 
 You now can run or manage below steps within container.  Screen or tmux session should allow you easily get back to linux host terminal if needed.
 
@@ -259,6 +265,7 @@ then deposit proper USDT on polygon (MATIC) network into your USDT-PLG20 address
 You can now start adex_microbot market making liquidity pool bot on NENG/KMD, CHTA/KMD, NENG/DGB-segwit, and CHTA/DGB-segwit pairs. By the default, adexbot pool will place curve shaped USD worth of
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
+
 #### liquidity pool bot
 
 ```
@@ -274,6 +281,23 @@ The above will run liquidity pool without USDT pair.  To include USDT-PLG20 pair
 
 Either of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
+
+#### AMM liquidity pool bot
+
+Start AMM pool using default takermaker mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds:
+```
+  cd /opt/adex_microbot/
+  nohup ./ammpool.py --market NENG/KMD > ~/ammneng.log
+```
+
+The below will run liquidity pool on CHTA/KMD market on makeronly mode:
+```
+  cd /opt/adex_microbot/
+  nohup ./ammpool.py --market CHTA/KMD > ~/ammchta.log
+```
+
+Note: AMM pool pricing is based off each coin volume on balance. In case of NENG/KMD or CHTA/KMD for AMM pool, make sure you deposit equal USD worth simultaneously on two sides so that the AMM pool bot can trade at fair market price real time at start.
+
 
 #### arbitrage bot
 

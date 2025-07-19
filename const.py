@@ -74,7 +74,7 @@ except:
 
 # Update coins file on launch
 COINS_FILE = f"{SCRIPT_PATH}/coins"
-COINS_URL = "https://raw.githubusercontent.com/komodoce/coins-ce/master/coins"
+COINS_URL = "https://raw.githubusercontent.com/KomodoPlatform/coins/master/coins"
 try:
     print("coins file not found, downloading...")
     coins = requests.get(COINS_URL).json()
