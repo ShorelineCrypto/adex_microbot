@@ -84,7 +84,7 @@ In any of cases, ammpool, poolbot or arbitrage bot, then run below commands to g
 Nengcoin and cheetahcoin are traded at Centralized Exchange (CEX) nonKYC exchange. When CEX API config profile is configured properly, a hedging trade on either NENG/DOGE or CHTA/DOGE pair in CEX will be placed
 automatically after completion of each atomicDEX trade in the arbitrage bot mode. 
 
-When you run two bots on arb + pool mode, the two containers should create their own different mm2 account as shown below with same steps. 
+When you run three bots on arb + pool + ammpool mode, the three containers should create their own different mm2 account as shown below with same steps. 
 
 You now can run or manage below steps within container.  Screen or tmux session should allow you easily get back to linux host terminal if needed.
 
@@ -284,7 +284,7 @@ by modifying the shell script above.
 
 #### AMM liquidity pool bot
 
-Start AMM pool using default takermaker mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if not trades are matched.
+Start AMM pool using default takermaker mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds:
 ```
   cd /opt/adex_microbot/
   nohup ./ammpool.py --market NENG/KMD > ~/ammneng.log

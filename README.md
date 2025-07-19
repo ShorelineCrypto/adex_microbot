@@ -13,8 +13,8 @@ Adex_microbot is fork of PytomicDEX Makerbot for the purpose of micro trading bo
 Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, CHTA/USDC-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20, NENG/USDC-PLG20, NENG/CHTA 9 trading pairs in default settings.
 The code base also has three modes of bot serving either as AMM liquidity pool or regular liquidity pool bot or as arbitrage bot linked to CEX hedging. 
 
-Although atdex_microbot is coded only for Cheetahcoin and Nengcoin, this pierce of open sourced code can be forked off and adapted for any other
-coins in Komodo Wallet for automatic market making bot.
+Although adex_microbot is coded only for Cheetahcoin and Nengcoin, this open sourced code repo can be forked off and adapted for any other
+coins in Cheetahdex/Komodo Wallet for automatic market making bot.
 
 ### Features of adex_microbot
 
