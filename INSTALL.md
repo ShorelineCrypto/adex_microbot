@@ -340,6 +340,55 @@ Please check mmtools github repo and atomicDEX-api tutorial page from Komodo pla
 of adex_microbot providing liquidity for Nengcoin and Cheetahcoin at Komodo Wallet / AtomicDEX.
 
 
+## Trouble Shooting - CEX Arbitrage and AMM Pool
+
+### Arbitrage CEX Hedging Failure 
+Arbitrage container hedging at CEX (nonKYC exchange) has its daily operation challenges. The nonKYC exchange API trading could get multiple errors and not properly hedged for matching trade.  
+
+Run below monitory script every day to check if the arb.db table is locked due to failed CEX trade or unconfirmed hedging trade at nonKYC exchange:
+```commandline
+bash /opt/adex_microbot/util/get_status_cex_session.sh
+```
+
+The properly hedged arbitrage bot should output good results like below:
+```commandline
+root@eea5040b4e79:~/mmtools-arb# bash /opt/adex_microbot/util/get_status_cex_session.sh 
+CHTA|0.0
+NENG|0.0
+1|NENG|2248307.28730116|3.05479452054795e-06|buy|2
+2|CHTA|1474129.24642254|6.78904219156169e-06|buy|2
+1|0
+
+```
+
+if the CEX hedge trade is stuck or table is locked, or if the 'is_success' field value is not 2 in `remainder_swaps_arbitrage` table, check your CEX account and manually clear the arb.db table using SQL. 
+The script below can unlock the table: 
+```commandline
+bash /opt/adex_microbot/util/unlock_cex_session.sh
+```
+
+### AMM Pool Manual Refund
+
+AMM Pool container operation tend to generate large amount of DEX trading volume because of pricing volatility difference between CEX and Komodo DEX. Most of failed 
+atomic swaps should be refunded properly by the DEX system.  However, some residual failed swaps may require bot operator to manually obtain refund, run below to obtain refund on all the failed swaps:
+```commandline
+bash  /opt/adex_microbot/util/obtain_refund_failed_uuid.sh
+```
+
+### Bot Wallet UTXO Consolidation
+
+When bot wallet has tons of trades or transactions, its UTXO wallet require consolidation. Otherwise, the UTXO coin wallet would have hundreds and thousands tiny inputs so that wallet can not even send reasonable amount of coins out and DEX trading tend to fail.  This is particularly important for AMM Pool bot wallet because AMM Pool container tend to generate a lot of trading. 
+
+For best practice on this, instead of activating coins in typical method above, shut down the bot and restart the bot with no coins activated. Then run below to activate CHTA NENG KMD:
+```commandline
+cd /opt/adex_microbot/ammpool
+./enable_NENG_mergeUTXO.sh
+./enable_KMD_mergeUTXO.sh
+./enable_CHTA_mergeUTXO.sh
+```
+
+The above three shell scripts will enable KMD CHTA NENG with automatic UTXO merging method from cipi. The KDF or MM2 engine will automatically merge 50 inputs into 1 when the bot wallet has input size larger than 70.  The bot wallet enabled by this method now should have UTXO consolidation issue solved automatically.
+
 
 
 
