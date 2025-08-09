@@ -1,6 +1,6 @@
 #! /bin/bash
 
-MM2_DB_FILE=`/path/to/DB/folder/*/MM2.db`
+MM2_DB_FILE=`ls /path/to/DB/folder/*/MM2.db`
 sqlite3 $MM2_DB_FILE < /opt/adex_microbot/ammpool/get_uuid_failed_swap.sql > failed_uuid
 
 for uuid in `cat failed_uuid`
