@@ -236,23 +236,15 @@ def perform_arbitrage_hedge(dbconn2,cutoff_time,current_prices):
         elif (row['side'] == "sell"):
             arb_side = "buy"
         if arb_side:
-            if ((row['arb_market'] == 'NENG/DOGE') and (row['quantity'] * NENG_USDT_price <= args.min_cex_usd_unit)):
+            if (row['arb_market'] == 'NENG/DOGE'):
                 insert_net_unhedged_record(dbconn2,'NENG', arb_side, row['quantity']);
                 update_arb_table(dbconn2,row['uuid'], arb_price, 2)
-            elif ((row['arb_market'] == 'CHTA/DOGE') and (row['quantity'] * CHTA_USDT_price <= args.min_cex_usd_unit)):
+            elif (row['arb_market'] == 'CHTA/DOGE'):
                 insert_net_unhedged_record(dbconn2,'CHTA', arb_side, row['quantity']);
                 update_arb_table(dbconn2,row['uuid'], arb_price, 2)
             else:
-                print (dict(row))
-                trade_list.append([row['uuid'], row['arb_market'], arb_price, arb_side, row['quantity']])
-    
-    if trade_list:
-        lock_cex_session(dbconn2)
-        asyncio.run(run_cex_arblist_trade(dbconn2, trade_list))
-        unlock_cex_session(dbconn2)
-        ## exit python code to avoid double hedging.
-        ## avoid bumping nonkyc.WSException Unclosed client session error, skip remainder hedge
-        sys.exit("exit after trade_list cex hedging")
+                sys.exit("ERROR: wrong arb_market: {}".format(row['arb_market']))
+
             
 def insert_net_unhedged_record(conn,coin, arb_side, quantity):
     if (arb_side == "sell"):
