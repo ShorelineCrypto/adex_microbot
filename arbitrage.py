@@ -297,12 +297,23 @@ async def clear_cex_arb_trade(dbconn2):
         # nonKYC truncate quantity to 4 decimals
         quant_str = str(round((row['quantity'] - 0.00005), 4))
         arb_market = row['coin'] + "_DOGE"
-        filled_order_list = await x.get_my_orders(status='filled',limit=100, skip=0, symbol=arb_market)
-        for trade in filled_order_list:
+        active_order_list = await x.get_my_orders(status='active',limit=100, skip=0, symbol=arb_market)
+        is_active_order = False
+        for trade in active_order_list:
             if ((trade['market']['quantity'] == quant_str) and (trade['market']['side'] == row['arb_side'])):
                 hedge_side = flip_side(row['arb_side'])
                 insert_net_unhedged_record(dbconn2,row['coin'], hedge_side, row['quantity']);
                 update_remainderswap_table(dbconn2,row['coin'], row['quantity'], row['arb_price'], row['arb_side'], 2)
+                is_active_order = True
+                break
+        if not is_active_order:
+            filled_order_list = await x.get_my_orders(status='filled',limit=100, skip=0, symbol=arb_market)
+            for trade in filled_order_list:
+                if ((trade['market']['quantity'] == quant_str) and (trade['market']['side'] == row['arb_side'])):
+                    hedge_side = flip_side(row['arb_side'])
+                    insert_net_unhedged_record(dbconn2,row['coin'], hedge_side, row['quantity']);
+                    update_remainderswap_table(dbconn2,row['coin'], row['quantity'], row['arb_price'], row['arb_side'], 2)
+                    break
     
     await x.close()
 
