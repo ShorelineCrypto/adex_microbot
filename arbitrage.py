@@ -155,10 +155,10 @@ def main(args):
     if check_cex_session(dbconn2):
         sys.exit("trade_list cex session ongoing, exit to avoid double trades")
     else:
-        perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices)
+        perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices,base_spread)
         unlock_cex_session(dbconn2)   
     
-def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
+def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices,spread):
     cursor2 = dbconn2.cursor()
     cursor2.row_factory = sqlite3.Row
     if not is_remainder_active(dbconn2,'NENG'):
@@ -174,9 +174,11 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if (row['net'] < 0):
                 arb_side = "sell"
                 net = row['net'] * -1.0
+                arb_price = arb_price / (1 + spread)
             elif (row['net'] > 0):
                 arb_side = "buy"
                 net = row['net']
+                arb_price = arb_price * (1 + spread)
             if arb_side and (net * NENG_USDT_price > args.min_cex_usd_unit):
                 print (dict(row))
                 lock_cex_session(dbconn2)
@@ -205,9 +207,11 @@ def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices):
             if (row['net'] < 0):
                 arb_side = "sell"
                 net = row['net'] * -1.0
+                arb_price = arb_price / (1 + spread)
             elif (row['net'] > 0):
                 arb_side = "buy"
                 net = row['net']
+                arb_price = arb_price * (1 + spread)
             if arb_side and (net * CHTA_USDT_price > args.min_cex_usd_unit):
                 print (dict(row))
                 lock_cex_session(dbconn2)
