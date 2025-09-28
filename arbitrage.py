@@ -156,7 +156,8 @@ def main(args):
         sys.exit("trade_list cex session ongoing, exit to avoid double trades")
     else:
         perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices,base_spread)
-        unlock_cex_session(dbconn2)   
+        unlock_cex_session(dbconn2)
+        asyncio.run(clear_cex_arb_trade(dbconn2))
     
 def perform_arbitrage_hedge_remainder(dbconn2,cutoff_time,current_prices,spread):
     cursor2 = dbconn2.cursor()
@@ -278,6 +279,31 @@ async def run_cex_arblist_trade(dbconn2, trade_list):
             assert (order['result']['id'] is not None), "create order result failed {}".format(tmp_list)
             print("create_order successfully completed order_id: {} uuid: {}".format(order['result']['id'], tmp_list[0]))
             update_arb_table(dbconn2,tmp_list[0], tmp_list[2], 2)
+    await x.close()
+
+async def clear_cex_arb_trade(dbconn2):
+    cursor2 = dbconn2.cursor()
+    cursor2.row_factory = sqlite3.Row
+    SELECT_SQL = f"SELECT * from remainder_swaps_arbitrage WHERE is_success = 1"
+    rows = cursor2.execute(SELECT_SQL).fetchall()
+    coin_list = []
+    if not rows:
+        return True
+
+    config = '/opt/adex_microbot/config/nonkyc_settings.json'
+    x = NonKYCClient() if not config else NonKYCClient(config)
+    for row in rows:
+        print(row)
+        # nonKYC truncate quantity to 4 decimals
+        quant_str = str(round((row['quantity'] - 0.00005), 4))
+        arb_market = row['coin'] + "_DOGE"
+        filled_order_list = await x.get_my_orders(status='filled',limit=100, skip=0, symbol=arb_market)
+        for trade in filled_order_list:
+            if ((trade['market']['quantity'] == quant_str) and (trade['market']['side'] == row['arb_side'])):
+                hedge_side = flip_side(row['arb_side'])
+                insert_net_unhedged_record(dbconn2,row['coin'], hedge_side, row['quantity']);
+                update_remainderswap_table(dbconn2,row['coin'], row['quantity'], row['arb_price'], row['arb_side'], 2)
+    
     await x.close()
 
 
