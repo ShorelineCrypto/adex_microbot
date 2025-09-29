@@ -17,7 +17,7 @@ import asyncio, signal
 from const import (
     SCRIPT_PATH,
     MM2_JSON_FILE,
-    PRICES_URL,
+    PRICE_URLS,
 )
 from helpers import (
     get_prices
