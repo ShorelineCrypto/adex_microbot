@@ -7,7 +7,7 @@ import string
 import random
 import requests
 from zipfile import ZipFile
-from const import ACTIVATE_COMMANDS, PRICES_URL, OP_SYS, SCRIPT_PATH
+from const import ACTIVATE_COMMANDS, PRICE_URLS, OP_SYS, SCRIPT_PATH
 
 def sec_to_hms(sec):
     minutes, seconds = divmod(sec, 60)
@@ -194,11 +194,12 @@ def wait_continue():
     color_input("Press [Enter] to continue...")
 
 def get_prices():
-    try:
-        current_prices = requests.get(PRICES_URL).json()
-    except Exception as e:
-        print(f"Price service at {PRICES_URL} is not responding!")
-        return {}
+    for i in PRICE_URLS:
+        try:
+            current_prices = requests.get(i).json()
+        except Exception as e:
+            print(f"Price service at {i} is not responding!")
+
     ## obtain accurate prices on CHTA from nonKYC.io
     CHTA_DOGE_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/CHTA_DOGE").json()
     CHTA_USD_price = float(CHTA_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
@@ -217,7 +218,7 @@ def get_prices():
         current_prices["KMD"]["last_price"] = str(KMD_USD_price)
 
     return current_prices
-    
+
 
 def generate_rpc_pass(length):
     rpc_pass = ""
