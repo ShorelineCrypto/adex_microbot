@@ -320,7 +320,7 @@ async def clear_cex_arb_trade(dbconn2):
                     break
         # not matched on active or filled order, not traded at CEX
         print("no order found at CEX, remainder lock cleared: {}  quant_4f: {} arb_side: {}".format(trade, str(quant_4f), row['arb_side']))
-        if (not is_active_order) and (not is_filled_order):
+        if ((not is_active_order) and (not is_filled_order)):
             update_remainderswap_table(dbconn2,row['coin'], row['quantity'], row['arb_price'], row['arb_side'], 2)
     
     await x.close()
