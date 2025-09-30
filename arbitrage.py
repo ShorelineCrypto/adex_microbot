@@ -297,9 +297,9 @@ async def clear_cex_arb_trade(dbconn2):
         # nonKYC truncate quantity to 4 decimals
         quant_4f = round((row['quantity'] - 0.00005), 4)
         arb_market = row['coin'] + "_DOGE"
-        active_order_list = await x.get_my_orders(status='active',limit=100, skip=0, symbol=arb_market)
         is_active_order = False
         is_filled_order = False
+        active_order_list = await x.get_my_orders(status='active',limit=100, skip=0, symbol=arb_market)
         for trade in active_order_list:
             if ((float(trade['quantity']) == quant_4f) and (trade['side'] == row['arb_side'])):
                 print("active order cleared: {}  quant_4f: {} arb_side: {}".format(trade, str(quant_4f), row['arb_side']))
@@ -318,9 +318,9 @@ async def clear_cex_arb_trade(dbconn2):
                     update_remainderswap_table(dbconn2,row['coin'], row['quantity'], row['arb_price'], row['arb_side'], 2)
                     is_filled_order = True
                     break
-        # not matched on active or filled order, not traded at CEX
-        print("no order found at CEX, remainder lock cleared: {}  quant_4f: {} arb_side: {}".format(trade, str(quant_4f), row['arb_side']))
         if ((not is_active_order) and (not is_filled_order)):
+            # not matched on active or filled order, not traded at CEX
+            print("no order found at CEX, remainder lock cleared: {}  quant_4f: {} arb_side: {}".format(trade, str(quant_4f), row['arb_side']))
             update_remainderswap_table(dbconn2,row['coin'], row['quantity'], row['arb_price'], row['arb_side'], 2)
     
     await x.close()
