@@ -5,13 +5,15 @@
 #### Suitable for micro trading market making on CHTA and NENG on KMD, DGB-segwit, USDT, or USDC pairs
 #### Automatic start/stop scripts for liquidity pool or arbitrage mode
 
-Cheetahdex and Komodo wallet (Mobile on Android/iOS, Desktop on Windows/MacOS/Linux) has its built-in atomic swap based decentralized exchange (DEX) that is very
-suitable for trading on small dollar amount with low fees. Because Nengcoin or Cheetahcoin has fast and consistant block time, a typical trade on supported pair can be
+Cheetahdex or Komodo wallet (web/mobile/desktop) has its built-in atomic swap based decentralized exchange (DEX) that is very
+suitable for trading on small dollar amount with low fees. Because Nengcoin or Cheetahcoin has fast and consistent blockchain block time, a typical trade on supported pair can be
 done between 3 minutes to half an hour time frame. 
 
-Adex_microbot is fork of PytomicDEX Makerbot for the purpose of micro trading bot on Cheetahcoin and Nengcoin for Komodo Wallet or Cheetahdex Wallet.
+Adex_microbot is fork of PytomicDEX Makerbot for the purpose of DEX trading bot on Cheetahcoin and Nengcoin for Cheetahdex or Komodo Wallet.
 Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, CHTA/USDC-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20, NENG/USDC-PLG20, NENG/CHTA 9 trading pairs in default settings.
-The code base also has three modes of bot serving either as AMM liquidity pool or regular liquidity pool bot or as arbitrage bot linked to CEX hedging. 
+The code base also has three modes of bot serving either as AMM liquidity pool or regular liquidity pool bot or as arbitrage bot linked to CEX hedging. It can be configured to run on old android phone installed on postmarketOS (see doc/Android_postmarketOS).
+
+The code runs off a docker container on x64 or arm64 hardware. To achieve best liquidity in Cheetahdex/Komodo DEX, it is recommended to spin off three containers at minimum, 1 for regular bot, 1 for AMM liquidity bot, then 1 for arbitrage bot linking DEX price to CEX (nonKYC exchange).
 
 Although adex_microbot is coded only for Cheetahcoin and Nengcoin, this open sourced code repo can be forked off and adapted for any other
 coins in Cheetahdex/Komodo Wallet for automatic market making bot.
