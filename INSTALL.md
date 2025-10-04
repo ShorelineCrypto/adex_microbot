@@ -343,6 +343,7 @@ of adex_microbot providing liquidity for Nengcoin and Cheetahcoin at Komodo Wall
 ## Trouble Shooting - CEX Arbitrage and AMM Pool
 
 ### Arbitrage CEX Hedging Failure 
+
 Arbitrage container hedging at CEX (nonKYC exchange) has its daily operation challenges. The nonKYC exchange API trading could get multiple errors and not properly hedged for matching trade.  
 
 Run below monitory script every day to check if the arb.db table is locked due to failed CEX trade or unconfirmed hedging trade at nonKYC exchange:
@@ -366,6 +367,10 @@ The script below can unlock the table:
 ```commandline
 bash /opt/adex_microbot/util/unlock_cex_session.sh
 ```
+
+Note: you no longer need to perform above manual clearing on version >= v2.1.0. In general the code has automatic routine to check CEX (nonKYC exchange) order history and automatically to clear failed trades for you by either re-submitting or modifying database status. Therefore, if you see bad trades above, wait for 10 more minutes and all will be cleared automatically.
+
+
 
 ### AMM Pool Manual Refund
 

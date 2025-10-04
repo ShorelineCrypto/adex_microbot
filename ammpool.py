@@ -12,7 +12,7 @@ import re
 from const import (
     ACTIVE_TASKS,
     USERPASS_FILE,
-    PRICES_URL,
+    PRICE_URLS,
     ERROR_EVENTS,
     BOT_PARAMS_FILE,
     BOT_SETTINGS_FILE,
