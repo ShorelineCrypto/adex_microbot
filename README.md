@@ -1,9 +1,9 @@
 
 # adex_microbot - Cheetahdex Wallet DEX Trading Bot for Cheetahcoin and Nengcoin
 #### Not Your Keys, Not your Coins
-#### Decentralization, Own your Private Keys with Komodo Wallet / Cheetahdex Wallet
-#### Suitable for micro trading market making on CHTA and NENG on KMD, DGB-segwit, USDT-PLG20, USDC-PLG20 and ARRR pairs
-#### Automatic start/stop scripts for liquidity pool or arbitrage mode
+* Decentralization + privacy, Own your Private Keys with Komodo Wallet / Cheetahdex Wallet
+* DEX market making on CHTA and NENG on KMD, DGB-segwit, USDT-PLG20, USDC-PLG20 and ARRR pairs
+* Automatic start/stop scripts for regular pool, AMM liquidity pool or arbitrage mode
 
 Cheetahdex or Komodo wallet (web/mobile/desktop) has its built-in atomic swap based decentralized exchange (DEX) that is very
 suitable for trading on small dollar amount with low fees. Because Nengcoin or Cheetahcoin has fast and consistent blockchain block time, a typical trade on supported pair can be
@@ -32,7 +32,7 @@ not used or disabled.  This is because PytomicDEX original code does not have wo
 8. Built-in routines for CEX (nonKYC Exchange) arbitrage failed trades clearing for those trades that got stuck at CEX API.
 9. mmtools and mm2scripts code base are incorporated into this code base.  The mmtools inside adex_microbot can provide more user friendly manual command line control of atomicDEX trading on KMD pairs while mm2scripts is
 used for fast order execution and/or segwit coin order book operations.
-10. Privacy coin Pirate Chain (ARRR) are supported on NENG/ARRR and CHTA/ARRR pairs.
+10. Privacy coin Pirate Chain (ARRR) is supported on NENG/ARRR and CHTA/ARRR pairs.
 
 License
 -------
