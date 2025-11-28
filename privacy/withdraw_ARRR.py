@@ -57,7 +57,8 @@ def main(args):
     if response2["result"]["status"] == "Ok":
         tx_hex = response2["result"]["details"]["tx_hex"]
     else:
-        for i in range(0, 30):
+        # allow slow machine to wait up to 30 minutes to finish
+        for i in range(0, 1800):
             time.sleep(1)
             response2 = requests.post('http://127.0.0.1:7783', json.dumps(params2)).json()
             if response2["result"]["status"] == "Ok":
