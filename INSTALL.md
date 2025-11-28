@@ -293,29 +293,40 @@ coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 #### liquidity pool bot
 
+Run liquidity pool without USDT pair.
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool.sh &
 ```
 
-The above will run liquidity pool without USDT pair.  To include USDT-PLG20 pair in your liquidity pool, run below command instead:
+Run liquidity pool without USDT pair, but with CHTA/NENG pair:
+```
+  cd /opt/adex_microbot/
+  ./start_abot_pool_withNENGCHTA.sh &
+```
+
+To include USDT-PLG20 pair in your liquidity pool, run below command instead:
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool_withUSDT.sh &
 ```
 
-Either of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
+
+
+All of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
 
 #### AMM liquidity pool bot
 
-Start AMM pool using default takermaker mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds:
+AMM pool python code uses default `takermaker` mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds.
+
+Run AMM liquidity pool on NENG/KMD pair on default `takermaker` mode:
 ```
   cd /opt/adex_microbot/
   nohup ./ammpool.py --market NENG/KMD > ~/ammneng.log
 ```
 
-The below will run liquidity pool on CHTA/KMD market on makeronly mode:
+The below will run AMM liquidity pool on CHTA/KMD pair on `makeronly` mode:
 ```
   cd /opt/adex_microbot/
   nohup ./ammpool.py --market CHTA/KMD --ordertype makeronly > ~/ammchta.log
@@ -334,6 +345,12 @@ Run arb bot, refresh every 3 minutes:
   cd /opt/adex_microbot/
   ./start_arbitrage_bot.sh &
 ```
+
+Run arb bot with Pirate Chain (ARRR) pair enabled, refresh every 3 minutes:
+```
+  cd /opt/adex_microbot/
+  nohup bash start_arbitrage_bot_withARRR.sh > /dev/null &
+```
    type "./arbitrage.py --help" to see how you can control base_spread / USD_unit on this command. 
 
 If you configure the nonKYC exchange CEX config file correctly, a corresponding hedging trade willl be placed upon completion of each atomicDEX swap.
@@ -342,7 +359,7 @@ To properly operate arbitrage bot hedging function, make sure you deposit enough
 succeed. 
 
 
-## Step 9 - Monitor and Backup
+## Step 10 - Monitor and Backup
 
 Maker sure you back up your mm2 account information somewhere.
 
