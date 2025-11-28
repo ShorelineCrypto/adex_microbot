@@ -265,7 +265,7 @@ cd /opt/adex_microbot/privacy
 ./init_ARRR.sh
 ./enable_ARRR.sh
 ```
-You should now to able to view your ARRR address and balance and you should be able to deposit coins into ARRR address. 
+You should now be able to view your ARRR address and balance so that you can deposit into or withdraw from your ARRR address. 
 
 To withdraw ARRR from your balance:
 ```commandline
@@ -282,7 +282,7 @@ The shell script `/opt/adex_microbot/start_arbitrage_bot_withARRR.sh` in contain
 
 ## Step 9 - Deposit Coins, Start Bot
 
-From loop view, you can get all your addresses for KMD, NENG, CHTA, DGB-segwit and ARRR,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
+Using `balance.py` script or from loop view, you can get all your addresses for KMD, NENG, CHTA, DGB-segwit and ARRR,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
 
 For trading on USDT-PLG20 USDC-PLG20 pairs, you can obtain initial amount of Polygon MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
 then deposit proper USDT on polygon (MATIC) network into your USDT-PLG20 address.  The MATIC address and USDT-PLG20 should have same address in your wallet. 
