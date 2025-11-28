@@ -10,6 +10,9 @@ RUN git clone https://github.com/ShorelineCrypto/adex_microbot.git /opt/adex_mic
 
 WORKDIR  /opt/adex_microbot
 RUN pip3 install -r requirements.txt
+WORKDIR  /opt/adex_microbot/privacy
+RUN ln -s  /root/atomicDEX-API/target/debug/userpass .env
+
 
 ## python API dependencies for nonKYC exchange
 RUN pip3 install aiohttp
