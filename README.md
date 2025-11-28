@@ -1,16 +1,16 @@
 
 # adex_microbot - Cheetahdex Wallet DEX Trading Bot for Cheetahcoin and Nengcoin
 #### Not Your Keys, Not your Coins
-#### Decentralization, Own your Private Keys with Komodo Wallet / Cheetahdex Wallet
-#### Suitable for micro trading market making on CHTA and NENG on KMD, DGB-segwit, USDT, or USDC pairs
-#### Automatic start/stop scripts for liquidity pool or arbitrage mode
+* Decentralization + privacy, Own your Private Keys with Komodo Wallet / Cheetahdex Wallet
+* DEX market making on CHTA and NENG on KMD, DGB-segwit, USDT-PLG20, USDC-PLG20 and ARRR pairs
+* Automatic start/stop scripts for regular pool, AMM liquidity pool or arbitrage mode
 
 Cheetahdex or Komodo wallet (web/mobile/desktop) has its built-in atomic swap based decentralized exchange (DEX) that is very
 suitable for trading on small dollar amount with low fees. Because Nengcoin or Cheetahcoin has fast and consistent blockchain block time, a typical trade on supported pair can be
 done between 3 minutes to half an hour time frame. 
 
 Adex_microbot is fork of PytomicDEX Makerbot for the purpose of DEX trading bot on Cheetahcoin and Nengcoin for Cheetahdex or Komodo Wallet.
-Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, CHTA/USDC-PLG20, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20, NENG/USDC-PLG20, NENG/CHTA 9 trading pairs in default settings.
+Currently it supports CHTA/KMD, CHTA/DGB-segwit, CHTA/USDT-PLG20, CHTA/USDC-PLG20, CHTA/ARRR, NENG/KMD, NENG/DGB-segwit, NENG/USDT-PLG20, NENG/USDC-PLG20, NENG/ARRR and NENG/CHTA 11 trading pairs in default settings.
 The code base also has three modes of bot serving either as AMM liquidity pool or regular liquidity pool bot or as arbitrage bot linked to CEX hedging. It can be configured to run on old android phone installed on postmarketOS (see doc/Android_postmarketOS).
 
 The code runs off a docker container on x64 or arm64 hardware. To achieve best liquidity in Cheetahdex/Komodo DEX, it is recommended to spin off three containers at minimum, 1 for regular bot, 1 for AMM liquidity bot, then 1 for arbitrage bot linking DEX price to CEX (nonKYC exchange).
@@ -32,6 +32,7 @@ not used or disabled.  This is because PytomicDEX original code does not have wo
 8. Built-in routines for CEX (nonKYC Exchange) arbitrage failed trades clearing for those trades that got stuck at CEX API.
 9. mmtools and mm2scripts code base are incorporated into this code base.  The mmtools inside adex_microbot can provide more user friendly manual command line control of atomicDEX trading on KMD pairs while mm2scripts is
 used for fast order execution and/or segwit coin order book operations.
+10. Privacy coin Pirate Chain (ARRR) is supported on NENG/ARRR and CHTA/ARRR pairs.
 
 License
 -------

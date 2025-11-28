@@ -4,9 +4,10 @@ RUN apt-get update && \
         apt-get -y install  wget curl jq unzip vim nano bc git python3-pip sqlite3
 
 WORKDIR /
-
 RUN git clone https://github.com/ShorelineCrypto/adex_microbot.git /opt/adex_microbot
 
+WORKDIR  /opt/adex_microbot/privacy
+RUN ln -s  /root/atomicDEX-API/target/debug/userpass .env
 
 WORKDIR  /opt/adex_microbot
 RUN pip3 install -r requirements.txt

@@ -255,11 +255,36 @@ The table "net_unhedged" tracks small trades below CEX hedging threshold. The ta
 
 The table "cex_session" locks arbitrage trading in order to avoid duplicate trades. Any regular swap CEX arbitrage hedging trade or accumulated one big volume CEX arbitrage hedging trade would lock this table before CEX api trading and unlock this table automatically when CEX trade is confirmed on status successfully. The unlock sql script is provided for trouble shooting operation if needed.
 
-## Step 8 - Deposit Coins, Start Bot
+## Step 8 - Enable Privacy Coin Pirate Chain (ARRR)
 
-From loop view, you can get all your addresses for KMD, NENG, CHTA and DGB-segwit,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
+Pirate Chain (ARRR) is by default implementing the zk-SNARKs protocol and shielded z-transactions, offering unparalleled data anonymity and rapid truth verification. Follow below special steps to enable, withdraw or trade ARRR in dex.
 
-For trading on USDT-PLG20 pairs, you can obtain initial amount of Polygon MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
+Initiate one time and enable ARRR whenever on container start: 
+```commandline
+cd /opt/adex_microbot/privacy
+./init_ARRR.sh
+./enable_ARRR.sh
+```
+You should now be able to view your ARRR address and balance so that you can deposit into or withdraw from your ARRR address. 
+
+To withdraw ARRR from your balance:
+```commandline
+cd /opt/adex_microbot/privacy
+./withdraw_ARRR.py --address <destination ARRR address> --amount <amount>
+```
+To check your container bot ARRR transaction history:
+```commandline
+cd /opt/adex_microbot/privacy
+./get_ARRR_tx_history.sh
+```
+
+The shell script `/opt/adex_microbot/start_arbitrage_bot_withARRR.sh` in container allow you to run arbitrage bot with `NENG/ARRR` and `CHTA/ARRR` pairs. 
+
+## Step 9 - Deposit Coins, Start Bot
+
+Using `balance.py` script or from loop view, you can get all your addresses for KMD, NENG, CHTA, DGB-segwit and ARRR,  deposit proper worth of coins into each, wait for confirmation to be confirmed in your address.
+
+For trading on USDT-PLG20 USDC-PLG20 pairs, you can obtain initial amount of Polygon MATIC from community run atomicDEX gas station: https://dexstats.info/gas.php, 
 then deposit proper USDT on polygon (MATIC) network into your USDT-PLG20 address.  The MATIC address and USDT-PLG20 should have same address in your wallet. 
 
 You can now start adex_microbot market making liquidity pool bot on NENG/KMD, CHTA/KMD, NENG/DGB-segwit, and CHTA/DGB-segwit pairs. By the default, adexbot pool will place curve shaped USD worth of
@@ -268,29 +293,40 @@ coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 #### liquidity pool bot
 
+Run liquidity pool without USDT pair.
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool.sh &
 ```
 
-The above will run liquidity pool without USDT pair.  To include USDT-PLG20 pair in your liquidity pool, run below command instead:
+Run liquidity pool without USDT pair, but with CHTA/NENG pair:
+```
+  cd /opt/adex_microbot/
+  ./start_abot_pool_withNENGCHTA.sh &
+```
+
+To include USDT-PLG20 pair in your liquidity pool, run below command instead:
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool_withUSDT.sh &
 ```
 
-Either of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
+
+
+All of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
 
 #### AMM liquidity pool bot
 
-Start AMM pool using default takermaker mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds:
+AMM pool python code uses default `takermaker` mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds.
+
+Run AMM liquidity pool on NENG/KMD pair on default `takermaker` mode:
 ```
   cd /opt/adex_microbot/
   nohup ./ammpool.py --market NENG/KMD > ~/ammneng.log
 ```
 
-The below will run liquidity pool on CHTA/KMD market on makeronly mode:
+The below will run AMM liquidity pool on CHTA/KMD pair on `makeronly` mode:
 ```
   cd /opt/adex_microbot/
   nohup ./ammpool.py --market CHTA/KMD --ordertype makeronly > ~/ammchta.log
@@ -309,6 +345,12 @@ Run arb bot, refresh every 3 minutes:
   cd /opt/adex_microbot/
   ./start_arbitrage_bot.sh &
 ```
+
+Run arb bot with Pirate Chain (ARRR) pair enabled, refresh every 3 minutes:
+```
+  cd /opt/adex_microbot/
+  nohup bash start_arbitrage_bot_withARRR.sh > /dev/null &
+```
    type "./arbitrage.py --help" to see how you can control base_spread / USD_unit on this command. 
 
 If you configure the nonKYC exchange CEX config file correctly, a corresponding hedging trade willl be placed upon completion of each atomicDEX swap.
@@ -317,7 +359,7 @@ To properly operate arbitrage bot hedging function, make sure you deposit enough
 succeed. 
 
 
-## Step 9 - Monitor and Backup
+## Step 10 - Monitor and Backup
 
 Maker sure you back up your mm2 account information somewhere.
 
