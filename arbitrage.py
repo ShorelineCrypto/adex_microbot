@@ -45,7 +45,17 @@ def main(args):
     CHTA_DGB_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["DGB"]["last_price"])
     DGB_CHTA_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/DGB mkt price: {}\t DGB/CHTA mkt price: {}".format(str(CHTA_DGB_price), str(DGB_CHTA_price)))
-    
+
+    # Private Chain ARRR pair
+    if args.ARRR:
+        NENG_ARRR_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["ARRR"]["last_price"])
+        ARRR_NENG_price = float(current_prices["ARRR"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+        print(" NENG/ARRR mkt price: {}\t ARRR/NENG mkt price: {}".format(str(NENG_ARRR_price), str(ARRR_NENG_price)))
+        CHTA_ARRR_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["ARRR"]["last_price"])
+        ARRR_CHTA_price = float(current_prices["ARRR"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+        print(" CHTA/ARRR mkt price: {}\t ARRR/CHTA mkt price: {}".format(str(CHTA_ARRR_price), str(ARRR_CHTA_price)))
+
+
     # USDT pair in nonKYC exchange is less liquid. Use Doge pair converted price instead as below
     NENG_USDT_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["USDT"]["last_price"])
     USDT_NENG_price = float(current_prices["USDT"]["last_price"]) / float(current_prices["NENG"]["last_price"])
@@ -66,7 +76,8 @@ def main(args):
     KMD_unit = round ((USD_unit / float(current_prices["KMD"]["last_price"])), 8)
     USDT_unit = USD_unit
     USDC_unit = USD_unit
-
+    if args.ARRR:
+        ARRR_unit = round((USD_unit / float(current_prices["ARRR"]["last_price"])), 8)
     
     print ("/root/mmtools/cancel_all_orders")
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
@@ -120,7 +131,19 @@ def main(args):
         result = subprocess.run("./place_order.sh NENG USDC-PLG20 {} {} | jq '.'".format((NENG_USDC_price * (1 + spread)), NENG_unit), shell=True)
         print("./place_order.sh USDC-PLG20 NENG {} {} | jq '.'".format((USDC_NENG_price * (1 + spread)), USDC_unit))
         result = subprocess.run("./place_order.sh USDC-PLG20 NENG {} {} | jq '.'".format((USDC_NENG_price * (1 + spread)), USDC_unit), shell=True)
- 
+
+        if args.ARRR:
+            print("./place_fastorder.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_fastorder.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), CHTA_unit), shell=True)
+            print("./place_fastorder.sh ARRR CHTA {} {} | jq '.'".format((ARRR_CHTA_price * (1 + spread)), ARRR_unit))
+            result = subprocess.run("./place_fastorder.sh ARRR CHTA {} {} | jq '.'".format((ARRR_CHTA_price * (1 + spread)), ARRR_unit), shell=True)
+
+            print("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit))
+            result = subprocess.run("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit), shell=True)
+            print("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit))
+            result = subprocess.run("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit), shell=True)
+
+
     ## print my MM2 recent swaps
     cur_timestamp = int(time.time())
     cutoff_time = cur_timestamp - int(args.hours * 60 * 60)
@@ -503,6 +526,8 @@ if __name__ == "__main__":
                         help='arbitrage only on past hours[default: 24.0]')
     parser.add_argument('--min_cex_usd_unit', nargs='?', type=float, default=0.0,
                         help='minimum arbitrage trading at CEX on USD worth, [default: 0.0]')
+    parser.add_argument('--ARRR', nargs='?', type=bool, default=False,
+                        help='enable Pirate Chain (ARRR) [default: False]')
         
     args = parser.parse_args()
     # running main function
