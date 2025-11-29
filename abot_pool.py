@@ -96,6 +96,17 @@ def main(args):
         CHTA_NENG_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["NENG"]["last_price"])
         print (" NENG/CHTA mkt price: {}\t CHTA/NENG mkt price: {}".format(str(NENG_CHTA_price), str(CHTA_NENG_price)))
 
+
+    # Private Chain ARRR pair
+    if args.ARRR:
+        NENG_ARRR_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["ARRR"]["last_price"])
+        ARRR_NENG_price = float(current_prices["ARRR"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+        print(" NENG/ARRR mkt price: {}\t ARRR/NENG mkt price: {}".format(str(NENG_ARRR_price), str(ARRR_NENG_price)))
+        CHTA_ARRR_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["ARRR"]["last_price"])
+        ARRR_CHTA_price = float(current_prices["ARRR"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+        print(" CHTA/ARRR mkt price: {}\t ARRR/CHTA mkt price: {}".format(str(CHTA_ARRR_price), str(ARRR_CHTA_price)))
+        ARRR_unit = round((USD_unit / float(current_prices["ARRR"]["last_price"])), 8)
+
     ## use new komododif scripts to support DGB-segwit
     ## the setprice will overwrite old order, one order pair only
     ## setprice in place_order.sh is sell always
@@ -112,6 +123,17 @@ def main(args):
         print("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit))
         result = subprocess.run("./place_order.sh DGB-segwit NENG {} {} | jq '.'".format((DGB_NENG_price * (1 + spread)), DGB_unit), shell=True)
 
+        if args.ARRR:
+            print("./place_fastorder.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_fastorder.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), CHTA_unit), shell=True)
+            print("./place_fastorder.sh ARRR CHTA {} {} | jq '.'".format((ARRR_CHTA_price * (1 + spread)), ARRR_unit))
+            result = subprocess.run("./place_fastorder.sh ARRR CHTA {} {} | jq '.'".format((ARRR_CHTA_price * (1 + spread)), ARRR_unit), shell=True)
+
+            print("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit))
+            result = subprocess.run("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit), shell=True)
+            print("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit))
+            result = subprocess.run("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit), shell=True)
+
         if args.USDT_POOL:
             print("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), (CHTA_unit * 3)))
             result = subprocess.run("./place_order.sh CHTA USDT-PLG20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + spread)), (CHTA_unit * 3)), shell=True)
@@ -126,6 +148,7 @@ def main(args):
         
         if args.NENGCHTA_POOL:
             # NENG/CHTA pool use fixed $10 USD size and 2% spread
+            # this block of placing order must be at last block of code due to the size/spread change.
             USD_unit = 10.0
             spread = 0.02
             # trading pair USD = $10
@@ -136,7 +159,6 @@ def main(args):
             print("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit))
             result = subprocess.run("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit), shell=True)
 
-        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -148,6 +170,8 @@ if __name__ == "__main__":
                         help='enable USDT-PLG20 pool [default: False]')
     parser.add_argument('--NENGCHTA_POOL', nargs='?', type=bool, default=False ,
                         help='enable NENG-CHTA pool [default: False]')
+    parser.add_argument('--ARRR', nargs='?', type=bool, default=False,
+                        help='enable Pirate Chain (ARRR) [default: False]')
     args = parser.parse_args()
     # running main function
     main(args)

@@ -291,18 +291,24 @@ You can now start adex_microbot market making liquidity pool bot on NENG/KMD, CH
 coins into each pair and refresh pairs in 3 minutes on latest market pricing.
 
 
-#### liquidity pool bot
+#### regular pool bot container
 
-Run liquidity pool without USDT pair.
+Run regular pool container without USDT, ARRR pair, or NENG/CHTA pair.
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool.sh &
 ```
 
-Run liquidity pool without USDT pair, but with CHTA/NENG pair:
+Run pool container without USDT or ARRR pair, but with CHTA/NENG pair:
 ```
   cd /opt/adex_microbot/
   ./start_abot_pool_withNENGCHTA.sh &
+```
+
+Run pool container without USDT pair, but with ARRR pair and CHTA/NENG pair:
+```
+  cd /opt/adex_microbot/
+  ./start_arbitrage_bot_withARRR.sh &
 ```
 
 To include USDT-PLG20 pair in your liquidity pool, run below command instead:
@@ -316,7 +322,7 @@ To include USDT-PLG20 pair in your liquidity pool, run below command instead:
 All of the above pool shell scripts runs abot_pool.py for placing pool trading pairs. Run command "abot_pool.py --help" to see how you can control pool base_spread / USD_unit
 by modifying the shell script above. 
 
-#### AMM liquidity pool bot
+#### AMM liquidity pool bot container
 
 AMM pool python code uses default `takermaker` mode, which will create 1 pair of taker orders. The taker orders will be converted to maker only orders if no trades are matched within 30 seconds.
 
@@ -333,9 +339,9 @@ The below will run AMM liquidity pool on CHTA/KMD pair on `makeronly` mode:
 ```
 
 Note: AMM pool pricing is based off each coin volume on balance. In case of NENG/KMD or CHTA/KMD for AMM pool, make sure you deposit equal USD worth simultaneously on two sides so that the AMM pool bot can trade at fair market price real time at start.
+Note: AMM pool bot feature has only been tested on CHTA/KMD and NENG/KMD pair. In theory, this AMM LP code is quite generic and can run on any pair in dex.
 
-
-#### arbitrage bot
+#### arbitrage bot container
 
 Aternatively, instead of running liquidity pool bot above, you can run arbitrage bot mode where by default 1 pair each of KMD/CHTA, KMD/NENG, DGB-segwit/CHTA,
 DGB-segwit/NENG, USDT-PLG20/CHTA, USDT-PLG20/NENG  with $1.0 USD worth of coins on +-2% of bid/ask spread will be placed.
