@@ -257,15 +257,25 @@ The table "cex_session" locks arbitrage trading in order to avoid duplicate trad
 
 ## Step 8 - Enable Privacy Coin Pirate Chain (ARRR)
 
-Pirate Chain (ARRR) is by default implementing the zk-SNARKs protocol and shielded z-transactions, offering unparalleled data anonymity and rapid truth verification. Follow below special steps to enable, withdraw or trade ARRR in dex.
+Pirate Chain (ARRR) is by default implementing the zk-SNARKs protocol and shielded z-transactions, offering unparalleled data anonymity and rapid truth verification. ARRR differ from Zcash in that Zcash shielded transactions is optional and default Zcash transactions is transparant just like bitcoin while every ARRR transaction is shielded with privacy protection. Follow below special steps to enable, withdraw or trade ARRR in wallet/dex.
 
-Initiate one time and enable ARRR whenever on container start: 
+Initiate and download required zcash-param files on first time container start: 
 ```commandline
 cd /opt/adex_microbot/privacy
 ./init_ARRR.sh
-./enable_ARRR.sh
 ```
-You should now be able to view your ARRR address and balance so that you can deposit into or withdraw from your ARRR address. 
+For fresh ARRR wallet with zero ARRR balance expected, run below:
+```commandline
+./enable_ARRR_fresh.sh
+```
+script `enable_ARRR_fresh.sh` will ignore all past history and only look at current latest blockchain height to obtain the ARRR address balance. 
+
+For those ARRR wallet that have many days of transactions in the past with non-zero ARRR balance, a slower procedure is required to rescan past ARRR blockchain history. Because rescanning is slow process, try to 
+use smallest number of days possible below:
+```commandline
+enable_ARRR_rescan.py --days 14
+```
+The above command will rescan past 14 days of ARRR blockchain height history before enabling your ARRR wallet.
 
 To withdraw ARRR from your balance:
 ```commandline
