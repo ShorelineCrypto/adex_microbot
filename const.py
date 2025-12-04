@@ -46,7 +46,8 @@ ERROR_EVENTS = [
 # PRICE_URL = "https://prices.cipig.net:1717/api/v2/tickers?expire_at=600"
 PRICE_URLS = [
     "https://prices.komodian.info/api/v2/tickers?expire_at=900",
-    "https://defi-stats.komodo.earth/api/v3/prices/tickers_v2?expire_at=900"
+    "https://defi-stats.komodo.earth/api/v3/prices/tickers_v2?expire_at=900",
+    "https://prices.cipig.net:1717/api/v2/tickers?expire_at=900"
 ]
 
 BOT_SETTINGS_FILE = f"{SCRIPT_PATH}/config/bot_settings.json"
