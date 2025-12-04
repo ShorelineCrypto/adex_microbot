@@ -8,7 +8,7 @@ rm mm2 kdf
 # rm mm2.zip
 
 # For mm2 binaries
-wget https://github.com/ShorelineCrypto/komodo-defi-framework/releases/download/v2.5.2-beta/mm2-a295579b8-Linux-Release_amd64.tar.gz
-tar xvfz mm2-a295579b8-Linux-Release_amd64.tar.gz 
-rm mm2-a295579b8-Linux-Release_amd64.tar.gz
+wget https://github.com/GLEECBTC/komodo-defi-framework/releases/download/v2.6.0-beta/kdf_475cdb4-linux-x86-64.zip
+unzip kdf_475cdb4-linux-x86-64.zip 
+rm kdf_475cdb4-linux-x86-64.zip
 ln -s kdf mm2
