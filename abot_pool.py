@@ -60,15 +60,15 @@ def main(args):
     # main coin pair KMD with CHTA NENG
     for i in range(1, 4):
         spread = base_spread * i
-        print("./place_fastbuy.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price / (1 + spread)), CHTA_unit))
-        result = subprocess.run("./place_fastbuy.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price / (1 + spread)), CHTA_unit), shell=True)
-        print("./place_fastsell.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), CHTA_unit))
-        result = subprocess.run("./place_fastsell.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_fastbuy.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("./place_fastbuy.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)), shell=True)
+        print("./place_fastsell.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("./place_fastsell.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)), shell=True)
         
-        print("./place_fastbuy.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price / (1 + spread)), NENG_unit))
-        result = subprocess.run("./place_fastbuy.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price / (1 + spread)), NENG_unit), shell=True)
-        print("./place_fastsell.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), NENG_unit))
-        result = subprocess.run("./place_fastsell.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), NENG_unit), shell=True)
+        print("./place_fastbuy.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("./place_fastbuy.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)), shell=True)
+        print("./place_fastsell.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("./place_fastsell.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)), shell=True)
 
 
     # rest of pairs with CHTA NENG
