@@ -43,13 +43,6 @@ def main(args):
     USD_unit = args.usd_unit
     base_spread = args.base_spread
     
-    NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
-    CHTA_KMD_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["KMD"]["last_price"])
-    print (" NENG/KMD mkt price: {}\t CHTA/KMD mkt price: {}".format(str(NENG_KMD_price), str(CHTA_KMD_price)))
-    # trading pair min_usd = $0.05
-    NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
-    CHTA_unit = round ((USD_unit / float(current_prices["CHTA"]["last_price"])), 4)
-
     print ("/root/mmtools/cancel_all_orders")
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
 
@@ -80,6 +73,16 @@ def main(args):
             result = subprocess.run("./place_fastsell.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), (NENG_unit * i)), shell=True)
    
     # rest of pairs with CHTA NENG
+    NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
+    KMD_NENG_price = float(current_prices["KMD"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    CHTA_KMD_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["KMD"]["last_price"])
+    KMD_CHTA_price = float(current_prices["KMD"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print (" NENG/KMD mkt price: {}\t CHTA/KMD mkt price: {}".format(str(NENG_KMD_price), str(CHTA_KMD_price)))
+    # trading pair min_usd = $0.05
+    NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
+    CHTA_unit = round ((USD_unit / float(current_prices["CHTA"]["last_price"])), 4)
+    KMD_unit =  round ((USD_unit / float(current_prices["KMD"]["last_price"])), 8)
+
     NENG_DGB_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["DGB"]["last_price"])
     DGB_NENG_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["NENG"]["last_price"])
     print (" NENG/DGB mkt price: {}\t DGB/NENG mkt price: {}".format(str(NENG_DGB_price), str(DGB_NENG_price)))
