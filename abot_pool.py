@@ -53,24 +53,25 @@ def main(args):
     print ("/root/mmtools/cancel_all_orders")
     result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
 
-
-    for i in range(1, 4):
-        spread = base_spread * i
-        print("/root/mmtools/fastbuy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)))
-        result = subprocess.run("/root/mmtools/fastbuy CHTA KMD {} {}".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)), shell=True)
-        print("/root/mmtools/fastsell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)))
-        result = subprocess.run("/root/mmtools/fastsell CHTA KMD {} {}".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)), shell=True)
-    
-        print("/root/mmtools/fastbuy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)))
-        result = subprocess.run("/root/mmtools/fastbuy NENG KMD {} {}".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)), shell=True)
-        print("/root/mmtools/fastsell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)))
-        result = subprocess.run("/root/mmtools/fastsell NENG KMD {} {}".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)), shell=True)
-
-
-    ## start DGB pair on new MM2 scripts, mmtool not used
+    ## start ARRR/DGB/KMD pair on new MM2 scripts, mmtool not used
     os.chdir('/root/atomicDEX-API/target/debug')
     print("path changed to /root/atomicDEX-API/target/debug")
+    
+    # main coin pair KMD with CHTA NENG
+    for i in range(1, 4):
+        spread = base_spread * i
+        print("./place_fastbuy.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("./place_fastbuy.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price / (1 + spread)), (CHTA_unit * i)), shell=True)
+        print("./place_fastsell.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("./place_fastsell.sh CHTA KMD {} {} | jq '.'".format((CHTA_KMD_price * (1 + spread)), (CHTA_unit * i)), shell=True)
+        
+        print("./place_fastbuy.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("./place_fastbuy.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price / (1 + spread)), (NENG_unit * i)), shell=True)
+        print("./place_fastsell.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("./place_fastsell.sh NENG KMD {} {} | jq '.'".format((NENG_KMD_price * (1 + spread)), (NENG_unit * i)), shell=True)
 
+
+    # rest of pairs with CHTA NENG
     NENG_DGB_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["DGB"]["last_price"])
     DGB_NENG_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["NENG"]["last_price"])
     print (" NENG/DGB mkt price: {}\t DGB/NENG mkt price: {}".format(str(NENG_DGB_price), str(DGB_NENG_price)))
