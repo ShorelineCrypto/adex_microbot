@@ -93,6 +93,13 @@ def main(args):
            
     ## trading pair min_usd = $0.05, NENG_unit CHTA_unit unchanged
     DGB_unit =  round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
+    
+    ## add LTC-segwith pair
+    CHTA_LTC_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["LTC"]["last_price"])
+    LTC_CHTA_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print (" CHTA/LTC mkt price: {}\t LTC/CHTA mkt price: {}".format(str(CHTA_LTC_price), str(LTC_CHTA_price)))
+    LTC_unit =  round ((USD_unit / float(current_prices["LTC"]["last_price"])), 8)
+
 
     if args.USDT_POOL:
         # USDT pair in nonKYC exchange is less liquid. Use Doge pair converted price instead as below
@@ -114,7 +121,12 @@ def main(args):
     ## setprice in place_order.sh is sell always
     for j in range(1, 2):
         spread = base_spread * j
-    
+ 
+        print("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit))
+        result = subprocess.run("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_order.sh LTC-segwit CHTA {} {} | jq '.'".format((LTC_CHTA_price * (1 + spread)), LTC_unit))
+        result = subprocess.run("./place_order.sh LTC-segwit CHTA {} {} | jq '.'".format((LTC_CHTA_price * (1 + spread)), LTC_unit), shell=True)
+
         print("./place_order.sh CHTA DGB-segwit {} {} | jq '.'".format((CHTA_DGB_price * (1 + spread)), CHTA_unit))
         result = subprocess.run("./place_order.sh CHTA DGB-segwit {} {} | jq '.'".format((CHTA_DGB_price * (1 + spread)), CHTA_unit), shell=True)
         print("./place_order.sh DGB-segwit CHTA {} {} | jq '.'".format((DGB_CHTA_price * (1 + spread)), DGB_unit))
