@@ -45,6 +45,10 @@ def main(args):
     CHTA_DGB_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["DGB"]["last_price"])
     DGB_CHTA_price = float(current_prices["DGB"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/DGB mkt price: {}\t DGB/CHTA mkt price: {}".format(str(CHTA_DGB_price), str(DGB_CHTA_price)))
+    CHTA_LTC_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["LTC"]["last_price"])
+    LTC_CHTA_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print (" CHTA/LTC mkt price: {}\t LTC/CHTA mkt price: {}".format(str(CHTA_LTC_price), str(LTC_CHTA_price)))
+
 
     # Private Chain ARRR pair
     if args.ARRR:
@@ -72,6 +76,7 @@ def main(args):
     USDC_CHTA_price = float(current_prices["USDC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/USDC mkt price: {}\t USDC/CHTA mkt price: {}".format(str(CHTA_USDC_price), str(USDC_CHTA_price)))
        
+    LTC_unit = round ((USD_unit / float(current_prices["LTC"]["last_price"])), 8)
     DGB_unit = round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
     KMD_unit = round ((USD_unit / float(current_prices["KMD"]["last_price"])), 8)
     USDT_unit = USD_unit
@@ -91,6 +96,11 @@ def main(args):
     ## setprice in place_order.sh is sell always
     for j in range(1, 2):
         spread = base_spread * j
+        
+        print("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit))
+        result = subprocess.run("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_order.sh LTC-segwit CHTA {} {} | jq '.'".format((LTC_CHTA_price * (1 + spread)), LTC_unit))
+        result = subprocess.run("./place_order.sh LTC-segwit CHTA {} {} | jq '.'".format((LTC_CHTA_price * (1 + spread)), LTC_unit), shell=True)
     
         print("./place_order.sh CHTA DGB-segwit {} {} | jq '.'".format((CHTA_DGB_price * (1 + spread)), CHTA_unit))
         result = subprocess.run("./place_order.sh CHTA DGB-segwit {} {} | jq '.'".format((CHTA_DGB_price * (1 + spread)), CHTA_unit), shell=True)

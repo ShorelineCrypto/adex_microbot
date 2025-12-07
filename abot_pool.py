@@ -94,7 +94,7 @@ def main(args):
     ## trading pair min_usd = $0.05, NENG_unit CHTA_unit unchanged
     DGB_unit =  round ((USD_unit / float(current_prices["DGB"]["last_price"])), 8)
     
-    ## add LTC-segwith pair
+    ## add LTC-segwit pair
     CHTA_LTC_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["LTC"]["last_price"])
     LTC_CHTA_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/LTC mkt price: {}\t LTC/CHTA mkt price: {}".format(str(CHTA_LTC_price), str(LTC_CHTA_price)))
