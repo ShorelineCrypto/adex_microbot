@@ -109,7 +109,7 @@ def main(args):
 
         response = requests.post('http://127.0.0.1:7783', json.dumps(params)).json()
         print(response)
-        activesw_lst = response["result"]["uuids"]
+        activesw_lst = response["uuids"]
         
         if len(activesw_lst) < args.maxconcur:
             ## start AMM pair on new MM2 scripts, mmtool not used
