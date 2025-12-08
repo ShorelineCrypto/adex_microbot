@@ -10,6 +10,7 @@ WORKDIR  /opt/adex_microbot/privacy
 RUN ln -s  /root/atomicDEX-API/target/debug/userpass .env
 
 WORKDIR  /opt/adex_microbot
+RUN ln -s  /root/atomicDEX-API/target/debug/userpass .env
 RUN pip3 install -r requirements.txt
 
 ## python API dependencies for nonKYC exchange
