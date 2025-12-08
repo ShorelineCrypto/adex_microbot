@@ -64,17 +64,18 @@ def main(args):
         print(" CHTA/ARRR mkt price: {}\t ARRR/CHTA mkt price: {}".format(str(CHTA_ARRR_price), str(ARRR_CHTA_price)))
         ARRR_unit = round((USD_unit / float(current_prices["ARRR"]["last_price"])), 8)
         # main coin pair ARRR with CHTA NENG
-        for i in range(1, 4):
+        for i in range(1, 2):
             spread = base_spread * i
-            print("./place_fastbuy.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price / (1 + spread)), (CHTA_unit * i)))
-            result = subprocess.run("./place_fastbuy.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price / (1 + spread)), (CHTA_unit * i)), shell=True)
-            print("./place_fastsell.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), (CHTA_unit * i)))
-            result = subprocess.run("./place_fastsell.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), (CHTA_unit * i)), shell=True)
+            print("./place_fastorder.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_fastorder.sh CHTA ARRR {} {} | jq '.'".format((CHTA_ARRR_price * (1 + spread)), CHTA_unit), shell=True)
+            print("./place_fastorder.sh ARRR CHTA {} {} | jq '.'".format((ARRR_CHTA_price * (1 + spread)), ARRR_unit))
+            result = subprocess.run("./place_fastorder.sh ARRR CHTA {} {} | jq '.'".format((ARRR_CHTA_price * (1 + spread)), ARRR_unit), shell=True)
 
-            print("./place_fastbuy.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price / (1 + spread)), (NENG_unit * i)))
-            result = subprocess.run("./place_fastbuy.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price / (1 + spread)), (NENG_unit * i)), shell=True)
-            print("./place_fastsell.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), (NENG_unit * i)))
-            result = subprocess.run("./place_fastsell.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), (NENG_unit * i)), shell=True)
+            print("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit))
+            result = subprocess.run("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit), shell=True)
+            print("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit))
+            result = subprocess.run("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit), shell=True)
+
    
     # rest of pairs with CHTA NENG
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
