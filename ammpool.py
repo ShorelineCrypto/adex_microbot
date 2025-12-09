@@ -144,8 +144,8 @@ if __name__ == "__main__":
                         help='refresh interval rate on orders in seconds[default: 180.0]')
     parser.add_argument('--ordersize', nargs='?', type=float, default=0.002,
                         help='size of open orders in fraction of liquidity pool[default: 0.002]')
-    parser.add_argument('--maxconcur', nargs='?', type=int, default=4,
-                        help='maximum concurrent trading allowed, default 4')
+    parser.add_argument('--maxconcur', nargs='?', type=int, default=2,
+                        help='maximum concurrent trading allowed, default 2')
 
     args = parser.parse_args()
     
