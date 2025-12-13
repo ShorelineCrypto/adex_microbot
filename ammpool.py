@@ -7,6 +7,7 @@ import mnemonic
 import requests
 import pykomodefi
 import subprocess
+from dotenv import load_dotenv
 import argparse
 import re
 from const import (
@@ -76,7 +77,17 @@ def main(args):
  
     [coin, othercoin] = re.split('/', args.market)
     print (" {} mkt pairs {} {}".format(args.market, coin, othercoin))
-    
+
+    load_dotenv()
+    USERPASS = os.getenv("userpass")
+    if not USERPASS:
+        sys.exit("ERROR: must have valide .env file")
+    params = {
+        "userpass": "RPC_UserP@SSW0RD",
+        "method": "active_swaps"
+    }
+    params.update({"userpass": USERPASS})
+        
     while True:
     
         cb = coinBalance()
@@ -96,22 +107,27 @@ def main(args):
         print ("/root/mmtools/cancel_all_orders")
         result = subprocess.run("/root/mmtools/cancel_all_orders", shell=True)
 
-        ## start AMM pair on new MM2 scripts, mmtool not used
-        os.chdir('/root/atomicDEX-API/target/debug')
-        print("path changed to /root/atomicDEX-API/target/debug")
+        response = requests.post('http://127.0.0.1:7783', json.dumps(params)).json()
+        print(response)
+        activesw_lst = response["uuids"]
+        
+        if len(activesw_lst) < args.maxconcur:
+            ## start AMM pair on new MM2 scripts, mmtool not used
+            os.chdir('/root/atomicDEX-API/target/debug')
+            print("path changed to /root/atomicDEX-API/target/debug")
     
-        if args.ordertype == "makeronly":
-            print("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
-            result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
-            print("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit))
-            result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit), shell=True)
-        elif args.ordertype == "takermaker":
-            print("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
-            result = subprocess.run("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
-            print("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price / (1 + spread)), coin_unit))
-            result = subprocess.run("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price / (1 + spread)), coin_unit), shell=True)
-        else:
-            sys.exit("ERROR: wrong order type: {}".format(args.ordertype))
+            if args.ordertype == "makeronly":
+                print("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
+                result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
+                print("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit))
+                result = subprocess.run("./place_fastorder.sh {} {} {} {} | jq '.'".format(othercoin, coin, (othercoin_coin_price * (1 + spread)), othercoin_unit), shell=True)
+            elif args.ordertype == "takermaker":
+                print("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit))
+                result = subprocess.run("./place_fastsell.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price * (1 + spread)), coin_unit), shell=True)
+                print("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price / (1 + spread)), coin_unit))
+                result = subprocess.run("./place_fastbuy.sh {} {} {} {} | jq '.'".format(coin, othercoin, (coin_othercoin_price / (1 + spread)), coin_unit), shell=True)
+            else:
+                sys.exit("ERROR: wrong order type: {}".format(args.ordertype))
     
         time.sleep(args.interval)
 
@@ -128,6 +144,9 @@ if __name__ == "__main__":
                         help='refresh interval rate on orders in seconds[default: 180.0]')
     parser.add_argument('--ordersize', nargs='?', type=float, default=0.002,
                         help='size of open orders in fraction of liquidity pool[default: 0.002]')
+    parser.add_argument('--maxconcur', nargs='?', type=int, default=2,
+                        help='maximum concurrent trading allowed, default 2')
+
     args = parser.parse_args()
     
     # running main function

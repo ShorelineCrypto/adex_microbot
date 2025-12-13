@@ -384,6 +384,8 @@ def get_arb_price(row,current_prices):
         adex_other_coin = 'USDC'
     elif 'ARRR' in row['market']:
         adex_other_coin = 'ARRR'
+    elif 'LTC' in row['market']:
+        adex_other_coin = 'LTC'
     else:
         assert True, f"Wrong market in atomicDEX {row['market']}"
     
