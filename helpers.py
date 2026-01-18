@@ -220,8 +220,14 @@ def get_prices():
     ## obtain accurate prices on FIRO from MEXC Exchange
     FIRO_mexc_price = requests.get("https://api.mexc.com/api/v3/avgPrice?symbol=FIROUSDT").json()
     FIRO_USD_price = float(FIRO_mexc_price["price"])
-    if (FIRO_USD_price > 0.0) and (KMD_USD_price < 1000.0):
+    if (FIRO_USD_price > 0.0) and (FIRO_USD_price < 1000.0):
         current_prices["FIRO"]["last_price"] = str(FIRO_USD_price)
+
+    ## obtain accurate prices on ARRR from NonKYC Exchange
+    ARRR_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/ARRR_USDT").json()
+    ARRR_USD_price = float(ARRR_nonkyc_price["lastPrice"])
+    if (ARRR_USD_price > 0.0) and (ARRR_USD_price < 100.0):
+        current_prices["ARRR"]["last_price"] = str(ARRR_USD_price)
 
 
     return current_prices
