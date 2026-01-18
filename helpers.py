@@ -217,6 +217,13 @@ def get_prices():
     if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
         current_prices["KMD"]["last_price"] = str(KMD_USD_price)
 
+    ## obtain accurate prices on FIRO from MEXC Exchange
+    FIRO_mexc_price = requests.get("https://api.mexc.com/api/v3/avgPrice?symbol=FIROUSDT").json()
+    FIRO_USD_price = float(FIRO_mexc_price["price"])
+    if (FIRO_USD_price > 0.0) and (KMD_USD_price < 1000.0):
+        current_prices["FIRO"]["last_price"] = str(FIRO_USD_price)
+
+
     return current_prices
 
 
