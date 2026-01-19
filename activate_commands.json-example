@@ -1747,9 +1747,10 @@
             "method": "enable",
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
-                "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
-                "https://electrum3.cipig.net:18755"
+                "https://polygon.drpc.org",
+                "https://polygon.gateway.tenderly.co",
+                "https://pol3.cipig.net:18755",
+                "https://polygon-bor-rpc.publicnode.com"
             ],
             "userpass": "'$userpass'"
         },
@@ -1771,9 +1772,10 @@
             "method": "enable",
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
-                "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
-                "https://electrum3.cipig.net:18755"
+                "https://polygon.drpc.org",
+                "https://polygon.gateway.tenderly.co",
+                "https://pol3.cipig.net:18755",
+                "https://polygon-bor-rpc.publicnode.com"
             ],
             "userpass": "'$userpass'"
         },
