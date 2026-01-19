@@ -87,7 +87,7 @@ def get_release_assets_info(org, repo):
 
 
 def get_mm2(branch=None):
-    assets = get_release_assets_info("komodoplatform", "komodo-defi-framework")
+    assets = get_release_assets_info("GLEECBTC", "komodo-defi-framework")
     for asset in assets:
         print(asset)
         if OP_SYS.lower() in asset["browser_download_url"].lower():
