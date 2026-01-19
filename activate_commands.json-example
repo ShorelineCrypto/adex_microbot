@@ -7,7 +7,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -18,7 +17,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -29,7 +27,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -40,7 +37,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -51,7 +47,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -62,7 +57,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -73,7 +67,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -84,7 +77,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -95,7 +87,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -106,7 +97,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -117,7 +107,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -128,7 +117,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -139,7 +127,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -150,7 +137,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -161,7 +147,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -172,7 +157,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -183,7 +167,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -194,7 +177,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -205,7 +187,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -216,7 +197,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -227,7 +207,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -238,7 +217,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -249,7 +227,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -260,7 +237,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -271,7 +247,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -282,7 +257,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -293,7 +267,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -304,7 +277,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -315,7 +287,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -326,7 +297,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -337,7 +307,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -348,7 +317,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -359,7 +327,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -370,7 +337,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -381,7 +347,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -392,7 +357,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -403,7 +367,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         }
@@ -416,7 +379,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -428,7 +390,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -440,7 +401,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -452,7 +412,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -464,7 +423,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -476,7 +434,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -488,7 +445,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -500,7 +456,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -512,7 +467,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -524,7 +478,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -536,7 +489,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -548,7 +500,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -560,7 +511,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -572,7 +522,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -584,7 +533,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -596,7 +544,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -608,7 +555,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -620,7 +566,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -632,7 +577,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -644,7 +588,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -656,7 +599,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -668,7 +610,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -680,7 +621,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -692,7 +632,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -704,7 +643,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -716,7 +654,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -728,7 +665,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -740,7 +676,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -752,7 +687,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -764,7 +698,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -776,7 +709,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -788,7 +720,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -800,7 +731,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -812,7 +742,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -824,7 +753,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -836,7 +764,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -848,7 +775,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -860,7 +786,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -872,7 +797,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -884,7 +808,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -896,7 +819,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -908,7 +830,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -920,7 +841,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -932,7 +852,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -944,7 +863,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -956,7 +874,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -968,7 +885,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -980,7 +896,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -992,7 +907,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1004,7 +918,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1016,7 +929,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1028,7 +940,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1040,7 +951,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1052,7 +962,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1064,7 +973,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1076,7 +984,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1088,7 +995,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1100,7 +1006,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1112,7 +1017,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1124,7 +1028,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1136,7 +1039,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1148,7 +1050,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1160,7 +1061,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1172,7 +1072,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1184,7 +1083,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1196,7 +1094,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1208,7 +1105,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1220,7 +1116,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1232,7 +1127,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1244,7 +1138,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1256,7 +1149,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1268,7 +1160,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1280,7 +1171,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1292,7 +1182,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1304,7 +1193,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1316,7 +1204,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1328,7 +1215,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1340,7 +1226,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1352,7 +1237,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1364,7 +1248,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1376,7 +1259,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1388,7 +1270,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1400,7 +1281,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1412,7 +1292,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1424,7 +1303,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1436,7 +1314,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1448,7 +1325,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1460,7 +1336,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1472,7 +1347,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1484,7 +1358,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1496,7 +1369,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1508,7 +1380,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1520,7 +1391,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1532,7 +1402,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1544,7 +1413,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1556,7 +1424,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1568,7 +1435,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1580,7 +1446,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1592,7 +1457,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1604,7 +1468,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1616,7 +1479,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1628,7 +1490,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1640,7 +1501,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1652,7 +1512,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1664,7 +1523,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1676,7 +1534,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1688,7 +1545,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1700,7 +1556,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1712,7 +1567,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1724,7 +1578,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1736,7 +1589,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1748,7 +1600,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1760,7 +1611,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1772,7 +1622,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1784,7 +1633,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1796,7 +1644,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1808,7 +1655,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1820,7 +1666,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1832,7 +1677,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1844,7 +1688,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1856,7 +1699,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1868,7 +1710,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -1884,7 +1725,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1897,7 +1737,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1910,7 +1749,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1923,7 +1761,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1936,7 +1773,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1949,7 +1785,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1962,7 +1797,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1975,7 +1809,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -1988,7 +1821,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2001,7 +1833,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2014,7 +1845,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2027,7 +1857,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2040,7 +1869,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2053,7 +1881,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2066,7 +1893,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2079,7 +1905,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2092,7 +1917,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2105,7 +1929,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2118,7 +1941,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2131,7 +1953,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2144,7 +1965,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2157,7 +1977,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2170,7 +1989,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2183,7 +2001,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2196,7 +2013,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2209,7 +2025,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2222,7 +2037,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2235,7 +2049,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2248,7 +2061,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2261,7 +2073,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2274,7 +2085,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2287,7 +2097,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2300,7 +2109,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2313,7 +2121,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2326,7 +2133,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2339,7 +2145,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2352,7 +2157,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2365,7 +2169,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2378,7 +2181,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2391,7 +2193,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2404,7 +2205,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2417,7 +2217,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2430,7 +2229,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2443,7 +2241,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2456,7 +2253,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2469,7 +2265,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2482,7 +2277,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2495,7 +2289,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2508,7 +2301,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2521,7 +2313,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2534,7 +2325,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2547,7 +2337,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2560,7 +2349,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2573,7 +2361,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2586,7 +2373,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2599,7 +2385,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2612,7 +2397,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2625,7 +2409,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2638,7 +2421,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2651,7 +2433,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2664,7 +2445,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2677,7 +2457,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2690,7 +2469,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2703,7 +2481,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2716,7 +2493,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2729,7 +2505,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2742,7 +2517,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2755,7 +2529,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2768,7 +2541,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2781,7 +2553,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2794,7 +2565,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2807,7 +2577,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2820,7 +2589,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2833,7 +2601,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2846,7 +2613,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2859,7 +2625,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2872,7 +2637,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2885,7 +2649,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2898,7 +2661,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2911,7 +2673,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2924,7 +2685,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2937,7 +2697,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2950,7 +2709,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2963,7 +2721,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2976,7 +2733,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -2989,7 +2745,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3002,7 +2757,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3015,7 +2769,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3028,7 +2781,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3041,7 +2793,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3054,7 +2805,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3067,7 +2817,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3080,7 +2829,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3093,7 +2841,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3106,7 +2853,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3119,7 +2865,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3132,7 +2877,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3145,7 +2889,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3158,7 +2901,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3171,7 +2913,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3184,7 +2925,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3197,7 +2937,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3210,7 +2949,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3223,7 +2961,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3236,7 +2973,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3249,7 +2985,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3262,7 +2997,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3275,7 +3009,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3288,7 +3021,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3301,7 +3033,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3314,7 +3045,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3327,7 +3057,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3340,7 +3069,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3353,7 +3081,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3366,7 +3093,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3379,7 +3105,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3392,7 +3117,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3405,7 +3129,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3418,7 +3141,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3431,7 +3153,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3444,7 +3165,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3457,7 +3177,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3470,7 +3189,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3483,7 +3201,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3496,7 +3213,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3509,7 +3225,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3522,7 +3237,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3535,7 +3249,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3548,7 +3261,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3561,7 +3273,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3574,7 +3285,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3587,7 +3297,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3600,7 +3309,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3613,7 +3321,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3626,7 +3333,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3639,7 +3345,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3652,7 +3357,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3665,7 +3369,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3678,7 +3381,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3691,7 +3393,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3704,7 +3405,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3717,7 +3417,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3730,7 +3429,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3743,7 +3441,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3756,7 +3453,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3769,7 +3465,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3782,7 +3477,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3795,7 +3489,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3808,7 +3501,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3821,7 +3513,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3834,7 +3525,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3847,7 +3537,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3860,7 +3549,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3873,7 +3561,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3886,7 +3573,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3899,7 +3585,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3912,7 +3597,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3925,7 +3609,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3938,7 +3621,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3951,7 +3633,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3964,7 +3645,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3977,7 +3657,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -3990,7 +3669,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -4003,7 +3681,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -4016,7 +3693,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         }
@@ -4032,7 +3708,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4046,7 +3721,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4060,7 +3734,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4074,7 +3747,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4088,7 +3760,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4102,7 +3773,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4116,7 +3786,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4130,7 +3799,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4144,7 +3812,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4158,7 +3825,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4172,7 +3838,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4186,7 +3851,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4200,7 +3864,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4214,7 +3877,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4228,7 +3890,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4242,7 +3903,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4256,7 +3916,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4270,7 +3929,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4284,7 +3942,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4298,7 +3955,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4312,7 +3968,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4326,7 +3981,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4340,7 +3994,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4354,7 +4007,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4368,7 +4020,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4382,7 +4033,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4396,7 +4046,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4410,7 +4059,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4424,7 +4072,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4438,7 +4085,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4452,7 +4098,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4466,7 +4111,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4480,7 +4124,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4494,7 +4137,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4508,7 +4150,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4522,7 +4163,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4536,7 +4176,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4550,7 +4189,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4564,7 +4202,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4578,7 +4215,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4592,7 +4228,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4606,7 +4241,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4620,7 +4254,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4634,7 +4267,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4648,7 +4280,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4662,7 +4293,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4676,7 +4306,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4690,7 +4319,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4704,7 +4332,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4718,7 +4345,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4732,7 +4358,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4746,7 +4371,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4760,7 +4384,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4774,7 +4397,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4788,7 +4410,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4802,7 +4423,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4816,7 +4436,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4830,7 +4449,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4844,7 +4462,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4858,7 +4475,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4872,7 +4488,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4886,7 +4501,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4900,7 +4514,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4914,7 +4527,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4928,7 +4540,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4942,7 +4553,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4956,7 +4566,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4970,7 +4579,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4984,7 +4592,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -4998,7 +4605,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5012,7 +4618,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5026,7 +4631,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5040,7 +4644,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5054,7 +4657,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5068,7 +4670,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5082,7 +4683,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5096,7 +4696,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5110,7 +4709,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5124,7 +4722,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5138,7 +4735,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5152,7 +4748,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5166,7 +4761,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5180,7 +4774,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5194,7 +4787,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5208,7 +4800,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5222,7 +4813,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5236,7 +4826,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5250,7 +4839,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5264,7 +4852,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5278,7 +4865,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5292,7 +4878,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5306,7 +4891,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5320,7 +4904,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5334,7 +4917,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5348,7 +4930,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5362,7 +4943,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5376,7 +4956,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5390,7 +4969,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5404,7 +4982,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5418,7 +4995,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5432,7 +5008,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5446,7 +5021,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5460,7 +5034,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5474,7 +5047,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5488,7 +5060,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5502,7 +5073,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5516,7 +5086,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5530,7 +5099,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5544,7 +5112,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5558,7 +5125,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5572,7 +5138,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5586,7 +5151,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5600,7 +5164,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5614,7 +5177,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5628,7 +5190,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5642,7 +5203,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5656,7 +5216,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5670,7 +5229,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5684,7 +5242,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5698,7 +5255,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5712,7 +5268,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5726,7 +5281,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5740,7 +5294,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5754,7 +5307,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5768,7 +5320,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5782,7 +5333,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5796,7 +5346,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5810,7 +5359,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5824,7 +5372,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5838,7 +5385,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5852,7 +5398,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5866,7 +5411,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5880,7 +5424,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5894,7 +5437,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5908,7 +5450,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5922,7 +5463,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5936,7 +5476,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5950,7 +5489,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5964,7 +5502,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5978,7 +5515,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -5992,7 +5528,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6006,7 +5541,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6020,7 +5554,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6034,7 +5567,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6048,7 +5580,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6062,7 +5593,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6076,7 +5606,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6090,7 +5619,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6104,7 +5632,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6118,7 +5645,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6132,7 +5658,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6146,7 +5671,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6160,7 +5684,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6174,7 +5697,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6188,7 +5710,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6202,7 +5723,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6216,7 +5736,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6230,7 +5749,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6244,7 +5762,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6258,7 +5775,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6272,7 +5788,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6286,7 +5801,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6300,7 +5814,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6314,7 +5827,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6328,7 +5840,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -6342,7 +5853,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         }
@@ -6677,7 +6187,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6689,7 +6198,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6701,7 +6209,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6713,7 +6220,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6725,7 +6231,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6737,7 +6242,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6749,7 +6253,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6761,7 +6264,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6773,7 +6275,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6785,7 +6286,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6797,7 +6297,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6809,7 +6308,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6821,7 +6319,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6833,7 +6330,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6845,7 +6341,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6857,7 +6352,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6869,7 +6363,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -6881,7 +6374,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         }
@@ -16465,7 +15957,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16477,7 +15968,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16489,7 +15979,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16501,7 +15990,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16513,7 +16001,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16525,7 +16012,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16537,7 +16023,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16549,7 +16034,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16561,7 +16045,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16573,7 +16056,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16585,7 +16067,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16597,7 +16078,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         }
@@ -16610,7 +16090,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax-test.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avaxt"
             ],
             "userpass": "'$userpass'"
         },
@@ -16621,7 +16100,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://api.avax.network/ext/bc/C/rpc",
-                "https://block-proxy.komodo.earth/rpc/avax"
             ],
             "userpass": "'$userpass'"
         },
@@ -16634,7 +16112,6 @@
                 "https://bsc1.cipig.net:18655",
                 "https://bsc2.cipig.net:18655",
                 "https://bsc3.cipig.net:18655",
-                "https://block-proxy.komodo.earth/rpc/bnb"
             ],
             "userpass": "'$userpass'"
         },
@@ -16655,7 +16132,6 @@
             "swap_contract_address": "0xcCD17C913aD7b772755Ad4F0BDFF7B34C6339150",
             "urls": [
                 "https://data-seed-prebsc-1-s2.binance.org:8545",
-                "https://block-proxy.komodo.earth/rpc/bnbt"
             ],
             "userpass": "'$userpass'"
         },
@@ -16681,7 +16157,6 @@
                 "https://eth1.cipig.net:18555",
                 "https://eth2.cipig.net:18555",
                 "https://eth3.cipig.net:18555",
-                "https://block-proxy.komodo.earth/rpc/eth"
             ],
             "userpass": "'$userpass'"
         },
@@ -16693,7 +16168,6 @@
             "urls": [
                 "https://arb1.arbitrum.io/rpc",
                 "https://arbitrum-one.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/arb/"
             ],
             "userpass": "'$userpass'"
         },
@@ -16725,7 +16199,6 @@
             "urls": [
                 "https://fantom.drpc.org",
                 "https://fantom-rpc.publicnode.com",
-                "https://block-proxy.komodo.earth/rpc/ftm"
             ],
             "userpass": "'$userpass'"
         },
@@ -16769,7 +16242,6 @@
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "urls": [
                 "https://polygon-rpc.com",
-                "https://block-proxy.komodo.earth/rpc/matic",
                 "https://electrum3.cipig.net:18755"
             ],
             "userpass": "'$userpass'"
@@ -19098,7 +18570,6 @@
             "mmrpc": "2.0",
             "params": {
                 "rpc_urls": [
-                    "https://cosmos-rpc.alpha.komodo.earth/",
                     "https://cosmoshub.rpc.stakin-nodes.com/"
                 ],
                 "ticker": "ATOM",
@@ -19111,7 +18582,6 @@
             "mmrpc": "2.0",
             "params": {
                 "rpc_urls": [
-                    "https://iris-rpc.alpha.komodo.earth/",
                     "https://rpc.irishub-1.irisnet.org"
                 ],
                 "ticker": "IRIS",
@@ -19127,7 +18597,6 @@
                     "https://rpc.osmosis.zone/",
                     "https://osmosis.rpc.stakin-nodes.com",
                     "https://rpc-osmosis-ia.cosmosia.notional.ventures/",
-                    "https://osmosis-rpc.alpha.komodo.earth/"
                 ],
                 "ticker": "OSMO",
                 "tokens_params": []
@@ -19139,7 +18608,6 @@
             "mmrpc": "2.0",
             "params": {
                 "rpc_urls": [
-                    "https://iristest-rpc.bravo.komodo.earth/"
                 ],
                 "ticker": "IRISTEST",
                 "tokens_params": []
@@ -19151,10 +18619,6 @@
             "mmrpc": "2.0",
             "params": {
                 "rpc_urls": [
-                    "https://nucleus-rpc.alpha.komodo.earth/",
-                    "https://nucleus-rpc.bravo.komodo.earth/",
-                    "https://nucleus-rpc.charlie.komodo.earth/",
-                    "https://nucleus-rpc.delta.komodo.earth/"
                 ],
                 "ticker": "NUCLEUSTEST",
                 "tokens_params": []
