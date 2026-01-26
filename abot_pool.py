@@ -53,6 +53,29 @@ def main(args):
     ## start ARRR/DGB/KMD pair on new MM2 scripts, mmtool not used
     os.chdir('/root/atomicDEX-API/target/debug')
     print("path changed to /root/atomicDEX-API/target/debug")
+
+    # Private Chain FIRO pair
+    NENG_FIRO_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["FIRO"]["last_price"])
+    FIRO_NENG_price = float(current_prices["FIRO"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    print(" NENG/FIRO mkt price: {}\t FIRO/NENG mkt price: {}".format(str(NENG_FIRO_price), str(FIRO_NENG_price)))
+    CHTA_FIRO_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["FIRO"]["last_price"])
+    FIRO_CHTA_price = float(current_prices["FIRO"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print(" CHTA/FIRO mkt price: {}\t FIRO/CHTA mkt price: {}".format(str(CHTA_FIRO_price), str(FIRO_CHTA_price)))
+    FIRO_unit = round((USD_unit / float(current_prices["FIRO"]["last_price"])), 8)
+    # main coin pair FIRO with CHTA NENG
+    for i in range(1, 4):
+        spread = base_spread * i
+        print("./place_fastbuy.sh CHTA FIRO {} {} | jq '.'".format((CHTA_FIRO_price / (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("./place_fastbuy.sh CHTA FIRO {} {} | jq '.'".format((CHTA_FIRO_price / (1 + spread)), (CHTA_unit * i)), shell=True)
+        print("./place_fastsell.sh CHTA FIRO {} {} | jq '.'".format((CHTA_FIRO_price * (1 + spread)), (CHTA_unit * i)))
+        result = subprocess.run("./place_fastsell.sh CHTA FIRO {} {} | jq '.'".format((CHTA_FIRO_price * (1 + spread)), (CHTA_unit * i)), shell=True)
+
+        print("./place_fastbuy.sh NENG FIRO {} {} | jq '.'".format((NENG_FIRO_price / (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("./place_fastbuy.sh NENG FIRO {} {} | jq '.'".format((NENG_FIRO_price / (1 + spread)), (NENG_unit * i)), shell=True)
+        print("./place_fastsell.sh NENG FIRO {} {} | jq '.'".format((NENG_FIRO_price * (1 + spread)), (NENG_unit * i)))
+        result = subprocess.run("./place_fastsell.sh NENG FIRO {} {} | jq '.'".format((NENG_FIRO_price * (1 + spread)), (NENG_unit * i)), shell=True)
+
+
   
     # Private Chain ARRR pair
     if args.ARRR:
@@ -75,7 +98,7 @@ def main(args):
             result = subprocess.run("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit), shell=True)
             print("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit))
             result = subprocess.run("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit), shell=True)
-
+    
    
     # rest of pairs with CHTA NENG
     NENG_KMD_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["KMD"]["last_price"])
