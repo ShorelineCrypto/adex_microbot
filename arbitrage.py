@@ -49,7 +49,15 @@ def main(args):
     LTC_CHTA_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/LTC mkt price: {}\t LTC/CHTA mkt price: {}".format(str(CHTA_LTC_price), str(LTC_CHTA_price)))
 
-
+    # Private Chain FIRO pair
+    NENG_FIRO_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["FIRO"]["last_price"])
+    FIRO_NENG_price = float(current_prices["FIRO"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    print(" NENG/FIRO mkt price: {}\t FIRO/NENG mkt price: {}".format(str(NENG_FIRO_price), str(FIRO_NENG_price)))
+    CHTA_FIRO_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["FIRO"]["last_price"])
+    FIRO_CHTA_price = float(current_prices["FIRO"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+    print(" CHTA/FIRO mkt price: {}\t FIRO/CHTA mkt price: {}".format(str(CHTA_FIRO_price), str(FIRO_CHTA_price)))
+    FIRO_unit = round((USD_unit / float(current_prices["FIRO"]["last_price"])), 8)
+        
     # Private Chain ARRR pair
     if args.ARRR:
         NENG_ARRR_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["ARRR"]["last_price"])
@@ -96,6 +104,16 @@ def main(args):
     ## setprice in place_order.sh is sell always
     for j in range(1, 2):
         spread = base_spread * j
+        
+        print("./place_order.sh CHTA FIRO {} {} | jq '.'".format((CHTA_FIRO_price * (1 + spread)), CHTA_unit))
+        result = subprocess.run("./place_order.sh CHTA FIRO {} {} | jq '.'".format((CHTA_FIRO_price * (1 + spread)), CHTA_unit), shell=True)
+        print("./place_order.sh FIRO CHTA {} {} | jq '.'".format((FIRO_CHTA_price * (1 + spread)), FIRO_unit))
+        result = subprocess.run("./place_order.sh FIRO CHTA {} {} | jq '.'".format((FIRO_CHTA_price * (1 + spread)), FIRO_unit), shell=True)
+
+        print("./place_order.sh NENG FIRO {} {} | jq '.'".format((NENG_FIRO_price * (1 + spread)), NENG_unit))
+        result = subprocess.run("./place_order.sh NENG FIRO {} {} | jq '.'".format((NENG_FIRO_price * (1 + spread)), NENG_unit), shell=True)
+        print("./place_order.sh FIRO NENG {} {} | jq '.'".format((FIRO_NENG_price * (1 + spread)), FIRO_unit))
+        result = subprocess.run("./place_order.sh FIRO NENG {} {} | jq '.'".format((FIRO_NENG_price * (1 + spread)), FIRO_unit), shell=True)
         
         print("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit))
         result = subprocess.run("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit), shell=True)
@@ -386,6 +404,8 @@ def get_arb_price(row,current_prices):
         adex_other_coin = 'ARRR'
     elif 'LTC' in row['market']:
         adex_other_coin = 'LTC'
+    elif 'FIRO' in row['market']:
+        adex_other_coin = 'FIRO'
     else:
         assert True, f"Wrong market in atomicDEX {row['market']}"
     
