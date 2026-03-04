@@ -212,8 +212,8 @@ def get_prices():
     NENG_USD_price = float(NENG_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
     current_prices["NENG"]["last_price"] = str(NENG_USD_price)
     ## obtain accurate prices on KMD from freiexchange
-    KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/ticker/KMD").json()
-    KMD_USD_price = float(KMD_freiexchange_price["KMD_BTC"][0]["highestBuy"]) * float(current_prices["BTC"]["last_price"]) * 0.978
+    KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
+    KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
     if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
         current_prices["KMD"]["last_price"] = str(KMD_USD_price)
 
