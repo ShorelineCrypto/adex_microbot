@@ -203,7 +203,7 @@ def get_prices():
     ## obtain accurate prices on CHTA from nonKYC.io
     CHTA_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=CHTA_DOGE").json()
     CHTA_DOGE_price = float(CHTA_nonkyc_price[0]["price"])
-    CHTA_USD_price = float(CHTA_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
+    CHTA_USD_price = CHTA_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
     ## no NENG in current komodo price json, fill in
     current_prices["NENG"] = current_prices["CHTA"].copy()
@@ -211,7 +211,7 @@ def get_prices():
     ## obtain accurate prices on NENG from nonKYC.io
     NENG_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=NENG_DOGE").json()
     NENG_DOGE_price = float(NENG_nonkyc_price[0]["price"])
-    NENG_USD_price = float(NENG_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
+    NENG_USD_price = NENG_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["NENG"]["last_price"] = str(NENG_USD_price)
     ## obtain accurate prices on KMD from freiexchange
     KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
