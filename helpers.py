@@ -200,14 +200,19 @@ def get_prices():
         except Exception as e:
             print(f"Price service at {i} is not responding!")
 
+    ## no CHTA in current komodo price json, fill in
+    if current_prices["CHTA"] is None:
+        current_prices["CHTA"] = current_prices["KMD"].copy()
+        current_prices["CHTA"]["ticker"] = "CHTA"
     ## obtain accurate prices on CHTA from nonKYC.io
     CHTA_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=CHTA_DOGE").json()
     CHTA_DOGE_price = float(CHTA_nonkyc_price[0]["price"])
     CHTA_USD_price = CHTA_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
     ## no NENG in current komodo price json, fill in
-    current_prices["NENG"] = current_prices["CHTA"].copy()
-    current_prices["NENG"]["ticker"] = "NENG"
+    if current_prices["NENG"] is None:
+        current_prices["NENG"] = current_prices["KMD"].copy()
+        current_prices["NENG"]["ticker"] = "NENG"
     ## obtain accurate prices on NENG from nonKYC.io
     NENG_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=NENG_DOGE").json()
     NENG_DOGE_price = float(NENG_nonkyc_price[0]["price"])
