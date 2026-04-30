@@ -201,7 +201,7 @@ def get_prices():
             print(f"Price service at {i} is not responding!")
 
     ## no CHTA in current komodo price json, fill in
-    if current_prices["CHTA"] is None:
+    if "CHTA" not in current_prices.keys():
         current_prices["CHTA"] = current_prices["KMD"].copy()
         current_prices["CHTA"]["ticker"] = "CHTA"
     ## obtain accurate prices on CHTA from nonKYC.io
@@ -210,7 +210,7 @@ def get_prices():
     CHTA_USD_price = CHTA_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
     ## no NENG in current komodo price json, fill in
-    if current_prices["NENG"] is None:
+    if "NENG" not in current_prices.keys():
         current_prices["NENG"] = current_prices["KMD"].copy()
         current_prices["NENG"]["ticker"] = "NENG"
     ## obtain accurate prices on NENG from nonKYC.io
