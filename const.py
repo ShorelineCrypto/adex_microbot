@@ -79,7 +79,7 @@ except:
 
 # Update coins file on launch
 COINS_FILE = f"{SCRIPT_PATH}/coins"
-COINS_URL = "https://raw.githubusercontent.com/GLEECBTC/coins/master/coins"
+COINS_URL = "https://raw.githubusercontent.com/ShorelineCrypto/coins/master/coins"
 try:
     print("Updating coins file...")
     coins = requests.get(COINS_URL, timeout=5).json()

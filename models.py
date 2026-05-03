@@ -1094,7 +1094,7 @@ class Config:
                 )
                 if category == "tickers":
                     error_print(
-                        "The valid tickers can be found at https://github.com/GLEECBTC/coins/blob/master/utils/coins_config.json"
+                        "The valid tickers can be found at https://github.com/ShorelineCrypto/coins/blob/master/utils/coins_config.json"
                     )
             except IndexError:
                 error_print("You must select two or more tickers, try again")
