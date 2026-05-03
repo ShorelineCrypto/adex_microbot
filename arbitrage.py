@@ -170,6 +170,16 @@ def main(args):
             result = subprocess.run("./place_fastorder.sh NENG ARRR {} {} | jq '.'".format((NENG_ARRR_price * (1 + spread)), NENG_unit), shell=True)
             print("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit))
             result = subprocess.run("./place_fastorder.sh ARRR NENG {} {} | jq '.'".format((ARRR_NENG_price * (1 + spread)), ARRR_unit), shell=True)
+        if args.WNENG:
+            print("./place_order.sh NENG-BEP20 USDT-BEP20 {} {} | jq '.'".format((NENG_USDT_price * (1 + 0.2)), NENG_unit))
+            result = subprocess.run("./place_order.sh NENG-BEP20 USDT-BEP20 {} {} | jq '.'".format((NENG_USDT_price * (1 + 0.2)), NENG_unit), shell=True)
+            print("./place_order.sh USDT-BEP20 NENG-BEP20 {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit))
+            result = subprocess.run("./place_order.sh USDT-BEP20 NENG-BEP20 {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), USDT_unit), shell=True)
+        if args.WCHTA:
+            print("./place_order.sh CHTA-BEP20 USDT-BEP20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + 0.2)), CHTA_unit))
+            result = subprocess.run("./place_order.sh CHTA-BEP20 USDT-BEP20 {} {} | jq '.'".format((CHTA_USDT_price * (1 + 0.2)), CHTA_unit), shell=True)
+            print("./place_order.sh USDT-BEP20 CHTA-BEP20 {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), USDT_unit))
+            result = subprocess.run("./place_order.sh USDT-BEP20 CHTA-BEP20 {} {} | jq '.'".format((USDT_CHTA_price * (1 + spread)), USDT_unit), shell=True)
 
 
     ## print my MM2 recent swaps
@@ -560,6 +570,10 @@ if __name__ == "__main__":
                         help='minimum arbitrage trading at CEX on USD worth, [default: 0.0]')
     parser.add_argument('--ARRR', nargs='?', type=bool, default=False,
                         help='enable Pirate Chain (ARRR) [default: False]')
+    parser.add_argument('--WNENG', nargs='?', type=bool, default=False,
+                        help='enable wrapped nengcoin (NENG-BEP20) [default: False]')
+    parser.add_argument('--WCHTA', nargs='?', type=bool, default=False,
+                        help='enable wrapped cheetahcoin (CHTA-BEP20) [default: False]')
         
     args = parser.parse_args()
     # running main function
