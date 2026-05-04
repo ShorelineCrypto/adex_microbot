@@ -197,7 +197,7 @@ def main(args):
     dbconn = sqlite3.connect(MM2_DB_FILE)
     cursor = dbconn.cursor()
     cursor.row_factory = sqlite3.Row
-    SELECT_SQL = f"SELECT stats_swaps.*, my_orders.type AS type FROM stats_swaps LEFT JOIN my_orders ON stats_swaps.uuid = my_orders.uuid WHERE started_at >= {cutoff_time} AND is_success = 1 AND (maker_coin in ('CHTA', 'NENG') or taker_coin in ('CHTA', 'NENG') )"
+    SELECT_SQL = f"SELECT stats_swaps.*, my_orders.type AS type FROM stats_swaps LEFT JOIN my_orders ON stats_swaps.uuid = my_orders.uuid WHERE started_at >= {cutoff_time} AND is_success = 1 AND (maker_coin in ('CHTA', 'NENG', 'CHTA-BEP20', 'NENG-BEP20') or taker_coin in ('CHTA', 'NENG', 'CHTA-BEP20', 'NENG-BEP20') )"
     print(SELECT_SQL)
     rows = cursor.execute(SELECT_SQL).fetchall()
     dbconn.close()
@@ -517,11 +517,16 @@ def insert_arb_record(conn,row):
               VALUES(?,?,?,?,?,?,?,?,?,?,?) '''
     [market, side, quantity, price] = get_market(row)
     arb_market = "unknown"
-    m1 = re.search(
-            r'^([NENGCHTA]+)\/\S+$', market, re.M)
-    if m1 :
-            arb_market = m1.group(1) + "/DOGE"
-    
+
+    # arbitrage CEX on BEP-20 token WNENG or WCHTA same as their native coin
+    if 'NENG' in market:
+        arb_market = "NENG/DOGE"
+
+    elif 'CHTA' in market:
+        arb_market = "CHTA/DOGE"
+    else:
+        sys.exit("ERROR: not supported market: {}".format(market))
+                
     arb_price = 0
     
     data = (market, side, quantity, price, row['uuid'], row['started_at'],row['finished_at'], arb_market, arb_price,row['maker_pubkey'],row['taker_pubkey'] )
@@ -534,12 +539,15 @@ def get_market(row):
     market = "unknown"
     side = "unknown"
     quantity = 0
-    if row['maker_coin'] == 'NENG' or  row['maker_coin'] == 'CHTA':
+    
+    # arbitrage CEX on BEP-20 token WNENG or WCHTA same as their native coin
+    
+    if row['maker_coin'] == 'NENG' or  row['maker_coin'] == 'CHTA' or row['maker_coin'] == 'NENG-BEP20' or  row['maker_coin'] == 'CHTA-BEP20':
         market =  row['maker_coin'] + "/" + row['taker_coin']
         side = "sell"
         quantity = row['maker_amount']
         price = row['taker_amount'] / row['maker_amount']
-    elif row['taker_coin'] == 'NENG' or  row['taker_coin'] == 'CHTA':
+    elif row['taker_coin'] == 'NENG' or  row['taker_coin'] == 'CHTA' or row['taker_coin'] == 'NENG-BEP20' or  row['taker_coin'] == 'CHTA-BEP20':
         market =  row['taker_coin'] + "/" + row['maker_coin']
         side = "buy"
         quantity = row['taker_amount']
