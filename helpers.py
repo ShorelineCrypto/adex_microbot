@@ -200,20 +200,27 @@ def get_prices():
         except Exception as e:
             print(f"Price service at {i} is not responding!")
 
+    ## no CHTA in current komodo price json, fill in
+    if "CHTA" not in current_prices.keys():
+        current_prices["CHTA"] = current_prices["KMD"].copy()
+        current_prices["CHTA"]["ticker"] = "CHTA"
     ## obtain accurate prices on CHTA from nonKYC.io
-    CHTA_DOGE_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/CHTA_DOGE").json()
-    CHTA_USD_price = float(CHTA_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
+    CHTA_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=CHTA_DOGE").json()
+    CHTA_DOGE_price = float(CHTA_nonkyc_price[0]["price"])
+    CHTA_USD_price = CHTA_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
     ## no NENG in current komodo price json, fill in
-    current_prices["NENG"] = current_prices["CHTA"].copy()
-    current_prices["NENG"]["ticker"] = "NENG"
+    if "NENG" not in current_prices.keys():
+        current_prices["NENG"] = current_prices["KMD"].copy()
+        current_prices["NENG"]["ticker"] = "NENG"
     ## obtain accurate prices on NENG from nonKYC.io
-    NENG_DOGE_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/NENG_DOGE").json()
-    NENG_USD_price = float(NENG_DOGE_price["lastPrice"]) * float(current_prices["DOGE"]["last_price"])
+    NENG_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=NENG_DOGE").json()
+    NENG_DOGE_price = float(NENG_nonkyc_price[0]["price"])
+    NENG_USD_price = NENG_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["NENG"]["last_price"] = str(NENG_USD_price)
     ## obtain accurate prices on KMD from freiexchange
-    KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/ticker/KMD").json()
-    KMD_USD_price = float(KMD_freiexchange_price["KMD_BTC"][0]["highestBuy"]) * float(current_prices["BTC"]["last_price"]) * 0.978
+    KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
+    KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
     if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
         current_prices["KMD"]["last_price"] = str(KMD_USD_price)
 
@@ -224,8 +231,8 @@ def get_prices():
         current_prices["FIRO"]["last_price"] = str(FIRO_USD_price)
 
     ## obtain accurate prices on ARRR from NonKYC Exchange
-    ARRR_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/getbysymbol/ARRR_USDT").json()
-    ARRR_USD_price = float(ARRR_nonkyc_price["lastPrice"])
+    ARRR_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=ARRR_USDT").json()
+    ARRR_USD_price = float(ARRR_nonkyc_price[0]["price"])
     if (ARRR_USD_price > 0.0) and (ARRR_USD_price < 100.0):
         current_prices["ARRR"]["last_price"] = str(ARRR_USD_price)
 
