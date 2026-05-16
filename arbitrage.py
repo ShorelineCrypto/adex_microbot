@@ -48,6 +48,9 @@ def main(args):
     CHTA_LTC_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["LTC"]["last_price"])
     LTC_CHTA_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
     print (" CHTA/LTC mkt price: {}\t LTC/CHTA mkt price: {}".format(str(CHTA_LTC_price), str(LTC_CHTA_price)))
+    NENG_LTC_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["LTC"]["last_price"])
+    LTC_NENG_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+    print (" NENG/LTC mkt price: {}\t LTC/NENG mkt price: {}".format(str(NENG_LTC_price), str(LTC_NENG_price)))
 
     # Private Chain FIRO pair
     NENG_FIRO_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["FIRO"]["last_price"])
@@ -119,7 +122,12 @@ def main(args):
         result = subprocess.run("./place_order.sh CHTA LTC-segwit {} {} | jq '.'".format((CHTA_LTC_price * (1 + spread)), CHTA_unit), shell=True)
         print("./place_order.sh LTC-segwit CHTA {} {} | jq '.'".format((LTC_CHTA_price * (1 + spread)), LTC_unit))
         result = subprocess.run("./place_order.sh LTC-segwit CHTA {} {} | jq '.'".format((LTC_CHTA_price * (1 + spread)), LTC_unit), shell=True)
-    
+
+        print("./place_order.sh NENG LTC-segwit {} {} | jq '.'".format((NENG_LTC_price * (1 + spread)), NENG_unit))
+        result = subprocess.run("./place_order.sh NENG LTC-segwit {} {} | jq '.'".format((NENG_LTC_price * (1 + spread)), NENG_unit), shell=True)
+        print("./place_order.sh LTC-segwit NENG {} {} | jq '.'".format((LTC_NENG_price * (1 + spread)), LTC_unit))
+        result = subprocess.run("./place_order.sh LTC-segwit NENG {} {} | jq '.'".format((LTC_NENG_price * (1 + spread)), LTC_unit), shell=True)
+
         print("./place_order.sh CHTA DGB-segwit {} {} | jq '.'".format((CHTA_DGB_price * (1 + spread)), CHTA_unit))
         result = subprocess.run("./place_order.sh CHTA DGB-segwit {} {} | jq '.'".format((CHTA_DGB_price * (1 + spread)), CHTA_unit), shell=True)
         print("./place_order.sh DGB-segwit CHTA {} {} | jq '.'".format((DGB_CHTA_price * (1 + spread)), DGB_unit))
