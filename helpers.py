@@ -202,7 +202,7 @@ def get_prices():
 
     ## no CHTA in current komodo price json, fill in
     if "CHTA" not in current_prices.keys():
-        current_prices["CHTA"] = current_prices["KMD"].copy()
+        current_prices["CHTA"] = current_prices["DOGE"].copy()
         current_prices["CHTA"]["ticker"] = "CHTA"
     ## obtain accurate prices on CHTA from nonKYC.io
     CHTA_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=CHTA_DOGE").json()
@@ -211,7 +211,7 @@ def get_prices():
     current_prices["CHTA"]["last_price"] = str(CHTA_USD_price)
     ## no NENG in current komodo price json, fill in
     if "NENG" not in current_prices.keys():
-        current_prices["NENG"] = current_prices["KMD"].copy()
+        current_prices["NENG"] = current_prices["DOGE"].copy()
         current_prices["NENG"]["ticker"] = "NENG"
     ## obtain accurate prices on NENG from nonKYC.io
     NENG_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=NENG_DOGE").json()
