@@ -192,10 +192,10 @@ def main(args):
             result = subprocess.run("./place_order.sh USDT-PLG20 NENG {} {} | jq '.'".format((USDT_NENG_price * (1 + spread)), (USDT_unit * 3)), shell=True)
         
         if args.NENGCHTA_POOL:
-            # NENG/CHTA pool use fixed $10 USD size and 2% spread
+            # NENG/CHTA pool use fixed $10 USD size and 0.05% spread
             # this block of placing order must be at last block of code due to the size/spread change.
             USD_unit = 10.0
-            spread = 0.02
+            spread = 0.0005
             # trading pair USD = $10
             NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
             CHTA_unit = round ((USD_unit / float(current_prices["CHTA"]["last_price"])), 4)
