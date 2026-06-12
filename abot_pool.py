@@ -193,15 +193,15 @@ def main(args):
         if args.NENGCHTA_POOL:
             # NENG/CHTA pool use fixed $10 USD size and 0.05% spread
             # this block of placing order must be at last block of code due to the size/spread change.
-            USD_unit = 10.0
-            spread = 0.0005
+            ncUSD_unit = 10.0
+            ncspread = 0.0005
             # trading pair USD = $10
-            NENG_unit = round ((USD_unit / float(current_prices["NENG"]["last_price"])), 4)
-            CHTA_unit = round ((USD_unit / float(current_prices["CHTA"]["last_price"])), 4)
-            print("./place_order.sh NENG CHTA {} {} | jq '.'".format((NENG_CHTA_price * (1 + spread)), NENG_unit))
-            result = subprocess.run("./place_order.sh NENG CHTA {} {} | jq '.'".format((NENG_CHTA_price * (1 + spread)), NENG_unit), shell=True)
-            print("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit))
-            result = subprocess.run("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit), shell=True)
+            ncNENG_unit = round ((ncUSD_unit / float(current_prices["NENG"]["last_price"])), 4)
+            ncCHTA_unit = round ((ncUSD_unit / float(current_prices["CHTA"]["last_price"])), 4)
+            print("./place_order.sh NENG CHTA {} {} | jq '.'".format((NENG_CHTA_price * (1 + ncspread)), ncNENG_unit))
+            result = subprocess.run("./place_order.sh NENG CHTA {} {} | jq '.'".format((NENG_CHTA_price * (1 + ncspread)), ncNENG_unit), shell=True)
+            print("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + ncspread)), ncCHTA_unit))
+            result = subprocess.run("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + ncspread)), ncCHTA_unit), shell=True)
 
     # Private coin DASH pair
     if args.DASH:
