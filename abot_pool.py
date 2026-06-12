@@ -126,8 +126,7 @@ def main(args):
     LTC_NENG_price = float(current_prices["LTC"]["last_price"]) / float(current_prices["NENG"]["last_price"])
     print (" NENG/LTC mkt price: {}\t LTC/NENG mkt price: {}".format(str(NENG_LTC_price), str(LTC_NENG_price)))
     LTC_unit =  round ((USD_unit / float(current_prices["LTC"]["last_price"])), 8)
-
-
+        
     if args.USDT_POOL:
         # USDT pair in nonKYC exchange is less liquid. Use Doge pair converted price instead as below
         NENG_USDT_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["USDT"]["last_price"])
@@ -204,6 +203,50 @@ def main(args):
             print("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit))
             result = subprocess.run("./place_order.sh CHTA NENG {} {} | jq '.'".format((CHTA_NENG_price * (1 + spread)), CHTA_unit), shell=True)
 
+    # Private coin DASH pair
+    if args.DASH:
+        NENG_DASH_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["DASH"]["last_price"])
+        DASH_NENG_price = float(current_prices["DASH"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+        print(" NENG/DASH mkt price: {}\t DASH/NENG mkt price: {}".format(str(NENG_DASH_price), str(DASH_NENG_price)))
+        CHTA_DASH_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["DASH"]["last_price"])
+        DASH_CHTA_price = float(current_prices["DASH"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+        print(" CHTA/DASH mkt price: {}\t DASH/CHTA mkt price: {}".format(str(CHTA_DASH_price), str(DASH_CHTA_price)))
+        DASH_unit = round((USD_unit / float(current_prices["DASH"]["last_price"])), 8)
+        # main coin pair DASH with CHTA NENG
+        for i in range(1, 2):
+            spread = base_spread * i
+            print("./place_order.sh CHTA DASH {} {} | jq '.'".format((CHTA_DASH_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_order.sh CHTA DASH {} {} | jq '.'".format((CHTA_DASH_price * (1 + spread)), CHTA_unit), shell=True)
+            print("./place_order.sh DASH CHTA {} {} | jq '.'".format((DASH_CHTA_price * (1 + spread)), DASH_unit))
+            result = subprocess.run("./place_order.sh DASH CHTA {} {} | jq '.'".format((DASH_CHTA_price * (1 + spread)), DASH_unit), shell=True)
+
+            print("./place_order.sh NENG DASH {} {} | jq '.'".format((NENG_DASH_price * (1 + spread)), NENG_unit))
+            result = subprocess.run("./place_order.sh NENG DASH {} {} | jq '.'".format((NENG_DASH_price * (1 + spread)), NENG_unit), shell=True)
+            print("./place_order.sh DASH NENG {} {} | jq '.'".format((DASH_NENG_price * (1 + spread)), DASH_unit))
+            result = subprocess.run("./place_order.sh DASH NENG {} {} | jq '.'".format((DASH_NENG_price * (1 + spread)), DASH_unit), shell=True)
+
+    # Private coin PIVX pair
+    if args.PIVX:
+        NENG_PIVX_price = float(current_prices["NENG"]["last_price"]) / float(current_prices["PIVX"]["last_price"])
+        PIVX_NENG_price = float(current_prices["PIVX"]["last_price"]) / float(current_prices["NENG"]["last_price"])
+        print(" NENG/PIVX mkt price: {}\t PIVX/NENG mkt price: {}".format(str(NENG_PIVX_price), str(PIVX_NENG_price)))
+        CHTA_PIVX_price = float(current_prices["CHTA"]["last_price"]) / float(current_prices["PIVX"]["last_price"])
+        PIVX_CHTA_price = float(current_prices["PIVX"]["last_price"]) / float(current_prices["CHTA"]["last_price"])
+        print(" CHTA/PIVX mkt price: {}\t PIVX/CHTA mkt price: {}".format(str(CHTA_PIVX_price), str(PIVX_CHTA_price)))
+        PIVX_unit = round((USD_unit / float(current_prices["PIVX"]["last_price"])), 8)
+        # main coin pair PIVX with CHTA NENG
+        for i in range(1, 2):
+            spread = base_spread * i
+            print("./place_order.sh CHTA PIVX {} {} | jq '.'".format((CHTA_PIVX_price * (1 + spread)), CHTA_unit))
+            result = subprocess.run("./place_order.sh CHTA PIVX {} {} | jq '.'".format((CHTA_PIVX_price * (1 + spread)), CHTA_unit), shell=True)
+            print("./place_order.sh PIVX CHTA {} {} | jq '.'".format((PIVX_CHTA_price * (1 + spread)), PIVX_unit))
+            result = subprocess.run("./place_order.sh PIVX CHTA {} {} | jq '.'".format((PIVX_CHTA_price * (1 + spread)), PIVX_unit), shell=True)
+
+            print("./place_order.sh NENG PIVX {} {} | jq '.'".format((NENG_PIVX_price * (1 + spread)), NENG_unit))
+            result = subprocess.run("./place_order.sh NENG PIVX {} {} | jq '.'".format((NENG_PIVX_price * (1 + spread)), NENG_unit), shell=True)
+            print("./place_order.sh PIVX NENG {} {} | jq '.'".format((PIVX_NENG_price * (1 + spread)), PIVX_unit))
+            result = subprocess.run("./place_order.sh PIVX NENG {} {} | jq '.'".format((PIVX_NENG_price * (1 + spread)), PIVX_unit), shell=True)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -217,6 +260,11 @@ if __name__ == "__main__":
                         help='enable NENG-CHTA pool [default: False]')
     parser.add_argument('--ARRR', nargs='?', type=bool, default=False,
                         help='enable Pirate Chain (ARRR) [default: False]')
+    parser.add_argument('--DASH', nargs='?', type=bool, default=False,
+                        help='enable DASH [default: False]')
+    parser.add_argument('--PIVX', nargs='?', type=bool, default=False,
+                        help='enable PIVX [default: False]')
+    
     args = parser.parse_args()
     # running main function
     main(args)
