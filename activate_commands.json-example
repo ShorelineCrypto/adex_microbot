@@ -7181,7 +7181,7 @@
                         "rpc_data": {
                             "electrum_servers": [
                                 {
-                                    "url": "electrum1.cipig.net:10008",
+                                    "url": "arrr.electrum1.cipig.net:10008",
                                     "contact": [
                                         {
                                             "email": "cipi@komodoplatform.com"
@@ -7193,7 +7193,7 @@
                                     "protocol": "TCP"
                                 },
                                 {
-                                    "url": "electrum2.cipig.net:10008",
+                                    "url": "arrr.electrum2.cipig.net:10008",
                                     "contact": [
                                         {
                                             "email": "cipi@komodoplatform.com"
@@ -7205,7 +7205,7 @@
                                     "protocol": "TCP"
                                 },
                                 {
-                                    "url": "electrum3.cipig.net:10008",
+                                    "url": "arrr.electrum3.cipig.net:10008",
                                     "contact": [
                                         {
                                             "email": "cipi@komodoplatform.com"
@@ -7217,7 +7217,7 @@
                                     "protocol": "TCP"
                                 },
                                 {
-                                    "url": "electrum1.cipig.net:20008",
+                                    "url": "arrr.electrum1.cipig.net:20008",
                                     "protocol": "SSL",
                                     "contact": [
                                         {
@@ -7229,7 +7229,7 @@
                                     ]
                                 },
                                 {
-                                    "url": "electrum2.cipig.net:20008",
+                                    "url": "arrr.electrum2.cipig.net:20008",
                                     "protocol": "SSL",
                                     "contact": [
                                         {
@@ -7241,7 +7241,7 @@
                                     ]
                                 },
                                 {
-                                    "url": "electrum3.cipig.net:20008",
+                                    "url": "arrr.electrum3.cipig.net:20008",
                                     "protocol": "SSL",
                                     "contact": [
                                         {
@@ -7253,7 +7253,7 @@
                                     ]
                                 },
                                 {
-                                    "url": "electrum1.cipig.net:30008",
+                                    "url": "arrr.electrum1.cipig.net:30008",
                                     "protocol": "WSS",
                                     "contact": [
                                         {
@@ -7265,7 +7265,7 @@
                                     ]
                                 },
                                 {
-                                    "url": "electrum2.cipig.net:30008",
+                                    "url": "arrr.electrum2.cipig.net:30008",
                                     "protocol": "WSS",
                                     "contact": [
                                         {
@@ -7277,7 +7277,7 @@
                                     ]
                                 },
                                 {
-                                    "url": "electrum3.cipig.net:30008",
+                                    "url": "arrr.electrum3.cipig.net:30008",
                                     "protocol": "WSS",
                                     "contact": [
                                         {
@@ -7290,7 +7290,6 @@
                                 }
                             ],
                             "light_wallet_d_servers": [
-                                "https://pirate.spyglass.quest:9447",
                                 "https://lightd1.pirate.black:443",
                                 "https://piratelightd1.cryptoforge.cc:443",
                                 "https://piratelightd2.cryptoforge.cc:443",
