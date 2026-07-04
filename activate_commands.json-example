@@ -11744,6 +11744,25 @@
             ],
             "userpass": "'$userpass'"
         },
+        "KMDCL": {
+            "coin": "KMDCL",
+            "method": "electrum",
+            "servers": [
+                {
+                    "url": "electrum.kmdclassic.com:50001",
+                    "protocol": "TCP"
+                },
+                {
+                    "url": "electrum.kmdclassic.com:50002",
+                    "protocol": "SSL"
+                },
+                {
+                    "url": "electrum.kmdclassic.com:50004",
+                    "protocol": "WSS"
+                }
+            ],
+            "userpass": "'$userpass'"
+        },
         "KOIN": {
             "coin": "KOIN",
             "method": "electrum",
