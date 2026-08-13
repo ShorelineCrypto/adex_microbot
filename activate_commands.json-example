@@ -12057,7 +12057,7 @@
             "method": "electrum",
             "servers": [
                 {
-                    "url": "electrum1.cipig.net:10063",
+                    "url": "ltc.electrum1.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12069,7 +12069,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum2.cipig.net:10063",
+                    "url": "ltc.electrum2.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12081,7 +12081,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum3.cipig.net:10063",
+                    "url": "ltc.electrum3.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12093,7 +12093,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum1.cipig.net:20063",
+                    "url": "ltc.electrum1.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12105,7 +12105,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:20063",
+                    "url": "ltc.electrum2.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12117,7 +12117,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:20063",
+                    "url": "ltc.electrum3.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12129,7 +12129,7 @@
                     ]
                 },
                 {
-                    "url": "electrum1.cipig.net:30063",
+                    "url": "ltc.electrum1.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12141,7 +12141,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:30063",
+                    "url": "ltc.electrum2.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12153,7 +12153,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:30063",
+                    "url": "ltc.electrum3.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12172,7 +12172,7 @@
             "method": "electrum",
             "servers": [
                 {
-                    "url": "electrum1.cipig.net:10063",
+                    "url": "ltc.electrum1.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12184,7 +12184,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum2.cipig.net:10063",
+                    "url": "ltc.electrum2.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12196,7 +12196,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum3.cipig.net:10063",
+                    "url": "ltc.electrum3.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12208,7 +12208,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum1.cipig.net:20063",
+                    "url": "ltc.electrum1.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12220,7 +12220,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:20063",
+                    "url": "ltc.electrum2.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12232,7 +12232,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:20063",
+                    "url": "ltc.electrum3.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12244,7 +12244,7 @@
                     ]
                 },
                 {
-                    "url": "electrum1.cipig.net:30063",
+                    "url": "ltc.electrum1.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12256,7 +12256,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:30063",
+                    "url": "ltc.electrum2.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12268,7 +12268,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:30063",
+                    "url": "ltc.electrum3.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
