@@ -219,10 +219,13 @@ def get_prices():
     NENG_USD_price = NENG_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["NENG"]["last_price"] = str(NENG_USD_price)
     ## obtain accurate prices on KMD from freiexchange
-    KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
-    KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
-    if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
-        current_prices["KMD"]["last_price"] = str(KMD_USD_price)
+    try:
+        KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
+        KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
+        if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
+            current_prices["KMD"]["last_price"] = str(KMD_USD_price)
+    except ValueError:
+        print("Warning: https://api.freiexchange.com/public/orderbook/KMD/BTC offline")
 
     ## obtain accurate prices on FIRO from MEXC Exchange
     FIRO_mexc_price = requests.get("https://api.mexc.com/api/v3/avgPrice?symbol=FIROUSDT").json()
