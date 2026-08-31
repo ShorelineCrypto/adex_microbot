@@ -223,6 +223,7 @@ def get_prices():
         KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
         KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
         if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
+            current_prices["KMD"] = current_prices["DOGE"].copy()
             current_prices["KMD"]["last_price"] = str(KMD_USD_price)
     except ValueError:
         print("Warning: https://api.freiexchange.com/public/orderbook/KMD/BTC offline")
