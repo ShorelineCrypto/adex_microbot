@@ -235,7 +235,8 @@ def get_prices():
             match = re.search(r"buyData = (\[\{.*\}\]);", html_content)
             if match:
                 buydata = match.group(1)
-                KMD_USD_price = float(buydata[0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
+                buyorder = json.loads(buydata)
+                KMD_USD_price = float(buyorder[0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
                 if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
                     current_prices["KMD"] = current_prices["DOGE"].copy()
                     current_prices["KMD"]["last_price"] = str(KMD_USD_price)
