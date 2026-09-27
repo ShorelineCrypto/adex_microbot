@@ -5,6 +5,7 @@ import stat
 import time
 import string
 import random
+import json
 import re
 import requests
 from zipfile import ZipFile
@@ -240,11 +241,13 @@ def get_prices():
                 if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
                     current_prices["KMD"] = current_prices["DOGE"].copy()
                     current_prices["KMD"]["last_price"] = str(KMD_USD_price)
-        
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
-            print("Warning: https://freiexchange.com/market/KMD/BTC")
-        
+            print("Warning: https://freiexchange.com/market/KMD/BTC web offline")
+        else:
+            print(f"Success: KMD price from freiexchange market URL")
+    else:
+        print(f"Success: KMD price from freiexchange Public Api") 
 
     ## obtain accurate prices on FIRO from MEXC Exchange
     FIRO_mexc_price = requests.get("https://api.mexc.com/api/v3/avgPrice?symbol=FIROUSDT").json()
