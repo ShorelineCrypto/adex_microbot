@@ -5,6 +5,7 @@ import stat
 import time
 import string
 import random
+import re
 import requests
 from zipfile import ZipFile
 from const import ACTIVATE_COMMANDS, PRICE_URLS, OP_SYS, SCRIPT_PATH
