@@ -408,7 +408,7 @@
             "userpass": "'$userpass'"
         }
     },
-    "MATIC": {
+    "POL": {
         "ILNF-PLG20": {
             "coin": "ILNF-PLG20",
             "fallback_swap_contract": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
@@ -1863,8 +1863,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "NFT_MATIC": {
-            "coin": "NFT_MATIC",
+        "NFT_POL": {
+            "coin": "NFT_POL",
             "fallback_swap_contract": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "method": "enable",
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
@@ -3112,8 +3112,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "MATIC-BEP20": {
-            "coin": "MATIC-BEP20",
+        "POL-BEP20": {
+            "coin": "POL-BEP20",
             "fallback_swap_contract": "0xeDc5b89Fe1f0382F9E4316069971D90a0951DB31",
             "method": "enable",
             "swap_contract_address": "0xeDc5b89Fe1f0382F9E4316069971D90a0951DB31",
@@ -5172,8 +5172,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "MATIC-ERC20": {
-            "coin": "MATIC-ERC20",
+        "POL-ERC20": {
+            "coin": "POL-ERC20",
             "fallback_swap_contract": "0x8500AFc0bc5214728082163326C2FF0C73f4a871",
             "method": "enable",
             "swap_contract_address": "0x24ABE4c71FC658C91313b6552cd40cD808b3Ea80",
@@ -6515,8 +6515,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "MATIC-KRC20": {
-            "coin": "MATIC-KRC20",
+        "POL-KRC20": {
+            "coin": "POL-KRC20",
             "fallback_swap_contract": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "method": "enable",
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
@@ -6977,8 +6977,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "MATIC-HCO20": {
-            "coin": "MATIC-HCO20",
+        "POL-HCO20": {
+            "coin": "POL-HCO20",
             "fallback_swap_contract": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "method": "enable",
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
@@ -12057,7 +12057,7 @@
             "method": "electrum",
             "servers": [
                 {
-                    "url": "electrum1.cipig.net:10063",
+                    "url": "ltc.electrum1.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12069,7 +12069,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum2.cipig.net:10063",
+                    "url": "ltc.electrum2.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12081,7 +12081,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum3.cipig.net:10063",
+                    "url": "ltc.electrum3.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12093,7 +12093,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum1.cipig.net:20063",
+                    "url": "ltc.electrum1.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12105,7 +12105,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:20063",
+                    "url": "ltc.electrum2.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12117,7 +12117,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:20063",
+                    "url": "ltc.electrum3.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12129,7 +12129,7 @@
                     ]
                 },
                 {
-                    "url": "electrum1.cipig.net:30063",
+                    "url": "ltc.electrum1.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12141,7 +12141,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:30063",
+                    "url": "ltc.electrum2.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12153,7 +12153,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:30063",
+                    "url": "ltc.electrum3.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12172,7 +12172,7 @@
             "method": "electrum",
             "servers": [
                 {
-                    "url": "electrum1.cipig.net:10063",
+                    "url": "ltc.electrum1.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12184,7 +12184,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum2.cipig.net:10063",
+                    "url": "ltc.electrum2.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12196,7 +12196,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum3.cipig.net:10063",
+                    "url": "ltc.electrum3.cipig.net:10063",
                     "contact": [
                         {
                             "email": "cipi@komodoplatform.com"
@@ -12208,7 +12208,7 @@
                     "protocol": "TCP"
                 },
                 {
-                    "url": "electrum1.cipig.net:20063",
+                    "url": "ltc.electrum1.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12220,7 +12220,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:20063",
+                    "url": "ltc.electrum2.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12232,7 +12232,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:20063",
+                    "url": "ltc.electrum3.cipig.net:20063",
                     "protocol": "SSL",
                     "contact": [
                         {
@@ -12244,7 +12244,7 @@
                     ]
                 },
                 {
-                    "url": "electrum1.cipig.net:30063",
+                    "url": "ltc.electrum1.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12256,7 +12256,7 @@
                     ]
                 },
                 {
-                    "url": "electrum2.cipig.net:30063",
+                    "url": "ltc.electrum2.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -12268,7 +12268,7 @@
                     ]
                 },
                 {
-                    "url": "electrum3.cipig.net:30063",
+                    "url": "ltc.electrum3.cipig.net:30063",
                     "protocol": "WSS",
                     "contact": [
                         {
@@ -16771,8 +16771,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "MATICTEST": {
-            "coin": "MATICTEST",
+        "POLTEST": {
+            "coin": "POLTEST",
             "method": "enable",
             "swap_contract_address": "0x73c1Dd989218c3A154C71Fc08Eb55A24Bd2B3A10",
             "urls": [
@@ -16782,8 +16782,8 @@
             ],
             "userpass": "'$userpass'"
         },
-        "MATIC": {
-            "coin": "MATIC",
+        "POL": {
+            "coin": "POL",
             "fallback_swap_contract": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",
             "method": "enable",
             "swap_contract_address": "0x9130b257D37A52E52F21054c4DA3450c72f595CE",

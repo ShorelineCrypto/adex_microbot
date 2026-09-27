@@ -31,11 +31,16 @@ def main(args):
                         "rpc": "Light",
                         "rpc_data": {
                            "electrum_servers":[
-                               { "url": "electrum1.cipig.net:10008"},
-                               { "url": "electrum2.cipig.net:10008"},
-                               { "url": "electrum3.cipig.net:10008"}
+                               { "url": "arrr.electrum1.cipig.net:10008"},
+                               { "url": "arrr.electrum2.cipig.net:10008"},
+                               { "url": "arrr.electrum3.cipig.net:10008"}
                            ],
                             "light_wallet_d_servers": [
+                                "https://lightd1.pirate.black:443",
+                                "https://piratelightd1.cryptoforge.cc:443",
+                                "https://piratelightd2.cryptoforge.cc:443",
+                                "https://piratelightd3.cryptoforge.cc:443",
+                                "https://piratelightd4.cryptoforge.cc:443",
                                 "https://electrum1.cipig.net:9447",
                                 "https://electrum2.cipig.net:9447",
                                 "https://electrum3.cipig.net:9447"],
