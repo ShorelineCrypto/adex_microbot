@@ -87,12 +87,9 @@ try:
         json.dump(coins, f, ensure_ascii=False, indent=4)
 except:
     if os.path.exists(f"{SCRIPT_PATH}/coins"):
-        f"Unable to download {COINS_FILE}, use existing file instead."
-        )
+        print (f"Unable to download {COINS_FILE}, use existing file instead.")
     else:
-        print(
-        f"Unable to load {COINS_FILE}, please check your internet connection, or report this to smk on Discord."
-        )
+        print( f"Unable to load {COINS_FILE}, please check your internet connection, or report this to smk on Discord.")
         sys.exit()
 
 with open(COINS_FILE, "r", encoding="utf-8") as f:
