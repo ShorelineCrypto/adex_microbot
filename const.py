@@ -86,10 +86,11 @@ try:
     with open(COINS_FILE, "w", encoding="utf-8") as f:
         json.dump(coins, f, ensure_ascii=False, indent=4)
 except:
-    print(
-        f"Unable to load {COINS_FILE}, please check your internet connection, or report this to smk on Discord."
-    )
-    sys.exit()
+    if os.path.exists(f"{SCRIPT_PATH}/coins"):
+        print (f"Unable to download {COINS_FILE}, use existing file instead.")
+    else:
+        print( f"Unable to load {COINS_FILE}, please check your internet connection, or report this to smk on Discord.")
+        sys.exit()
 
 with open(COINS_FILE, "r", encoding="utf-8") as f:
     coins_data = json.load(f)
