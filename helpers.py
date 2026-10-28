@@ -255,6 +255,11 @@ def get_prices():
     if (FIRO_USD_price > 0.0) and (FIRO_USD_price < 1000.0):
         current_prices["FIRO"]["last_price"] = str(FIRO_USD_price)
 
+    ## obtain accurate prices on PIVX from nonKYC.io
+    PIVX_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=PIVX_USDT").json()
+    PIVX_USD_price = float(PIVX_nonkyc_price[0]["price"])
+    current_prices["PIVX"]["last_price"] = str(PIVX_USD_price)
+
     ## obtain accurate prices on ARRR from NonKYC Exchange
     ARRR_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=ARRR_USDT").json()
     ARRR_USD_price = float(ARRR_nonkyc_price[0]["price"])
