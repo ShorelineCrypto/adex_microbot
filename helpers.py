@@ -5,6 +5,8 @@ import stat
 import time
 import string
 import random
+import json
+import re
 import requests
 from zipfile import ZipFile
 from const import ACTIVATE_COMMANDS, PRICE_URLS, OP_SYS, SCRIPT_PATH
@@ -219,16 +221,44 @@ def get_prices():
     NENG_USD_price = NENG_DOGE_price * float(current_prices["DOGE"]["last_price"])
     current_prices["NENG"]["last_price"] = str(NENG_USD_price)
     ## obtain accurate prices on KMD from freiexchange
-    KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
-    KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
-    if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
-        current_prices["KMD"]["last_price"] = str(KMD_USD_price)
+    try:
+        KMD_freiexchange_price = requests.get("https://api.freiexchange.com/public/orderbook/KMD/BTC").json()
+        KMD_USD_price = float(KMD_freiexchange_price["BUY"][0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
+        if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
+            current_prices["KMD"] = current_prices["DOGE"].copy()
+            current_prices["KMD"]["last_price"] = str(KMD_USD_price)
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        print("Warning: https://api.freiexchange.com/public/orderbook/KMD/BTC offline")
+        try:
+            response = requests.get("https://freiexchange.com/market/KMD/BTC")
+            html_content = response.text
+            match = re.search(r"buyData = (\[\{.*\}\]);", html_content)
+            if match:
+                buydata = match.group(1)
+                buyorder = json.loads(buydata)
+                KMD_USD_price = float(buyorder[0]["price"]) * float(current_prices["BTC"]["last_price"]) * 0.978
+                if (KMD_USD_price > 0.0) and (KMD_USD_price < 1.0):
+                    current_prices["KMD"] = current_prices["DOGE"].copy()
+                    current_prices["KMD"]["last_price"] = str(KMD_USD_price)
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+            print("Warning: https://freiexchange.com/market/KMD/BTC web offline")
+        else:
+            print(f"Success: KMD price from freiexchange market URL")
+    else:
+        print(f"Success: KMD price from freiexchange Public Api") 
 
     ## obtain accurate prices on FIRO from MEXC Exchange
     FIRO_mexc_price = requests.get("https://api.mexc.com/api/v3/avgPrice?symbol=FIROUSDT").json()
     FIRO_USD_price = float(FIRO_mexc_price["price"])
     if (FIRO_USD_price > 0.0) and (FIRO_USD_price < 1000.0):
         current_prices["FIRO"]["last_price"] = str(FIRO_USD_price)
+
+    ## obtain accurate prices on PIVX from nonKYC.io
+    PIVX_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=PIVX_USDT").json()
+    PIVX_USD_price = float(PIVX_nonkyc_price[0]["price"])
+    current_prices["PIVX"]["last_price"] = str(PIVX_USD_price)
 
     ## obtain accurate prices on ARRR from NonKYC Exchange
     ARRR_nonkyc_price = requests.get("https://api.nonkyc.io/api/v2/market/trades?symbol=ARRR_USDT").json()
